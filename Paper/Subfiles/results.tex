@@ -1,0 +1,137 @@
+\onlyinsubfile{\setcounter{section}{3}}
+\section{Results}\notinsubfile{\label{sec:results}}
+%\setcounter{page}{0}\pagenumbering{arabic}
+
+\subsection{Income and trust}
+
+\par First, I wanted to see if the \say{hump-shape} relationship between trust and income found by \cite{jbpglg2016} was present in the HRS data. To do this I used the available income data from the 2020 wave with the trust measures from the same year.
+
+
+\input{../Tables/trust_income_rv557.tex}
+
+
+
+\par As you can see, the effect does persist in this dataset. These estimates suggest that the level of trust which maxmizes predicted income is $6.4, 6.36, 5.88, 6.05$.
+
+\par Since the HRS includes multiple measures of trust, I do a principal component analysis (PCA) on them and use that as the explanatory variable. The results are in the table below.
+
+
+\input{../Tables/trust_income_pca.tex}
+
+
+\par These results are less encouraging. 
+
+\subsection{Returns and trust}
+
+\par With the hump-shape relationship between log earnings and trust present in the HRS, I wanted to see if a similar relationship held for returns. I used the formula from \cite{Daminato2024}: $$ r_t = \frac{y^c_t + cg_t -y^d_t}{A_{t-1} + .5F_t}   $$ where $y^c_t$ interest income and dividends, capital gains $cg_t$ measured as the difference between reported stock across waves, $F_t$ net investment flows, $y^d_t$ payments on debt (in the RAND longitudinal file, the variables were mentioned are all in net terms so this variable was $0$), and $A_{t-1}$ total net wealth at beginning of previous period.
+
+\par Since the survey is every two years, I annualized the returns using the expression $r_annual = (1 + R_period)^(1/2) - 1$. I also trimmed the returns at the top and botton by $5\%$ to deal with outliers. The returns from residential housing were especially large, so I computed returns with this asset class excluded as well. 
+
+\par Here are the results of the regression with the general trust measure as the explanatory variable. As you can see, the results are significant for the untrimmed returns but lose significance when I trim them in most cases. The level of trust which maximizes predicted returns is  $5.07, 3, 5.6, 11, 5.07, 1.5, 4.9, 8.5$. Again, the PCA results are worse. 
+
+\begin{landscape}
+
+\input{../Tables/trust_rv557_returns.tex}
+
+\end{landscape}
+
+\begin{landscape}
+
+\input{../Tables/trust_pca_returns.tex}
+
+\end{landscape}
+
+\subsection{Returns from 2002-2022}
+
+\par Next, I wanted to compute returns across several years and attempt to describe the persistent component of returns that \cite{aflgdmlp20} point to as heterogeneity across individuals. I also use three similar specifications. First, a pooled OLS regression with a baseline set of controls. Second, a similar pooled regression with aimed at controlling for risk exposure. Third, a panel regression with individual fixed effects and year dummies.
+
+\par
+
+\input{../Tables/baseline_pooled.tex}
+
+
+\par 
+
+
+\input{../Tables/shares_interacted.tex}
+
+
+
+\par There are two important takeaways from the panel regression which incorporates individual fixed effects. The first is that the standard deviation for the fixed effects is relatively high in each case. This suggests there is substantial heterogeneity in this persistent component of returns. Not only this, but a large part of the variation in returns can be explained by variation in the individual fixed effects. 
+
+
+\input{../Tables/fixed_effects.tex}
+
+
+ 
+
+\par Lastly, below are plots of the distribution of the estimated fixed effects. They have a shape somewhat similar to the distribution measured by \cite{aflgdmlp20}.
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{../Figures/fixed_effects_hist_reg3_1.png}
+%\label{fig:PYMPCWealthDecileCompare}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{../Figures/fixed_effects_hist_reg3_2.png}
+%\label{fig:PYMPCWealthDecileCompare}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{../Figures/fixed_effects_hist_reg3_3.png}
+%\label{fig:PYMPCWealthDecileCompare}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{../Figures/fixed_effects_hist_reg3_4.png}
+%\label{fig:PYMPCWealthDecileCompare}
+\end{figure}
+
+\subsection{Trust and average returns}
+
+Since the trust module was only conducted in a single survey wave, we have to think of ways to use trust with the panel data. The first is to take the average returns over the 11 waves and use that as the dependen variables. Below are graphs similar to the exercise we did for returns in 2022. The results are not encouraging in this case. 
+
+\begin{landscape}
+
+\input{../Tables/trust_rv557_returns_avg.tex}
+
+\end{landscape}
+
+\begin{landscape}
+
+  \input{../Tables/trust_pca_returns_avg.tex}
+
+
+\end{landscape}
+
+\subsection{Determinants of trust}
+
+\par First, since the HRS has 8 different measures of trust in the module, I took a look at the correlations between them. Additionally, I do a PCA analysis using them. The first component explains about $40\%$ of the variance in the trust data, and the first two components combined explain about $60\%$.
+
+\input{../Tables/trust_correlation_2020.tex}
+
+\par There are 3 specifications I take a look at regarding the variation of trust in the data. First, I use standard controls like age, education, and income. The next two specifications include some notion of altruism, since experimental evidence on trust suggests that the best predictor of trust is an individual's willingness to give (in a dictator game), which is viewed as an experiemental measure of altruism..
+
+
+\input{../Tables/trust_rv557_spec5.tex}
+
+\input{../Tables/trust_pca_spec5.tex}
+
+\input{../Tables/trust_pca2_spec5.tex}
+
+\section{The pooled regression with constant trust}
+
+After looking at what variables seem to explain trust, I go back to the pooled regressions and add the trust variables as a time-invariant regressor. Here are some of those results. 
+
+\input{../Tables/const_trust_rv557.tex}
+
+\input{../Tables/const_trust_rv560.tex}
+
+\input{../Tables/const_trust_rv561.tex}
+
+\input{../Tables/const_trust_rv562.tex}
