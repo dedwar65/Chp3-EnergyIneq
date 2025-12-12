@@ -1,0 +1,675 @@
+---------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/04_merge_bh
+> _shocks.log
+  log type:  text
+ opened on:  12 Dec 2025, 16:25:55
+
+. 
+. ****************************************************
+. * 1. Import demand shocks
+. ****************************************************
+. import excel "$bh_shocks/BH2_demand_shocks.xlsx", firstrow clear
+(7 vars, 605 obs)
+
+. 
+. * Drop header rows - drop if shock value (B) is missing or non-numeric
+. drop if missing(B)
+(0 observations deleted)
+
+. destring B, gen(demand_shock) force
+B: contains nonnumeric characters; demand_shock generated as double
+(1 missing value generated)
+
+. drop if missing(demand_shock)
+(1 observation deleted)
+
+. 
+. * Parse date string like "Jun-76" to year and month
+. * Convert A to string if it's numeric
+. capture confirm string variable A
+
+. if _rc {
+.     * A is numeric, convert to string
+.     gen date_str = string(A, "%tdMon-YY")
+. }
+
+. else {
+.     * A is already string
+.     gen date_str = A
+. }
+
+. gen month_str = substr(date_str, 1, 3)
+
+. gen year_str = substr(date_str, 5, 2)
+
+. 
+. * Convert month abbreviation to number
+. gen month = .
+(604 missing values generated)
+
+. replace month = 1 if month_str == "Jan"
+(50 real changes made)
+
+. replace month = 2 if month_str == "Feb"
+(51 real changes made)
+
+. replace month = 3 if month_str == "Mar"
+(51 real changes made)
+
+. replace month = 4 if month_str == "Apr"
+(51 real changes made)
+
+. replace month = 5 if month_str == "May"
+(51 real changes made)
+
+. replace month = 6 if month_str == "Jun"
+(50 real changes made)
+
+. replace month = 7 if month_str == "Jul"
+(50 real changes made)
+
+. replace month = 8 if month_str == "Aug"
+(50 real changes made)
+
+. replace month = 9 if month_str == "Sep"
+(50 real changes made)
+
+. replace month = 10 if month_str == "Oct"
+(50 real changes made)
+
+. replace month = 11 if month_str == "Nov"
+(50 real changes made)
+
+. replace month = 12 if month_str == "Dec"
+(50 real changes made)
+
+. 
+. * Convert 2-digit year to 4-digit (handle both 1900s and 2000s)
+. destring year_str, gen(year_2digit)
+year_str: all characters numeric; year_2digit generated as byte
+
+. gen year = 1900 + year_2digit if year_2digit >= 50
+(305 missing values generated)
+
+. replace year = 2000 + year_2digit if year_2digit < 50
+(305 real changes made)
+
+. 
+. * Create quarter from month
+. gen quarter = ceil(month/3)
+
+. 
+. * Create quarterly date for merging
+. gen qdate = yq(year, quarter)
+
+. format qdate %tq
+
+. 
+. * Clean up temporary variables
+. drop date_str month_str year_str year_2digit
+
+. 
+. * Collapse to quarterly (average monthly shocks within quarter)
+. collapse (mean) demand_shock, by(qdate year quarter)
+
+. 
+. * Save temporary file
+. tempfile demand
+
+. save `demand'
+file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_37588.000001
+    saved as .dta format
+
+. 
+. ****************************************************
+. * 2. Import supply shocks
+. ****************************************************
+. import excel "$bh_shocks/BH2_supply_shocks.xlsx", firstrow clear
+(5 vars, 605 obs)
+
+. 
+. * Drop header rows - drop if shock value (B) is missing or non-numeric
+. drop if missing(B)
+(0 observations deleted)
+
+. destring B, gen(supply_shock) force
+B: contains nonnumeric characters; supply_shock generated as double
+(1 missing value generated)
+
+. drop if missing(supply_shock)
+(1 observation deleted)
+
+. 
+. * Parse date string like "Feb-75" to year and month
+. * Convert A to string if it's numeric
+. capture confirm string variable A
+
+. if _rc {
+.     * A is numeric, convert to string
+.     gen date_str = string(A, "%tdMon-YY")
+. }
+
+. else {
+.     * A is already string
+.     gen date_str = A
+. }
+
+. gen month_str = substr(date_str, 1, 3)
+
+. gen year_str = substr(date_str, 5, 2)
+
+. 
+. gen month = .
+(604 missing values generated)
+
+. replace month = 1 if month_str == "Jan"
+(50 real changes made)
+
+. replace month = 2 if month_str == "Feb"
+(51 real changes made)
+
+. replace month = 3 if month_str == "Mar"
+(51 real changes made)
+
+. replace month = 4 if month_str == "Apr"
+(51 real changes made)
+
+. replace month = 5 if month_str == "May"
+(51 real changes made)
+
+. replace month = 6 if month_str == "Jun"
+(50 real changes made)
+
+. replace month = 7 if month_str == "Jul"
+(50 real changes made)
+
+. replace month = 8 if month_str == "Aug"
+(50 real changes made)
+
+. replace month = 9 if month_str == "Sep"
+(50 real changes made)
+
+. replace month = 10 if month_str == "Oct"
+(50 real changes made)
+
+. replace month = 11 if month_str == "Nov"
+(50 real changes made)
+
+. replace month = 12 if month_str == "Dec"
+(50 real changes made)
+
+. 
+. destring year_str, gen(year_2digit)
+year_str: all characters numeric; year_2digit generated as byte
+
+. gen year = 1900 + year_2digit if year_2digit >= 50
+(305 missing values generated)
+
+. replace year = 2000 + year_2digit if year_2digit < 50
+(305 real changes made)
+
+. 
+. * Create quarter from month
+. gen quarter = ceil(month/3)
+
+. 
+. * Create quarterly date for merging
+. gen qdate = yq(year, quarter)
+
+. format qdate %tq
+
+. 
+. * Clean up temporary variables
+. drop date_str month_str year_str year_2digit
+
+. 
+. * Collapse to quarterly (average monthly shocks within quarter)
+. collapse (mean) supply_shock, by(qdate year quarter)
+
+. 
+. * Save temporary file
+. tempfile supply
+
+. save `supply'
+file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_37588.000002
+    saved as .dta format
+
+. 
+. ****************************************************
+. * 3. Merge supply and demand shocks
+. ****************************************************
+. use `demand', clear
+
+. merge 1:1 qdate using `supply'
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                             0
+    Matched                               202  (_merge==3)
+    -----------------------------------------
+
+. drop _merge
+
+. 
+. * Save combined shocks
+. save "$deriv/bh_shocks_quarterly.dta", replace
+file /Volumes/SSD
+    PRO/Github-forks/Chp3-EnergyIneq/Code/Data/CEX/derived/bh_shocks_quar
+    > terly.dta saved
+
+. 
+. ****************************************************
+. * 4. Merge with quarterly Gini data
+. ****************************************************
+. use "$deriv/gini_1996_2023_quarterly.dta", clear
+
+. 
+. * Diagnostic: Check Gini data date range
+. display _n "=== GINI DATA DIAGNOSTICS ==="
+
+=== GINI DATA DIAGNOSTICS ===
+
+. count
+  108
+
+. summarize qdate
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+       qdate |        108    201.0556    32.02593        144        255
+
+. display "First 5 dates:"
+First 5 dates:
+
+. list qdate year quarter in 1/5
+
+     +-------------------------+
+     |  qdate   year   quarter |
+     |-------------------------|
+  1. | 1996q1   1996         1 |
+  2. | 1996q2   1996         2 |
+  3. | 1996q3   1996         3 |
+  4. | 1996q4   1996         4 |
+  5. | 1997q1   1997         1 |
+     +-------------------------+
+
+. display "Last 5 dates:"
+Last 5 dates:
+
+. count
+  108
+
+. local n_gini = r(N)
+
+. list qdate year quarter in `=`n_gini'-4'/`n_gini'
+
+     +-------------------------+
+     |  qdate   year   quarter |
+     |-------------------------|
+104. | 2022q4   2022         4 |
+105. | 2023q1   2023         1 |
+106. | 2023q2   2023         2 |
+107. | 2023q3   2023         3 |
+108. | 2023q4   2023         4 |
+     +-------------------------+
+
+. 
+. * Diagnostic: Check BH shocks date range
+. preserve
+
+. use "$deriv/bh_shocks_quarterly.dta", clear
+
+. display _n "=== BH SHOCKS DATA DIAGNOSTICS ==="
+
+=== BH SHOCKS DATA DIAGNOSTICS ===
+
+. count
+  202
+
+. summarize qdate
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+       qdate |        202       160.5    58.45654         60        261
+
+. display "First 5 dates:"
+First 5 dates:
+
+. list qdate year quarter in 1/5
+
+     +-------------------------+
+     |  qdate   year   quarter |
+     |-------------------------|
+  1. | 1975q1   1975         1 |
+  2. | 1975q2   1975         2 |
+  3. | 1975q3   1975         3 |
+  4. | 1975q4   1975         4 |
+  5. | 1976q1   1976         1 |
+     +-------------------------+
+
+. display "Last 5 dates:"
+Last 5 dates:
+
+. count
+  202
+
+. local n_shocks = r(N)
+
+. list qdate year quarter in `=`n_shocks'-4'/`n_shocks'
+
+     +-------------------------+
+     |  qdate   year   quarter |
+     |-------------------------|
+198. | 2024q2   2024         2 |
+199. | 2024q3   2024         3 |
+200. | 2024q4   2024         4 |
+201. | 2025q1   2025         1 |
+202. | 2025q2   2025         2 |
+     +-------------------------+
+
+. restore
+
+. 
+. * Now merge
+. merge 1:1 qdate using "$deriv/bh_shocks_quarterly.dta"
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                            94
+        from master                         0  (_merge==1)
+        from using                         94  (_merge==2)
+
+    Matched                               108  (_merge==3)
+    -----------------------------------------
+
+. display _n "=== MERGE RESULTS ==="
+
+=== MERGE RESULTS ===
+
+. tab _merge
+
+   Matching result from |
+                  merge |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+         Using only (2) |         94       46.53       46.53
+            Matched (3) |        108       53.47      100.00
+------------------------+-----------------------------------
+                  Total |        202      100.00
+
+. display _n "Sample of matched observations:"
+
+Sample of matched observations:
+
+. list qdate year quarter if _merge == 3 in 1/10
+
+     +-------------------------+
+     |  qdate   year   quarter |
+     |-------------------------|
+  1. | 1996q1   1996         1 |
+  2. | 1996q2   1996         2 |
+  3. | 1996q3   1996         3 |
+  4. | 1996q4   1996         4 |
+  5. | 1997q1   1997         1 |
+     |-------------------------|
+  6. | 1997q2   1997         2 |
+  7. | 1997q3   1997         3 |
+  8. | 1997q4   1997         4 |
+  9. | 1998q1   1998         1 |
+ 10. | 1998q2   1998         2 |
+     +-------------------------+
+
+. display _n "Sample of Gini-only (unmatched):"
+
+Sample of Gini-only (unmatched):
+
+. list qdate year quarter if _merge == 1 in 1/10
+
+. display _n "Sample of shocks-only (unmatched):"
+
+Sample of shocks-only (unmatched):
+
+. list qdate year quarter if _merge == 2 in 1/10
+
+. 
+. keep if _merge == 3  // Keep only matched observations
+(94 observations deleted)
+
+. drop _merge
+
+. 
+. * Sort and save final merged dataset
+. sort qdate
+
+. order qdate year quarter gini_core gini_broad demand_shock supply_shock
+
+. 
+. label var demand_shock "BH demand shock"
+
+. label var supply_shock "BH supply shock"
+
+. 
+. save "$deriv/gini_bh_shocks_merged.dta", replace
+file /Volumes/SSD
+    PRO/Github-forks/Chp3-EnergyIneq/Code/Data/CEX/derived/gini_bh_shocks
+    > _merged.dta saved
+
+. 
+. display _n "Saved: $deriv/gini_bh_shocks_merged.dta"
+
+Saved: /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Data/CEX/derived/
+> gini_bh_shocks_merged.dta
+
+. display _n "=== FINAL MERGED DATASET SUMMARY ==="
+
+=== FINAL MERGED DATASET SUMMARY ===
+
+. describe
+
+Contains data from /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Data/
+> CEX/derived/gini_bh_shocks_merged.dta
+ Observations:           108                  
+    Variables:             7                  12 Dec 2025 16:25
+---------------------------------------------------------------------------
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+---------------------------------------------------------------------------
+qdate           float   %tq                   Stata quarterly date
+year            float   %8.0g                 Year
+quarter         float   %8.0g                 Quarter (. = annual)
+gini_core       double  %10.0g                Gini coefficient - core
+                                                consumption
+gini_broad      double  %10.0g                Gini coefficient - broad
+                                                consumption
+demand_shock    double  %10.0g                BH demand shock
+supply_shock    double  %10.0g                BH supply shock
+---------------------------------------------------------------------------
+Sorted by: qdate
+
+. count
+  108
+
+. local n_final = r(N)
+
+. display _n "First 10 observations:"
+
+First 10 observations:
+
+. list in 1/10
+
+     +--------------------------------------------------------------+
+  1. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+     | 1996q1 | 1996 |       1 | .55468213 | .49419832 | -.22148647 |
+     |--------------------------------------------------------------|
+     |                          supply_s~k                          |
+     |                          -.32788254                          |
+     +--------------------------------------------------------------+
+
+     +--------------------------------------------------------------+
+  2. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+     | 1996q2 | 1996 |       2 | .56675941 | .50503184 |  .12724921 |
+     |--------------------------------------------------------------|
+     |                          supply_s~k                          |
+     |                          -.01555055                          |
+     +--------------------------------------------------------------+
+
+     +--------------------------------------------------------------+
+  3. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+     | 1996q3 | 1996 |       3 | .57520928 | .51438453 |   .1036368 |
+     |--------------------------------------------------------------|
+     |                          supply_s~k                          |
+     |                          -.46768384                          |
+     +--------------------------------------------------------------+
+
+     +--------------------------------------------------------------+
+  4. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+     | 1996q4 | 1996 |       4 | .55639912 | .49887649 |  .15237911 |
+     |--------------------------------------------------------------|
+     |                          supply_s~k                          |
+     |                           .15828993                          |
+     +--------------------------------------------------------------+
+
+     +--------------------------------------------------------------+
+  5. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+     | 1997q1 | 1997 |       1 | .54642597 | .48424696 |  .33321874 |
+     |--------------------------------------------------------------|
+     |                          supply_s~k                          |
+     |                            .3023814                          |
+     +--------------------------------------------------------------+
+
+     +--------------------------------------------------------------+
+  6. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+     | 1997q2 | 1997 |       2 | .55785435 | .49735394 |  .19591498 |
+     |--------------------------------------------------------------|
+     |                          supply_s~k                          |
+     |                          -.07923579                          |
+     +--------------------------------------------------------------+
+
+     +--------------------------------------------------------------+
+  7. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+     | 1997q3 | 1997 |       3 | .56695318 | .50885453 |  .14971218 |
+     |--------------------------------------------------------------|
+     |                          supply_s~k                          |
+     |                          -.12677552                          |
+     +--------------------------------------------------------------+
+
+     +--------------------------------------------------------------+
+  8. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+     | 1997q4 | 1997 |       4 | .54984284 | .49451624 | -.22458995 |
+     |--------------------------------------------------------------|
+     |                          supply_s~k                          |
+     |                           -.2951791                          |
+     +--------------------------------------------------------------+
+
+     +--------------------------------------------------------------+
+  9. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+     | 1998q1 | 1998 |       1 | .55603067 | .49286135 |  .04669203 |
+     |--------------------------------------------------------------|
+     |                          supply_s~k                          |
+     |                           1.4935128                          |
+     +--------------------------------------------------------------+
+
+     +--------------------------------------------------------------+
+ 10. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+     | 1998q2 | 1998 |       2 | .57069699 | .50973879 | -.35200908 |
+     |--------------------------------------------------------------|
+     |                          supply_s~k                          |
+     |                           .15393381                          |
+     +--------------------------------------------------------------+
+
+. if `n_final' > 10 {
+.     display _n "Last 10 observations:"
+
+Last 10 observations:
+.     list in `=`n_final'-9'/`n_final'
+
+     +--------------------------------------------------------------+
+ 99. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+     | 2021q3 | 2021 |       3 | .58081106 | .51128158 | -.27989836 |
+     |--------------------------------------------------------------|
+     |                          supply_s~k                          |
+     |                          -.71784132                          |
+     +--------------------------------------------------------------+
+
+     +--------------------------------------------------------------+
+100. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+     | 2021q4 | 2021 |       4 | .56104589 |  .4941321 |  .91520046 |
+     |--------------------------------------------------------------|
+     |                          supply_s~k                          |
+     |                            .1080382                          |
+     +--------------------------------------------------------------+
+
+     +--------------------------------------------------------------+
+101. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+     | 2022q1 | 2022 |       1 | .56151048 |  .4920461 | -.37518262 |
+     |--------------------------------------------------------------|
+     |                          supply_s~k                          |
+     |                          -.81347367                          |
+     +--------------------------------------------------------------+
+
+     +--------------------------------------------------------------+
+102. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+     | 2022q2 | 2022 |       2 | .55958433 | .49410154 | -.03607096 |
+     |--------------------------------------------------------------|
+     |                          supply_s~k                          |
+     |                          -.83130764                          |
+     +--------------------------------------------------------------+
+
+     +--------------------------------------------------------------+
+103. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+     | 2022q3 | 2022 |       3 | .56590725 | .49909802 |  .16599138 |
+     |--------------------------------------------------------------|
+     |                          supply_s~k                          |
+     |                           .57953785                          |
+     +--------------------------------------------------------------+
+
+     +--------------------------------------------------------------+
+104. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+     | 2022q4 | 2022 |       4 |  .5648933 | .49522039 | -.46528938 |
+     |--------------------------------------------------------------|
+     |                          supply_s~k                          |
+     |                           -.5842276                          |
+     +--------------------------------------------------------------+
+
+     +--------------------------------------------------------------+
+105. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+     | 2023q1 | 2023 |       1 |  .5637275 | .49166846 |  .42797086 |
+     |--------------------------------------------------------------|
+     |                          supply_s~k                          |
+     |                           .09826106                          |
+     +--------------------------------------------------------------+
+
+     +--------------------------------------------------------------+
+106. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+     | 2023q2 | 2023 |       2 | .57187048 | .50254818 | -.25151829 |
+     |--------------------------------------------------------------|
+     |                          supply_s~k                          |
+     |                          -.23768009                          |
+     +--------------------------------------------------------------+
+
+     +--------------------------------------------------------------+
+107. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+     | 2023q3 | 2023 |       3 | .58067498 | .50861322 | -.28728549 |
+     |--------------------------------------------------------------|
+     |                          supply_s~k                          |
+     |                          -1.0854051                          |
+     +--------------------------------------------------------------+
+
+     +--------------------------------------------------------------+
+108. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+     | 2023q4 | 2023 |       4 | .56300383 | .49200142 |  .03643316 |
+     |--------------------------------------------------------------|
+     |                          supply_s~k                          |
+     |                           .24835329                          |
+     +--------------------------------------------------------------+
+. }
+
+. 
+. * Close log file
+. log close
+      name:  <unnamed>
+       log:  /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/04_merge_bh
+> _shocks.log
+  log type:  text
+ closed on:  12 Dec 2025, 16:25:55
+---------------------------------------------------------------------------
