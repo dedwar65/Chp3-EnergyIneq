@@ -10,18 +10,17 @@ global bh_shocks "/Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Data/BH sho
 global deriv "/Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Data/CEX/derived"
 global code "/Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code"
 
-* Start log file
-log using "$code/04_merge_bh_shocks.log", replace
-
 ****************************************************
 * 1. Import demand shocks
 ****************************************************
 import excel "$bh_shocks/BH2_demand_shocks.xlsx", firstrow clear
 
-* Drop header rows - drop if shock value (B) is missing or non-numeric
-drop if missing(B)
-destring B, gen(demand_shock) force
-drop if missing(demand_shock)
+* Drop header rows - drop if shock values are missing or non-numeric
+drop if missing(B) & missing(C)
+destring B, gen(demand_shock_agg) force
+destring C, gen(demand_shock_oil) force
+* Keep rows where at least one shock is valid
+drop if missing(demand_shock_agg) & missing(demand_shock_oil)
 
 * Parse date string like "Jun-76" to year and month
 * Convert A to string if it's numeric
@@ -68,7 +67,7 @@ format qdate %tq
 drop date_str month_str year_str year_2digit
 
 * Collapse to quarterly (average monthly shocks within quarter)
-collapse (mean) demand_shock, by(qdate year quarter)
+collapse (mean) demand_shock_agg demand_shock_oil, by(qdate year quarter)
 
 * Save temporary file
 tempfile demand
@@ -189,9 +188,10 @@ drop _merge
 
 * Sort and save final merged dataset
 sort qdate
-order qdate year quarter gini_core gini_broad demand_shock supply_shock
+order qdate year quarter gini_core gini_broad demand_shock_agg demand_shock_oil supply_shock
 
-label var demand_shock "BH demand shock"
+label var demand_shock_agg "BH aggregate demand shock (economic activity)"
+label var demand_shock_oil "BH oil consumption demand shock (oil market)"
 label var supply_shock "BH supply shock"
 
 save "$deriv/gini_bh_shocks_merged.dta", replace
@@ -208,7 +208,4 @@ if `n_final' > 10 {
     list in `=`n_final'-9'/`n_final'
 }
 
-* Close log file
-log close
-display _n "Log file saved: $code/04_merge_bh_shocks.log"
 

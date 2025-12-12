@@ -36,22 +36,24 @@ replace date_str = string(year) + " annual" if quarter == .
 ****************************************************
 * 3. Order and save final panel
 ****************************************************
-order year quarter qdate date_str gini_core gini_broad
+order year quarter qdate date_str gini_core gini_broad gini_fincbtax gini_fsalaryx
 sort year quarter
 
-label var year       "Year"
-label var quarter    "Quarter (. = annual)"
-label var qdate      "Stata quarterly date"
-label var date_str   "Date string"
-label var gini_core  "Gini coefficient - core consumption"
-label var gini_broad "Gini coefficient - broad consumption"
+label var year          "Year"
+label var quarter       "Quarter (. = annual)"
+label var qdate         "Stata quarterly date"
+label var date_str      "Date string"
+label var gini_core     "Gini coefficient - core consumption"
+label var gini_broad    "Gini coefficient - broad consumption"
+label var gini_fincbtax "Gini coefficient - income before taxes"
+label var gini_fsalaryx "Gini coefficient - salary income"
 
 save "$deriv/gini_1996_2023.dta", replace
 
 * Also export quarterly-only version (for merging with monthly data)
 drop if quarter == .
 drop date_str
-order year quarter qdate gini_core gini_broad
+order year quarter qdate gini_core gini_broad gini_fincbtax gini_fsalaryx
 save "$deriv/gini_1996_2023_quarterly.dta", replace
 
 display _n "Saved:"

@@ -3,7 +3,7 @@
        log:  /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/04_merge_bh
 > _shocks.log
   log type:  text
- opened on:  12 Dec 2025, 16:25:55
+ opened on:  12 Dec 2025, 17:31:05
 
 . 
 . ****************************************************
@@ -13,15 +13,20 @@
 (7 vars, 605 obs)
 
 . 
-. * Drop header rows - drop if shock value (B) is missing or non-numeric
-. drop if missing(B)
+. * Drop header rows - drop if shock values are missing or non-numeric
+. drop if missing(B) & missing(C)
 (0 observations deleted)
 
-. destring B, gen(demand_shock) force
-B: contains nonnumeric characters; demand_shock generated as double
+. destring B, gen(demand_shock_agg) force
+B: contains nonnumeric characters; demand_shock_agg generated as double
 (1 missing value generated)
 
-. drop if missing(demand_shock)
+. destring C, gen(demand_shock_oil) force
+C: contains nonnumeric characters; demand_shock_oil generated as double
+(1 missing value generated)
+
+. * Keep rows where at least one shock is valid
+. drop if missing(demand_shock_agg) & missing(demand_shock_oil)
 (1 observation deleted)
 
 . 
@@ -111,7 +116,7 @@ year_str: all characters numeric; year_2digit generated as byte
 
 . 
 . * Collapse to quarterly (average monthly shocks within quarter)
-. collapse (mean) demand_shock, by(qdate year quarter)
+. collapse (mean) demand_shock_agg demand_shock_oil, by(qdate year quarter)
 
 . 
 . * Save temporary file
@@ -441,10 +446,14 @@ Sample of shocks-only (unmatched):
 . * Sort and save final merged dataset
 . sort qdate
 
-. order qdate year quarter gini_core gini_broad demand_shock supply_shock
+. order qdate year quarter gini_core gini_broad demand_shock_agg demand_sho
+> ck_oil supply_shock
 
 . 
-. label var demand_shock "BH demand shock"
+. label var demand_shock_agg "BH aggregate demand shock (economic activity)
+> "
+
+. label var demand_shock_oil "BH oil consumption demand shock (oil market)"
 
 . label var supply_shock "BH supply shock"
 
@@ -469,7 +478,7 @@ Saved: /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Data/CEX/derived/
 Contains data from /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Data/
 > CEX/derived/gini_bh_shocks_merged.dta
  Observations:           108                  
-    Variables:             7                  12 Dec 2025 16:25
+    Variables:             8                  12 Dec 2025 17:31
 ---------------------------------------------------------------------------
 Variable      Storage   Display    Value
     name         type    format    label      Variable label
@@ -481,7 +490,10 @@ gini_core       double  %10.0g                Gini coefficient - core
                                                 consumption
 gini_broad      double  %10.0g                Gini coefficient - broad
                                                 consumption
-demand_shock    double  %10.0g                BH demand shock
+demand_shock_~g double  %10.0g                BH aggregate demand shock
+                                                (economic activity)
+demand_shock_~l double  %10.0g                BH oil consumption demand
+                                                shock (oil market)
 supply_shock    double  %10.0g                BH supply shock
 ---------------------------------------------------------------------------
 Sorted by: qdate
@@ -498,83 +510,83 @@ First 10 observations:
 . list in 1/10
 
      +--------------------------------------------------------------+
-  1. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+  1. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
      | 1996q1 | 1996 |       1 | .55468213 | .49419832 | -.22148647 |
      |--------------------------------------------------------------|
-     |                          supply_s~k                          |
-     |                          -.32788254                          |
+     |          demand_s~l          |          supply_s~k           |
+     |           .46885808          |          -.32788254           |
      +--------------------------------------------------------------+
 
      +--------------------------------------------------------------+
-  2. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+  2. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
      | 1996q2 | 1996 |       2 | .56675941 | .50503184 |  .12724921 |
      |--------------------------------------------------------------|
-     |                          supply_s~k                          |
-     |                          -.01555055                          |
+     |          demand_s~l          |          supply_s~k           |
+     |          -.83489113          |          -.01555055           |
      +--------------------------------------------------------------+
 
      +--------------------------------------------------------------+
-  3. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+  3. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
      | 1996q3 | 1996 |       3 | .57520928 | .51438453 |   .1036368 |
      |--------------------------------------------------------------|
-     |                          supply_s~k                          |
-     |                          -.46768384                          |
+     |          demand_s~l          |          supply_s~k           |
+     |           2.4496306          |          -.46768384           |
      +--------------------------------------------------------------+
 
      +--------------------------------------------------------------+
-  4. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+  4. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
      | 1996q4 | 1996 |       4 | .55639912 | .49887649 |  .15237911 |
      |--------------------------------------------------------------|
-     |                          supply_s~k                          |
-     |                           .15828993                          |
+     |          demand_s~l          |          supply_s~k           |
+     |           .80256418          |           .15828993           |
      +--------------------------------------------------------------+
 
      +--------------------------------------------------------------+
-  5. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+  5. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
      | 1997q1 | 1997 |       1 | .54642597 | .48424696 |  .33321874 |
      |--------------------------------------------------------------|
-     |                          supply_s~k                          |
-     |                            .3023814                          |
+     |          demand_s~l          |          supply_s~k           |
+     |          -4.4526498          |            .3023814           |
      +--------------------------------------------------------------+
 
      +--------------------------------------------------------------+
-  6. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+  6. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
      | 1997q2 | 1997 |       2 | .55785435 | .49735394 |  .19591498 |
      |--------------------------------------------------------------|
-     |                          supply_s~k                          |
-     |                          -.07923579                          |
+     |          demand_s~l          |          supply_s~k           |
+     |          -.53291956          |          -.07923579           |
      +--------------------------------------------------------------+
 
      +--------------------------------------------------------------+
-  7. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+  7. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
      | 1997q3 | 1997 |       3 | .56695318 | .50885453 |  .14971218 |
      |--------------------------------------------------------------|
-     |                          supply_s~k                          |
-     |                          -.12677552                          |
+     |          demand_s~l          |          supply_s~k           |
+     |           .57474204          |          -.12677552           |
      +--------------------------------------------------------------+
 
      +--------------------------------------------------------------+
-  8. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+  8. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
      | 1997q4 | 1997 |       4 | .54984284 | .49451624 | -.22458995 |
      |--------------------------------------------------------------|
-     |                          supply_s~k                          |
-     |                           -.2951791                          |
+     |          demand_s~l          |          supply_s~k           |
+     |          -2.5309945          |           -.2951791           |
      +--------------------------------------------------------------+
 
      +--------------------------------------------------------------+
-  9. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+  9. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
      | 1998q1 | 1998 |       1 | .55603067 | .49286135 |  .04669203 |
      |--------------------------------------------------------------|
-     |                          supply_s~k                          |
-     |                           1.4935128                          |
+     |          demand_s~l          |          supply_s~k           |
+     |          -1.7266199          |           1.4935128           |
      +--------------------------------------------------------------+
 
      +--------------------------------------------------------------+
- 10. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+ 10. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
      | 1998q2 | 1998 |       2 | .57069699 | .50973879 | -.35200908 |
      |--------------------------------------------------------------|
-     |                          supply_s~k                          |
-     |                           .15393381                          |
+     |          demand_s~l          |          supply_s~k           |
+     |          -.43573239          |           .15393381           |
      +--------------------------------------------------------------+
 
 . if `n_final' > 10 {
@@ -584,83 +596,83 @@ Last 10 observations:
 .     list in `=`n_final'-9'/`n_final'
 
      +--------------------------------------------------------------+
- 99. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+ 99. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
      | 2021q3 | 2021 |       3 | .58081106 | .51128158 | -.27989836 |
      |--------------------------------------------------------------|
-     |                          supply_s~k                          |
-     |                          -.71784132                          |
+     |          demand_s~l          |          supply_s~k           |
+     |           2.5936906          |          -.71784132           |
      +--------------------------------------------------------------+
 
      +--------------------------------------------------------------+
-100. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+100. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
      | 2021q4 | 2021 |       4 | .56104589 |  .4941321 |  .91520046 |
      |--------------------------------------------------------------|
-     |                          supply_s~k                          |
-     |                            .1080382                          |
+     |          demand_s~l          |          supply_s~k           |
+     |           .05333804          |            .1080382           |
      +--------------------------------------------------------------+
 
      +--------------------------------------------------------------+
-101. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+101. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
      | 2022q1 | 2022 |       1 | .56151048 |  .4920461 | -.37518262 |
      |--------------------------------------------------------------|
-     |                          supply_s~k                          |
-     |                          -.81347367                          |
+     |          demand_s~l          |          supply_s~k           |
+     |             5.75685          |          -.81347367           |
      +--------------------------------------------------------------+
 
      +--------------------------------------------------------------+
-102. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+102. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
      | 2022q2 | 2022 |       2 | .55958433 | .49410154 | -.03607096 |
      |--------------------------------------------------------------|
-     |                          supply_s~k                          |
-     |                          -.83130764                          |
+     |          demand_s~l          |          supply_s~k           |
+     |           1.6260728          |          -.83130764           |
      +--------------------------------------------------------------+
 
      +--------------------------------------------------------------+
-103. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+103. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
      | 2022q3 | 2022 |       3 | .56590725 | .49909802 |  .16599138 |
      |--------------------------------------------------------------|
-     |                          supply_s~k                          |
-     |                           .57953785                          |
+     |          demand_s~l          |          supply_s~k           |
+     |          -1.1559269          |           .57953785           |
      +--------------------------------------------------------------+
 
      +--------------------------------------------------------------+
-104. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+104. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
      | 2022q4 | 2022 |       4 |  .5648933 | .49522039 | -.46528938 |
      |--------------------------------------------------------------|
-     |                          supply_s~k                          |
-     |                           -.5842276                          |
+     |          demand_s~l          |          supply_s~k           |
+     |          -.56327645          |           -.5842276           |
      +--------------------------------------------------------------+
 
      +--------------------------------------------------------------+
-105. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+105. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
      | 2023q1 | 2023 |       1 |  .5637275 | .49166846 |  .42797086 |
      |--------------------------------------------------------------|
-     |                          supply_s~k                          |
-     |                           .09826106                          |
+     |          demand_s~l          |          supply_s~k           |
+     |           -1.471965          |           .09826106           |
      +--------------------------------------------------------------+
 
      +--------------------------------------------------------------+
-106. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+106. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
      | 2023q2 | 2023 |       2 | .57187048 | .50254818 | -.25151829 |
      |--------------------------------------------------------------|
-     |                          supply_s~k                          |
-     |                          -.23768009                          |
+     |          demand_s~l          |          supply_s~k           |
+     |            .6693601          |          -.23768009           |
      +--------------------------------------------------------------+
 
      +--------------------------------------------------------------+
-107. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+107. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
      | 2023q3 | 2023 |       3 | .58067498 | .50861322 | -.28728549 |
      |--------------------------------------------------------------|
-     |                          supply_s~k                          |
-     |                          -1.0854051                          |
+     |          demand_s~l          |          supply_s~k           |
+     |           2.5030403          |          -1.0854051           |
      +--------------------------------------------------------------+
 
      +--------------------------------------------------------------+
-108. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~k |
+108. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
      | 2023q4 | 2023 |       4 | .56300383 | .49200142 |  .03643316 |
      |--------------------------------------------------------------|
-     |                          supply_s~k                          |
-     |                           .24835329                          |
+     |          demand_s~l          |          supply_s~k           |
+     |          -2.9591179          |           .24835329           |
      +--------------------------------------------------------------+
 . }
 
@@ -671,5 +683,5 @@ Last 10 observations:
        log:  /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/04_merge_bh
 > _shocks.log
   log type:  text
- closed on:  12 Dec 2025, 16:25:55
+ closed on:  12 Dec 2025, 17:31:05
 ---------------------------------------------------------------------------

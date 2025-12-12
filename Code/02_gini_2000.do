@@ -63,17 +63,40 @@ gen quarter = ceil(REF_MO/3)
 save "$deriv/mtbi_2000_tagged.dta", replace
 
 ****************************************************
-* 5. Build weights file
+* 5. Build weights file and extract income data
 ****************************************************
 cd "$intr"
 preserve
+* Load first FMLI file and assign quarter
 use fmli001x.dta, clear
+gen quarter = 1
+
+* Load remaining FMLI files and assign quarters sequentially
+local q = 2
 foreach f in fmli002 fmli003 fmli004 fmli011 {
     append using `f'.dta
+    replace quarter = `q' if quarter == .
+    local q = `q' + 1
 }
-* Standardize variable names
+
+* Standardize variable names (1996-2020 use lowercase)
 capture rename newid NEWID
 capture rename finlwt21 FINLWT21
+capture rename fincbtax fincbtax
+capture rename fsalaryx fsalaryx
+
+* Extract income variables
+keep NEWID FINLWT21 fincbtax fsalaryx quarter
+gen year = 2000
+
+* Drop missing income values
+drop if missing(fincbtax) & missing(fsalaryx)
+
+* Save income data at CU-quarter level
+order NEWID year quarter fincbtax fsalaryx FINLWT21
+save "$deriv/income_2000_cuq.dta", replace
+
+* Also create weights-only file for consumption merge
 keep NEWID FINLWT21
 duplicates drop NEWID, force
 tempfile weights
@@ -106,7 +129,7 @@ order NEWID year cons_core_y cons_broad_y FINLWT21
 save "$deriv/cons_2000_cuy.dta", replace
 
 ****************************************************
-* 8. Compute quarterly Ginis
+* 8. Compute quarterly consumption Ginis
 ****************************************************
 postfile gini_post int year int quarter double gini_core double gini_broad ///
     using "$deriv/gini_2000_quarterly.dta", replace
@@ -123,6 +146,44 @@ forvalues q = 1/4 {
     post gini_post (2000) (`q') (gc) (gb)
 }
 postclose gini_post
+
+****************************************************
+* 8a. Compute quarterly income Ginis
+****************************************************
+postfile gini_inc_post int year int quarter double gini_fincbtax double gini_fsalaryx ///
+    using "$deriv/gini_2000_income_quarterly.dta", replace
+
+forvalues q = 1/4 {
+    quietly {
+        use "$deriv/income_2000_cuq.dta", clear
+        keep if quarter == `q'
+        * Compute Gini for fincbtax (drop missing)
+        preserve
+        drop if missing(fincbtax) | fincbtax <= 0
+        if _N > 0 {
+            ineqdeco fincbtax [aw = FINLWT21]
+            scalar g_fincbtax = r(gini)
+        }
+        else {
+            scalar g_fincbtax = .
+        }
+        restore
+        
+        * Compute Gini for fsalaryx (drop missing)
+        preserve
+        drop if missing(fsalaryx) | fsalaryx <= 0
+        if _N > 0 {
+            ineqdeco fsalaryx [aw = FINLWT21]
+            scalar g_fsalaryx = r(gini)
+        }
+        else {
+            scalar g_fsalaryx = .
+        }
+        restore
+    }
+    post gini_inc_post (2000) (`q') (g_fincbtax) (g_fsalaryx)
+}
+postclose gini_inc_post
 
 ****************************************************
 * 9. Compute annual Gini
@@ -146,12 +207,24 @@ save "$deriv/gini_2000_annual.dta", replace
 ****************************************************
 * 10. Combine quarterly + annual
 ****************************************************
+* Merge consumption and income quarterly Ginis
 use "$deriv/gini_2000_quarterly.dta", clear
+merge 1:1 year quarter using "$deriv/gini_2000_income_quarterly.dta"
+drop _merge
+
+* Append annual consumption Ginis (no annual income Ginis per user request)
 append using "$deriv/gini_2000_annual.dta"
-order year quarter gini_core gini_broad
+
+* Set income Ginis to missing for annual observations
+replace gini_fincbtax = . if quarter == .
+replace gini_fsalaryx = . if quarter == .
+
+order year quarter gini_core gini_broad gini_fincbtax gini_fsalaryx
 save "$deriv/gini_2000_all.dta", replace
 
+* Clean up intermediate files
 erase "$deriv/gini_2000_quarterly.dta"
+erase "$deriv/gini_2000_income_quarterly.dta"
 erase "$deriv/gini_2000_annual.dta"
 
 display _n "Saved: gini_2000_all.dta"

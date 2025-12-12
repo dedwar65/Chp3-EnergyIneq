@@ -63,17 +63,38 @@ gen quarter = ceil(REF_MO/3)
 save "$deriv/mtbi_2016_tagged.dta", replace
 
 ****************************************************
-* 5. Build weights file
+* 5. Build weights file and extract income data
 ****************************************************
 cd "$intr"
 preserve
+* Load first FMLI file and assign quarter
 use fmli161x.dta, clear
+gen quarter = 1
+
+* Load remaining FMLI files and assign quarters sequentially
+local q = 2
 foreach f in fmli162 fmli163 fmli164 fmli171 {
     append using `f'.dta
+    replace quarter = `q' if quarter == .
+    local q = `q' + 1
 }
-* Standardize variable names
+
+* Standardize variable names (1996-2020 use lowercase)
 capture rename newid NEWID
 capture rename finlwt21 FINLWT21
+
+* Extract income variables (2004-2020 use fincbtxm and fsalarym)
+keep NEWID FINLWT21 fincbtxm fsalarym quarter
+gen year = 2016
+
+* Drop missing income values
+drop if missing(fincbtxm) & missing(fsalarym)
+
+* Save income data at CU-quarter level
+order NEWID year quarter fincbtxm fsalarym FINLWT21
+save "$deriv/income_2016_cuq.dta", replace
+
+* Also create weights-only file for consumption merge
 keep NEWID FINLWT21
 duplicates drop NEWID, force
 tempfile weights
@@ -125,6 +146,44 @@ forvalues q = 1/4 {
 postclose gini_post
 
 ****************************************************
+* 8a. Compute quarterly income Ginis
+****************************************************
+postfile gini_inc_post int year int quarter double gini_fincbtax double gini_fsalaryx ///
+    using "$deriv/gini_2016_income_quarterly.dta", replace
+
+forvalues q = 1/4 {
+    quietly {
+        use "$deriv/income_2016_cuq.dta", clear
+        keep if quarter == `q'
+        * Compute Gini for fincbtxm (drop missing)
+        preserve
+        drop if missing(fincbtxm) | fincbtxm <= 0
+        if _N > 0 {
+            ineqdeco fincbtxm [aw = FINLWT21]
+            scalar g_fincbtax = r(gini)
+        }
+        else {
+            scalar g_fincbtax = .
+        }
+        restore
+        
+        * Compute Gini for fsalarym (drop missing)
+        preserve
+        drop if missing(fsalarym) | fsalarym <= 0
+        if _N > 0 {
+            ineqdeco fsalarym [aw = FINLWT21]
+            scalar g_fsalaryx = r(gini)
+        }
+        else {
+            scalar g_fsalaryx = .
+        }
+        restore
+    }
+    post gini_inc_post (2016) (`q') (g_fincbtax) (g_fsalaryx)
+}
+postclose gini_inc_post
+
+****************************************************
 * 9. Compute annual Gini
 ****************************************************
 use "$deriv/cons_2016_cuy.dta", clear
@@ -146,12 +205,24 @@ save "$deriv/gini_2016_annual.dta", replace
 ****************************************************
 * 10. Combine quarterly + annual
 ****************************************************
+* Merge consumption and income quarterly Ginis
 use "$deriv/gini_2016_quarterly.dta", clear
+merge 1:1 year quarter using "$deriv/gini_2016_income_quarterly.dta"
+drop _merge
+
+* Append annual consumption Ginis (no annual income Ginis per user request)
 append using "$deriv/gini_2016_annual.dta"
-order year quarter gini_core gini_broad
+
+* Set income Ginis to missing for annual observations
+replace gini_fincbtax = . if quarter == .
+replace gini_fsalaryx = . if quarter == .
+
+order year quarter gini_core gini_broad gini_fincbtax gini_fsalaryx
 save "$deriv/gini_2016_all.dta", replace
 
+* Clean up intermediate files
 erase "$deriv/gini_2016_quarterly.dta"
+erase "$deriv/gini_2016_income_quarterly.dta"
 erase "$deriv/gini_2016_annual.dta"
 
 display _n "Saved: gini_2016_all.dta"
