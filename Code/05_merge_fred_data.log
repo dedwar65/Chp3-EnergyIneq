@@ -38440,3 +38440,4 @@ Final output: gini_bh_shocks_fred_merged.dta
 . 
 end of do-file
 
+. exit
