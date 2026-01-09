@@ -11,6 +11,10 @@ global fred "/Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Data/FRED"
 global deriv "/Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Data/CEX/derived"
 global code "/Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code"
 
+* Close any open log file, then open new log file
+capture log close
+log using "$code/05_merge_fred_data.log", replace
+
 ****************************************************
 * 1. Import 1-year Treasury yield (GS1)
 ****************************************************
@@ -229,3 +233,108 @@ if `n_final' > 10 {
 
 display _n "Final dataset saved: $deriv/gini_bh_shocks_fred_merged.dta"
 
+****************************************************
+* 8. COMPREHENSIVE VARIABLE SUMMARY FOR FINAL DATASET
+* This section provides a complete inventory of all variables
+* in the final merged dataset for documentation purposes
+****************************************************
+
+display _n _n "========================================"
+display "COMPREHENSIVE VARIABLE SUMMARY"
+display "Final Dataset: gini_bh_shocks_fred_merged.dta"
+display "========================================" _n
+
+* Load final dataset to ensure we're working with it
+use "$deriv/gini_bh_shocks_fred_merged.dta", clear
+
+display _n "=== DATASET OVERVIEW ==="
+count
+display "Total observations: " r(N)
+display "Date range:"
+summarize qdate
+quietly {
+    local first_date = qdate[1]
+    local last_date = qdate[_N]
+}
+display "First observation: " %tq `first_date'
+display "Last observation: " %tq `last_date'
+
+display _n "=== VARIABLE DESCRIPTIONS ==="
+describe, fullnames
+
+display _n "=== SUMMARY STATISTICS FOR ALL VARIABLES ==="
+summarize
+
+display _n "=== VARIABLE-BY-VARIABLE DETAILED SUMMARY ==="
+* Get list of all variables
+quietly ds
+local varlist `r(varlist)'
+
+foreach var of local varlist {
+    display _n "----------------------------------------"
+    display "Variable: `var'"
+    
+    * Get variable label
+    local varlabel : variable label `var'
+    if "`varlabel'" != "" {
+        display "Label: `varlabel'"
+    }
+    else {
+        display "Label: (no label)"
+    }
+    
+    * Get variable type and format
+    quietly describe `var'
+    local vartype = r(type)
+    local varformat = r(format)
+    display "Type: `vartype'"
+    display "Format: `varformat'"
+    
+    * Count non-missing and missing
+    quietly count if !missing(`var')
+    local n_nonmiss = r(N)
+    quietly count if missing(`var')
+    local n_miss = r(N)
+    local n_total = `n_nonmiss' + `n_miss'
+    display "Total observations: `n_total'"
+    display "Non-missing: `n_nonmiss' (" %5.2f = 100*`n_nonmiss'/`n_total' "%)"
+    display "Missing: `n_miss' (" %5.2f = 100*`n_miss'/`n_total' "%)"
+    
+    * Summary statistics for numeric variables
+    capture confirm numeric variable `var'
+    if _rc == 0 {
+        quietly summarize `var', detail
+        if r(N) > 0 {
+            display "Mean: " %12.4f = r(mean)
+            display "Std Dev: " %12.4f = r(sd)
+            display "Min: " %12.4f = r(min)
+            display "P25: " %12.4f = r(p25)
+            display "Median: " %12.4f = r(p50)
+            display "P75: " %12.4f = r(p75)
+            display "Max: " %12.4f = r(max)
+        }
+        else {
+            display "All values are missing"
+        }
+    }
+    else {
+        * For string variables, note that it's a string type
+        display "String variable - detailed statistics not computed"
+        quietly count if !missing(`var')
+        if r(N) > 0 {
+            display "Sample values (first 3 non-missing):"
+            preserve
+            quietly keep if !missing(`var')
+            quietly keep in 1/3
+            quietly list `var', noobs clean
+            restore
+        }
+    }
+}
+
+display _n _n "========================================"
+display "END OF VARIABLE SUMMARY"
+display "========================================" _n
+
+* Close log file
+log close

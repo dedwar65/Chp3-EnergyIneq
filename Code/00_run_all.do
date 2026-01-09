@@ -15,10 +15,8 @@ do "$code/01_build_ucc_map.do"
 * Step 2: Run each year's Gini computation
 display _n "=== Computing yearly Ginis ===" _n
 forvalues y = 1996/2023 {
-    if `y' != 1999 {
-        display _n "Processing `y'..."
-        do "$code/02_gini_`y'.do"
-    }
+    display _n "Processing `y'..."
+    do "$code/02_gini_`y'.do"
 }
 
 * Step 3: Append all years together
@@ -33,6 +31,12 @@ do "$code/04_merge_bh_shocks.do"
 display _n "=== Merging FRED data ===" _n
 do "$code/05_merge_fred_data.do"
 
+* Step 6: Local Projections
+display _n "=== Running Local Projections ===" _n
+do "$code/06_local_projections.do"
+
 display _n "=== DONE ===" _n
 display "Final output: gini_bh_shocks_fred_merged.dta"
+display "IRF results: Paper/Tables/lp_irf_results.csv"
+display "IRF plots: Paper/Figures/irf_*.png"
 

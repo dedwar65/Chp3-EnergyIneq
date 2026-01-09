@@ -24,3 +24,4 @@ import excel "$bh_shocks/BH2_supply_shocks.xlsx", firstrow clear
 describe
 list in 1/20
 
+

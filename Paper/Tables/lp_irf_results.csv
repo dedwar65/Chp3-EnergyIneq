@@ -1,0 +1,253 @@
+outcome,outcome_label,horizon,shock_type,shock_label,coefficient,se,ci_lower,ci_upper
+gini_broad,Gini coefficient - broad consumption,0,demand_shock_agg,BH aggregate demand shock (economic activity),.0001908168625904,.0023275831239703,-.0043712460603914,.0047528797855722
+gini_broad,Gini coefficient - broad consumption,1,demand_shock_agg,BH aggregate demand shock (economic activity),-.0005403557737373,.0021880809615939,-.0048289944584613,.0037482829109867
+gini_broad,Gini coefficient - broad consumption,2,demand_shock_agg,BH aggregate demand shock (economic activity),-.0012758391108114,.0021668602450986,-.0055228851912047,.0029712069695819
+gini_broad,Gini coefficient - broad consumption,3,demand_shock_agg,BH aggregate demand shock (economic activity),-.0005134897783654,.0028460544130302,-.0060917564279046,.0050647768711738
+gini_broad,Gini coefficient - broad consumption,4,demand_shock_agg,BH aggregate demand shock (economic activity),.0003073200209252,.0024995576176396,-.0045918129096484,.0052064529514988
+gini_broad,Gini coefficient - broad consumption,5,demand_shock_agg,BH aggregate demand shock (economic activity),-.0057926619272922,.0025618899919572,-.0108139663115283,-.0007713575430561
+gini_broad,Gini coefficient - broad consumption,6,demand_shock_agg,BH aggregate demand shock (economic activity),-.0031192286502668,.0029331901954382,-.0088682814333257,.0026298241327921
+gini_broad,Gini coefficient - broad consumption,7,demand_shock_agg,BH aggregate demand shock (economic activity),-.0024093616447657,.0026614436666802,-.0076257912314589,.0028070679419275
+gini_broad,Gini coefficient - broad consumption,8,demand_shock_agg,BH aggregate demand shock (economic activity),-.0034197572493562,.0028259122710347,-.0089585453005842,.0021190308018718
+gini_broad,Gini coefficient - broad consumption,9,demand_shock_agg,BH aggregate demand shock (economic activity),-.0046147321319944,.0034302911642304,-.011338102813886,.0021086385498972
+gini_broad,Gini coefficient - broad consumption,10,demand_shock_agg,BH aggregate demand shock (economic activity),-.0012978928800443,.0037464580708143,-.0086409506988403,.0060451649387517
+gini_broad,Gini coefficient - broad consumption,11,demand_shock_agg,BH aggregate demand shock (economic activity),.0038957456697498,.0029916250577522,-.0019678394434445,.0097593307829441
+gini_broad,Gini coefficient - broad consumption,12,demand_shock_agg,BH aggregate demand shock (economic activity),.0012891969124119,.0031782760632161,-.0049402241714917,.0075186179963155
+gini_broad,Gini coefficient - broad consumption,13,demand_shock_agg,BH aggregate demand shock (economic activity),-.0071322443258278,.0032319700090585,-.0134669055435825,-.0007975831080731
+gini_broad,Gini coefficient - broad consumption,14,demand_shock_agg,BH aggregate demand shock (economic activity),-.0069939287301267,.0028404143297776,-.0125611408164908,-.0014267166437626
+gini_broad,Gini coefficient - broad consumption,15,demand_shock_agg,BH aggregate demand shock (economic activity),.0000180585021357,.0027169797779909,-.0053072218627265,.0053433388669979
+gini_broad,Gini coefficient - broad consumption,16,demand_shock_agg,BH aggregate demand shock (economic activity),-.0023510399190675,.0025186853567554,-.0072876632183081,.0025855833801731
+gini_broad,Gini coefficient - broad consumption,17,demand_shock_agg,BH aggregate demand shock (economic activity),-.0039675819161771,.0021790330000937,-.0082384865963608,.0003033227640066
+gini_broad,Gini coefficient - broad consumption,18,demand_shock_agg,BH aggregate demand shock (economic activity),-.0059425315797503,.0031860509423276,-.0121871914267124,.0003021282672118
+gini_broad,Gini coefficient - broad consumption,19,demand_shock_agg,BH aggregate demand shock (economic activity),-.0007088751202217,.0031919305391894,-.0069650589770329,.0055473087365895
+gini_broad,Gini coefficient - broad consumption,20,demand_shock_agg,BH aggregate demand shock (economic activity),-.0031040708234473,.0023060485610516,-.0076239260031084,.0014157843562138
+gini_broad,Gini coefficient - broad consumption,0,demand_shock_oil,BH oil consumption demand shock (oil market),.000368658790511,.0003279550278088,-.0002741330639942,.0010114506450162
+gini_broad,Gini coefficient - broad consumption,1,demand_shock_oil,BH oil consumption demand shock (oil market),.0005052132629484,.0003613809167064,-.0002030933337961,.0012135198596929
+gini_broad,Gini coefficient - broad consumption,2,demand_shock_oil,BH oil consumption demand shock (oil market),-.0006513043260963,.0003089002744924,-.0012567488641014,-.0000458597880912
+gini_broad,Gini coefficient - broad consumption,3,demand_shock_oil,BH oil consumption demand shock (oil market),-.0005624971433748,.000329163040681,-.0012076567031096,.00008266241636
+gini_broad,Gini coefficient - broad consumption,4,demand_shock_oil,BH oil consumption demand shock (oil market),8.51218978373e-06,.0004042265709259,-.000783771889231,.0008007962687985
+gini_broad,Gini coefficient - broad consumption,5,demand_shock_oil,BH oil consumption demand shock (oil market),-.0002987426589583,.0003715711476505,-.0010270221083533,.0004295367904367
+gini_broad,Gini coefficient - broad consumption,6,demand_shock_oil,BH oil consumption demand shock (oil market),-.0002822496316323,.0003705068301432,-.001008443018713,.0004439437554484
+gini_broad,Gini coefficient - broad consumption,7,demand_shock_oil,BH oil consumption demand shock (oil market),-.0002639897114256,.0003469352915592,-.0009439828828816,.0004160034600304
+gini_broad,Gini coefficient - broad consumption,8,demand_shock_oil,BH oil consumption demand shock (oil market),-.0000289849808627,.0004174030245847,-.0008470949090487,.0007891249473233
+gini_broad,Gini coefficient - broad consumption,9,demand_shock_oil,BH oil consumption demand shock (oil market),9.31713096781e-06,.0004251116920274,-.0008239017854059,.0008425360473415
+gini_broad,Gini coefficient - broad consumption,10,demand_shock_oil,BH oil consumption demand shock (oil market),-.0006180425371096,.000396948583433,-.0013960617606383,.0001599766864191
+gini_broad,Gini coefficient - broad consumption,11,demand_shock_oil,BH oil consumption demand shock (oil market),-.0006783209681884,.0005335594636726,-.0017240975169867,.0003674555806099
+gini_broad,Gini coefficient - broad consumption,12,demand_shock_oil,BH oil consumption demand shock (oil market),.0000912231687753,.0004349112947843,-.0007612029690019,.0009436493065525
+gini_broad,Gini coefficient - broad consumption,13,demand_shock_oil,BH oil consumption demand shock (oil market),.0005444057100579,.0004556661417662,-.0003486999278039,.0014375113479197
+gini_broad,Gini coefficient - broad consumption,14,demand_shock_oil,BH oil consumption demand shock (oil market),.0002042980325507,.0003479337648335,-.000477652146523,.0008862482116244
+gini_broad,Gini coefficient - broad consumption,15,demand_shock_oil,BH oil consumption demand shock (oil market),.0004634379305752,.000391240860194,-.000303394155405,.0012302700165554
+gini_broad,Gini coefficient - broad consumption,16,demand_shock_oil,BH oil consumption demand shock (oil market),.0006662152925065,.0003315774537708,.0000163234831157,.0013161071018973
+gini_broad,Gini coefficient - broad consumption,17,demand_shock_oil,BH oil consumption demand shock (oil market),.00049020324934,.0006152773077693,-.0007157402738878,.0016961467725678
+gini_broad,Gini coefficient - broad consumption,18,demand_shock_oil,BH oil consumption demand shock (oil market),.0002280897028149,.0003464586960373,-.0004509693414182,.000907148747048
+gini_broad,Gini coefficient - broad consumption,19,demand_shock_oil,BH oil consumption demand shock (oil market),.000600852139675,.0004466260371834,-.0002745348932045,.0014762391725545
+gini_broad,Gini coefficient - broad consumption,20,demand_shock_oil,BH oil consumption demand shock (oil market),.0006539634987438,.0004110629752794,-.0001517199328038,.0014596469302914
+gini_broad,Gini coefficient - broad consumption,0,supply_shock,BH supply shock,.0009256536146713,.001236501938316,-.0014978901844281,.0033491974137707
+gini_broad,Gini coefficient - broad consumption,1,supply_shock,BH supply shock,.0005090265056897,.001273191891032,-.001986429600733,.0030044826121124
+gini_broad,Gini coefficient - broad consumption,2,supply_shock,BH supply shock,-.0002859549416558,.0006958497625287,-.0016498204762121,.0010779105929005
+gini_broad,Gini coefficient - broad consumption,3,supply_shock,BH supply shock,-.0003426472680946,.0008514581890186,-.0020115053185711,.0013262107823819
+gini_broad,Gini coefficient - broad consumption,4,supply_shock,BH supply shock,.0000530721304032,.0017014551372872,-.0032817799386797,.0033879241994861
+gini_broad,Gini coefficient - broad consumption,5,supply_shock,BH supply shock,-.0002115345452122,.0016240644172708,-.003394700803063,.0029716317126386
+gini_broad,Gini coefficient - broad consumption,6,supply_shock,BH supply shock,.0000660272115247,.0008921475221624,-.0016825819319136,.001814636354963
+gini_broad,Gini coefficient - broad consumption,7,supply_shock,BH supply shock,-.0004374180672719,.001093476994533,-.0025806329765566,.0017057968420128
+gini_broad,Gini coefficient - broad consumption,8,supply_shock,BH supply shock,.0002668293414505,.0012629545313597,-.0022085615400145,.0027422202229155
+gini_broad,Gini coefficient - broad consumption,9,supply_shock,BH supply shock,-.0002043675772559,.0010680979004856,-.0022978394622077,.0018891043076959
+gini_broad,Gini coefficient - broad consumption,10,supply_shock,BH supply shock,-.0008603978889298,.0010149604942394,-.002849720457639,.0011289246797794
+gini_broad,Gini coefficient - broad consumption,11,supply_shock,BH supply shock,.0004006548391585,.0014830882025566,-.0025061980378524,.0033075077161694
+gini_broad,Gini coefficient - broad consumption,12,supply_shock,BH supply shock,.0008483951554597,.0018766439134268,-.0028298269148568,.0045266172257762
+gini_broad,Gini coefficient - broad consumption,13,supply_shock,BH supply shock,.000263459425928,.0014885071526208,-.0026540145932088,.0031809334450648
+gini_broad,Gini coefficient - broad consumption,14,supply_shock,BH supply shock,.000139253450019,.000921318641057,-.0016665310864527,.0019450379864907
+gini_broad,Gini coefficient - broad consumption,15,supply_shock,BH supply shock,.0021851535152897,.000990756177313,.0002432714077562,.0041270356228232
+gini_broad,Gini coefficient - broad consumption,16,supply_shock,BH supply shock,.0005193171725292,.0011122696933843,-.001660731426504,.0026993657715624
+gini_broad,Gini coefficient - broad consumption,17,supply_shock,BH supply shock,-.0007518529031025,.0014368093239919,-.0035679991781266,.0020642933719216
+gini_broad,Gini coefficient - broad consumption,18,supply_shock,BH supply shock,-.0014597014504749,.0012216289050084,-.0038540941042914,.0009346912033416
+gini_broad,Gini coefficient - broad consumption,19,supply_shock,BH supply shock,.0020238236625004,.0011906684555814,-.0003098865104391,.0043575338354399
+gini_broad,Gini coefficient - broad consumption,20,supply_shock,BH supply shock,-.0002688046211746,.0014002838072948,-.0030133608834724,.0024757516411232
+gini_core,Gini coefficient - core consumption,0,demand_shock_agg,BH aggregate demand shock (economic activity),-.0018209605913327,.0036485474124912,-.0089721135198155,.0053301923371501
+gini_core,Gini coefficient - core consumption,1,demand_shock_agg,BH aggregate demand shock (economic activity),-.0034825995526562,.0052372899984356,-.01374768794959,.0067824888442776
+gini_core,Gini coefficient - core consumption,2,demand_shock_agg,BH aggregate demand shock (economic activity),.0006058332607105,.0077497771139419,-.0145837298826156,.0157953964040366
+gini_core,Gini coefficient - core consumption,3,demand_shock_agg,BH aggregate demand shock (economic activity),.0038027731074355,.0062883951103236,-.0085224813087988,.0161280275236698
+gini_core,Gini coefficient - core consumption,4,demand_shock_agg,BH aggregate demand shock (economic activity),-.0013356182663571,.0067017258525786,-.0144710009374112,.011799764404697
+gini_core,Gini coefficient - core consumption,5,demand_shock_agg,BH aggregate demand shock (economic activity),-.0074639982270263,.0055729205662943,-.0183869225369631,.0034589260829105
+gini_core,Gini coefficient - core consumption,6,demand_shock_agg,BH aggregate demand shock (economic activity),-.0068974016582423,.0051919163522013,-.0170735577085568,.0032787543920722
+gini_core,Gini coefficient - core consumption,7,demand_shock_agg,BH aggregate demand shock (economic activity),-.0019278347162418,.0047142923742458,-.0111678477697636,.00731217833728
+gini_core,Gini coefficient - core consumption,8,demand_shock_agg,BH aggregate demand shock (economic activity),-.0025376144383545,.0054660457758998,-.0132510641591181,.0081758352824091
+gini_core,Gini coefficient - core consumption,9,demand_shock_agg,BH aggregate demand shock (economic activity),-.0046589647924814,.0054029494109599,-.0152487456379628,.005930816053
+gini_core,Gini coefficient - core consumption,10,demand_shock_agg,BH aggregate demand shock (economic activity),.002027848774026,.0049703152939408,-.007713969202098,.01176966675015
+gini_core,Gini coefficient - core consumption,11,demand_shock_agg,BH aggregate demand shock (economic activity),.0084444941811556,.0041809099587068,.0002499106620903,.0166390777002209
+gini_core,Gini coefficient - core consumption,12,demand_shock_agg,BH aggregate demand shock (economic activity),.0040052225793047,.0049391217839303,-.0056754561171987,.0136859012758081
+gini_core,Gini coefficient - core consumption,13,demand_shock_agg,BH aggregate demand shock (economic activity),-.0081887906018125,.0044838474127557,-.0169771315308137,.0005995503271887
+gini_core,Gini coefficient - core consumption,14,demand_shock_agg,BH aggregate demand shock (economic activity),-.0060876056343421,.0058025571932955,-.0174606177332013,.0052854064645171
+gini_core,Gini coefficient - core consumption,15,demand_shock_agg,BH aggregate demand shock (economic activity),.0025614913866716,.0032590556090935,-.0038262576071517,.0089492403804949
+gini_core,Gini coefficient - core consumption,16,demand_shock_agg,BH aggregate demand shock (economic activity),.008287301256588,.0055016269093362,-.002495887485711,.019070489998887
+gini_core,Gini coefficient - core consumption,17,demand_shock_agg,BH aggregate demand shock (economic activity),.0015348479120137,.0056801208861343,-.0095981890248095,.0126678848488369
+gini_core,Gini coefficient - core consumption,18,demand_shock_agg,BH aggregate demand shock (economic activity),-.0018925078092424,.0059628245144864,-.0135796438576357,.0097946282391509
+gini_core,Gini coefficient - core consumption,19,demand_shock_agg,BH aggregate demand shock (economic activity),-.0002326924510186,.0053842453695756,-.0107858133753868,.0103204284733496
+gini_core,Gini coefficient - core consumption,20,demand_shock_agg,BH aggregate demand shock (economic activity),-.0028496247346788,.0047560668630361,-.0121715157862296,.006472266316872
+gini_core,Gini coefficient - core consumption,0,demand_shock_oil,BH oil consumption demand shock (oil market),.0015188498633322,.0005379887313298,.0004643919499258,.0025733077767386
+gini_core,Gini coefficient - core consumption,1,demand_shock_oil,BH oil consumption demand shock (oil market),.0018205810361838,.0008276466170922,.0001983936666831,.0034427684056845
+gini_core,Gini coefficient - core consumption,2,demand_shock_oil,BH oil consumption demand shock (oil market),-.0002186473116927,.0008282630579795,-.0018420429053325,.0014047482819471
+gini_core,Gini coefficient - core consumption,3,demand_shock_oil,BH oil consumption demand shock (oil market),-.0008758359961031,.0008624435367057,-.0025662253280463,.0008145533358401
+gini_core,Gini coefficient - core consumption,4,demand_shock_oil,BH oil consumption demand shock (oil market),-.0002662491000511,.001388666790766,-.0029880360099525,.0024555378098503
+gini_core,Gini coefficient - core consumption,5,demand_shock_oil,BH oil consumption demand shock (oil market),.000048285060279,.0010511517767259,-.0020119724221038,.0021085425426618
+gini_core,Gini coefficient - core consumption,6,demand_shock_oil,BH oil consumption demand shock (oil market),-.0002101954513214,.0008391583929827,-.0018549459015675,.0014345549989247
+gini_core,Gini coefficient - core consumption,7,demand_shock_oil,BH oil consumption demand shock (oil market),-.0005849985920469,.0008587462109787,-.0022681411655652,.0010981439814714
+gini_core,Gini coefficient - core consumption,8,demand_shock_oil,BH oil consumption demand shock (oil market),.000472310585259,.0008882118180804,-.0012685845781786,.0022132057486966
+gini_core,Gini coefficient - core consumption,9,demand_shock_oil,BH oil consumption demand shock (oil market),.0001143346160302,.0010828173810547,-.002007987450837,.0022366566828974
+gini_core,Gini coefficient - core consumption,10,demand_shock_oil,BH oil consumption demand shock (oil market),-.0013171719542838,.000889773771811,-.0030611285470334,.0004267846384658
+gini_core,Gini coefficient - core consumption,11,demand_shock_oil,BH oil consumption demand shock (oil market),-.0010829585143889,.0007944424948926,-.0026400658043784,.0004741487756006
+gini_core,Gini coefficient - core consumption,12,demand_shock_oil,BH oil consumption demand shock (oil market),.0002148626604947,.0008402685293751,-.0014320636570805,.0018617889780699
+gini_core,Gini coefficient - core consumption,13,demand_shock_oil,BH oil consumption demand shock (oil market),.0007044672067514,.0005756098029069,-.0004237280069461,.0018326624204489
+gini_core,Gini coefficient - core consumption,14,demand_shock_oil,BH oil consumption demand shock (oil market),-.0001779322970725,.0006463024089552,-.0014446850186247,.0010888204244797
+gini_core,Gini coefficient - core consumption,15,demand_shock_oil,BH oil consumption demand shock (oil market),.0007316842661873,.0008907690357885,-.0010142230439582,.0024775915763328
+gini_core,Gini coefficient - core consumption,16,demand_shock_oil,BH oil consumption demand shock (oil market),.0011488709876526,.0006877783018893,-.0001991744840504,.0024969164593556
+gini_core,Gini coefficient - core consumption,17,demand_shock_oil,BH oil consumption demand shock (oil market),.0016748263832618,.0006164169493186,.0004666491625973,.0028830036039263
+gini_core,Gini coefficient - core consumption,18,demand_shock_oil,BH oil consumption demand shock (oil market),.0007219083596652,.0006094974073932,-.0004727065588255,.0019165232781559
+gini_core,Gini coefficient - core consumption,19,demand_shock_oil,BH oil consumption demand shock (oil market),.0019804312430389,.0007813148147871,.0004490542060562,.0035118082800216
+gini_core,Gini coefficient - core consumption,20,demand_shock_oil,BH oil consumption demand shock (oil market),.0029909729166808,.000491587621156,.002027461179215,.0039544846541466
+gini_core,Gini coefficient - core consumption,0,supply_shock,BH supply shock,.0004702773963883,.0016912503347804,-.0028445732597813,.0037851280525579
+gini_core,Gini coefficient - core consumption,1,supply_shock,BH supply shock,-.0005928402897255,.0017200239641961,-.0039640872595499,.0027784066800989
+gini_core,Gini coefficient - core consumption,2,supply_shock,BH supply shock,-.002657268379671,.002026190184111,-.0066286011405286,.0013140643811866
+gini_core,Gini coefficient - core consumption,3,supply_shock,BH supply shock,-.0069575313327569,.002796411959408,-.0124384987731966,-.0014765638923172
+gini_core,Gini coefficient - core consumption,4,supply_shock,BH supply shock,-.0061196310985404,.0035086682222034,-.0129966208140591,.0007573586169783
+gini_core,Gini coefficient - core consumption,5,supply_shock,BH supply shock,-.0041777832081068,.0030422049977716,-.0101405050037391,.0017849385875255
+gini_core,Gini coefficient - core consumption,6,supply_shock,BH supply shock,-.0034669574957917,.0021793425639655,-.0077384689211641,.0008045539295807
+gini_core,Gini coefficient - core consumption,7,supply_shock,BH supply shock,-.0036907292327113,.0020688254662423,-.0077456271465462,.0003641686811236
+gini_core,Gini coefficient - core consumption,8,supply_shock,BH supply shock,-.0031057231181207,.001889991225303,-.0068101059197146,.0005986596834732
+gini_core,Gini coefficient - core consumption,9,supply_shock,BH supply shock,-.0027168121314719,.0017388417242419,-.006124941910986,.0006913176480422
+gini_core,Gini coefficient - core consumption,10,supply_shock,BH supply shock,-.0013196082607934,.0021120556523042,-.0054592373393096,.0028200208177228
+gini_core,Gini coefficient - core consumption,11,supply_shock,BH supply shock,.0000333384473528,.0027970371972341,-.005448854459226,.0055155313539316
+gini_core,Gini coefficient - core consumption,12,supply_shock,BH supply shock,.0002046452510359,.0023807773301337,-.0044616783160262,.004870968818098
+gini_core,Gini coefficient - core consumption,13,supply_shock,BH supply shock,-.0011779655015065,.0021369457634015,-.0053663791977734,.0030104481947604
+gini_core,Gini coefficient - core consumption,14,supply_shock,BH supply shock,-.0019731947750953,.0019357426268599,-.0057672503237407,.0018208607735501
+gini_core,Gini coefficient - core consumption,15,supply_shock,BH supply shock,.0035182974285832,.0031406759483003,-.0026374274300854,.0096740222872518
+gini_core,Gini coefficient - core consumption,16,supply_shock,BH supply shock,.0014711256521091,.001988192115627,-.0024257308945198,.005367982198738
+gini_core,Gini coefficient - core consumption,17,supply_shock,BH supply shock,.0026119375015241,.0031118222522816,-.0034872341129478,.008711109115996
+gini_core,Gini coefficient - core consumption,18,supply_shock,BH supply shock,.0024244041242299,.0030011914692545,-.0034579311555089,.0083067394039687
+gini_core,Gini coefficient - core consumption,19,supply_shock,BH supply shock,.0048869309026843,.0025346370476197,-.0000809577106503,.0098548195160189
+gini_core,Gini coefficient - core consumption,20,supply_shock,BH supply shock,.002927845538802,.0017121362138757,-.0004279414403944,.0062836325179984
+gini_fincbtax,Gini coefficient - income before taxes,0,demand_shock_agg,BH aggregate demand shock (economic activity),.0027262431933844,.001805291936295,-.0008121290017538,.0062646153885226
+gini_fincbtax,Gini coefficient - income before taxes,1,demand_shock_agg,BH aggregate demand shock (economic activity),.0000728521447502,.0018965783722916,-.0036444414649413,.0037901457544417
+gini_fincbtax,Gini coefficient - income before taxes,2,demand_shock_agg,BH aggregate demand shock (economic activity),-.0012067220711691,.0026968540712739,-.0064925560508659,.0040791119085277
+gini_fincbtax,Gini coefficient - income before taxes,3,demand_shock_agg,BH aggregate demand shock (economic activity),-.0016244062132767,.0030142945210879,-.007532423474609,.0042836110480556
+gini_fincbtax,Gini coefficient - income before taxes,4,demand_shock_agg,BH aggregate demand shock (economic activity),-.0031713867297169,.0032979931964816,-.0096354533948208,.003292679935387
+gini_fincbtax,Gini coefficient - income before taxes,5,demand_shock_agg,BH aggregate demand shock (economic activity),5.77669587455e-06,.0022965277356412,-.0044954176659822,.0045069710577313
+gini_fincbtax,Gini coefficient - income before taxes,6,demand_shock_agg,BH aggregate demand shock (economic activity),-.0037033384614886,.002621591042675,-.0088416569051316,.0014349799821544
+gini_fincbtax,Gini coefficient - income before taxes,7,demand_shock_agg,BH aggregate demand shock (economic activity),-.0008612676976591,.0028546453105828,-.0064563725064014,.0047338371110832
+gini_fincbtax,Gini coefficient - income before taxes,8,demand_shock_agg,BH aggregate demand shock (economic activity),-.0011634561272998,.00276564402235,-.0065841184111058,.0042572061565062
+gini_fincbtax,Gini coefficient - income before taxes,9,demand_shock_agg,BH aggregate demand shock (economic activity),-.007249634798709,.0035199737008769,-.0141487832524277,-.0003504863449903
+gini_fincbtax,Gini coefficient - income before taxes,10,demand_shock_agg,BH aggregate demand shock (economic activity),-.0065057121227829,.0040914114219424,-.01452487850979,.0015134542642242
+gini_fincbtax,Gini coefficient - income before taxes,11,demand_shock_agg,BH aggregate demand shock (economic activity),-.0052387472701219,.0033639070185509,-.0118320050264817,.0013545104862379
+gini_fincbtax,Gini coefficient - income before taxes,12,demand_shock_agg,BH aggregate demand shock (economic activity),-.0018340205324808,.0026329422917405,-.0069945874242922,.0033265463593306
+gini_fincbtax,Gini coefficient - income before taxes,13,demand_shock_agg,BH aggregate demand shock (economic activity),-.0020350534839925,.0028766464187483,-.0076732804647392,.0036031734967542
+gini_fincbtax,Gini coefficient - income before taxes,14,demand_shock_agg,BH aggregate demand shock (economic activity),-.003000937743803,.0020791623043622,-.0070760958603529,.0010742203727469
+gini_fincbtax,Gini coefficient - income before taxes,15,demand_shock_agg,BH aggregate demand shock (economic activity),-.0050876409222487,.0032221978952109,-.0114031487968621,.0012278669523647
+gini_fincbtax,Gini coefficient - income before taxes,16,demand_shock_agg,BH aggregate demand shock (economic activity),-.0022069013246787,.0029726526291975,-.0080333004779058,.0036194978285484
+gini_fincbtax,Gini coefficient - income before taxes,17,demand_shock_agg,BH aggregate demand shock (economic activity),-.0006031796762897,.0039358878389528,-.0083175198406372,.0071111604880578
+gini_fincbtax,Gini coefficient - income before taxes,18,demand_shock_agg,BH aggregate demand shock (economic activity),-.0079300870041772,.0039290202223154,-.0156309666399154,-.000229207368439
+gini_fincbtax,Gini coefficient - income before taxes,19,demand_shock_agg,BH aggregate demand shock (economic activity),-.0020924351770673,.0028677129984328,-.0077131526539956,.003528282299861
+gini_fincbtax,Gini coefficient - income before taxes,20,demand_shock_agg,BH aggregate demand shock (economic activity),-.0033043071524779,.0021440312678606,-.0075066084374847,.0008979941325289
+gini_fincbtax,Gini coefficient - income before taxes,0,demand_shock_oil,BH oil consumption demand shock (oil market),.0002638811804822,.0002877100225439,-.0003000304637038,.0008277928246682
+gini_fincbtax,Gini coefficient - income before taxes,1,demand_shock_oil,BH oil consumption demand shock (oil market),.0003505992752933,.0004615457366096,-.0005540303684615,.0012552289190481
+gini_fincbtax,Gini coefficient - income before taxes,2,demand_shock_oil,BH oil consumption demand shock (oil market),.000335128651627,.0004552267794374,-.0005571158360703,.0012273731393243
+gini_fincbtax,Gini coefficient - income before taxes,3,demand_shock_oil,BH oil consumption demand shock (oil market),-.0005446671824103,.0004110138887145,-.0013502544042907,.0002609200394701
+gini_fincbtax,Gini coefficient - income before taxes,4,demand_shock_oil,BH oil consumption demand shock (oil market),-.0003646400798515,.0004232130298734,-.0011941376184034,.0004648574587004
+gini_fincbtax,Gini coefficient - income before taxes,5,demand_shock_oil,BH oil consumption demand shock (oil market),.0002717375169321,.0004870931534748,-.0006829650638785,.0012264400977427
+gini_fincbtax,Gini coefficient - income before taxes,6,demand_shock_oil,BH oil consumption demand shock (oil market),-.0001568456279519,.0004700155005636,-.0010780760090566,.0007643847531528
+gini_fincbtax,Gini coefficient - income before taxes,7,demand_shock_oil,BH oil consumption demand shock (oil market),-.0000966235740933,.0004684501230918,-.0010147858153532,.0008215386671666
+gini_fincbtax,Gini coefficient - income before taxes,8,demand_shock_oil,BH oil consumption demand shock (oil market),-.0005065253600361,.0004361309971456,-.0013613421144415,.0003482913943693
+gini_fincbtax,Gini coefficient - income before taxes,9,demand_shock_oil,BH oil consumption demand shock (oil market),-.0007154421456551,.000347355678804,-.0013962592761109,-.0000346250151993
+gini_fincbtax,Gini coefficient - income before taxes,10,demand_shock_oil,BH oil consumption demand shock (oil market),.0000268057601655,.0002644017417112,-.0004914216535885,.0005450331739195
+gini_fincbtax,Gini coefficient - income before taxes,11,demand_shock_oil,BH oil consumption demand shock (oil market),.0000968761113644,.000376410754489,-.000640888967434,.0008346411901628
+gini_fincbtax,Gini coefficient - income before taxes,12,demand_shock_oil,BH oil consumption demand shock (oil market),-.0003836092103741,.0003903448387311,-.0011486850942871,.0003814666735389
+gini_fincbtax,Gini coefficient - income before taxes,13,demand_shock_oil,BH oil consumption demand shock (oil market),.0001460917215888,.0003481341064964,-.0005362511271441,.0008284345703217
+gini_fincbtax,Gini coefficient - income before taxes,14,demand_shock_oil,BH oil consumption demand shock (oil market),-.0002203736520697,.0004751281485587,-.0011516248232448,.0007108775191054
+gini_fincbtax,Gini coefficient - income before taxes,15,demand_shock_oil,BH oil consumption demand shock (oil market),-.0007867122264509,.000335896436391,-.0014450692417773,-.0001283552111245
+gini_fincbtax,Gini coefficient - income before taxes,16,demand_shock_oil,BH oil consumption demand shock (oil market),-.000264618207607,.0004611869245565,-.0011685445797377,.0006393081645237
+gini_fincbtax,Gini coefficient - income before taxes,17,demand_shock_oil,BH oil consumption demand shock (oil market),-.0003508481340712,.0003373380563594,-.0010120307245356,.0003103344563932
+gini_fincbtax,Gini coefficient - income before taxes,18,demand_shock_oil,BH oil consumption demand shock (oil market),-.0002868910268238,.0002604858637345,-.0007974433197434,.0002236612660958
+gini_fincbtax,Gini coefficient - income before taxes,19,demand_shock_oil,BH oil consumption demand shock (oil market),-.000529510083283,.0004812393281506,-.0014727391664582,.0004137189998922
+gini_fincbtax,Gini coefficient - income before taxes,20,demand_shock_oil,BH oil consumption demand shock (oil market),-.0007220526916556,.0003824078858553,-.001471572147932,.0000274667646208
+gini_fincbtax,Gini coefficient - income before taxes,0,supply_shock,BH supply shock,-.0001815777098057,.0007826921312107,-.0017156542869787,.0013524988673673
+gini_fincbtax,Gini coefficient - income before taxes,1,supply_shock,BH supply shock,-.0006432739082131,.0012206143147154,-.0030356779650553,.0017491301486291
+gini_fincbtax,Gini coefficient - income before taxes,2,supply_shock,BH supply shock,-.0000723769247649,.0014793357370198,-.0029718749693237,.0028271211197939
+gini_fincbtax,Gini coefficient - income before taxes,3,supply_shock,BH supply shock,-.0009897528237758,.0013221091113069,-.0035810866819373,.0016015810343857
+gini_fincbtax,Gini coefficient - income before taxes,4,supply_shock,BH supply shock,-.0019810434536148,.001939728672962,-.0057829116526203,.0018208247453907
+gini_fincbtax,Gini coefficient - income before taxes,5,supply_shock,BH supply shock,-.0001654120652364,.0018472172856728,-.0037859579451551,.0034551338146823
+gini_fincbtax,Gini coefficient - income before taxes,6,supply_shock,BH supply shock,-.0008596204499846,.0017477672317741,-.0042852442242618,.0025660033242926
+gini_fincbtax,Gini coefficient - income before taxes,7,supply_shock,BH supply shock,-.0002611063433068,.0016447970438556,-.0034849085492638,.0029626958626502
+gini_fincbtax,Gini coefficient - income before taxes,8,supply_shock,BH supply shock,.0005654504800144,.0017294482680001,-.0028242681252658,.0039551690852946
+gini_fincbtax,Gini coefficient - income before taxes,9,supply_shock,BH supply shock,-.0016610645786707,.0012165318003609,-.0040454669073781,.0007233377500367
+gini_fincbtax,Gini coefficient - income before taxes,10,supply_shock,BH supply shock,-.0015503479530988,.0012311250076571,-.0039633529681067,.0008626570619091
+gini_fincbtax,Gini coefficient - income before taxes,11,supply_shock,BH supply shock,-.0007275326296705,.0018470002828894,-.0043476531841337,.0028925879247927
+gini_fincbtax,Gini coefficient - income before taxes,12,supply_shock,BH supply shock,.0006621010633229,.0014779608139292,-.0022347021319783,.0035589042586241
+gini_fincbtax,Gini coefficient - income before taxes,13,supply_shock,BH supply shock,-.0005117559308702,.0013380461596379,-.0031343264037605,.0021108145420201
+gini_fincbtax,Gini coefficient - income before taxes,14,supply_shock,BH supply shock,-.0016469938823561,.0015384535535539,-.0046623628473217,.0013683750826095
+gini_fincbtax,Gini coefficient - income before taxes,15,supply_shock,BH supply shock,-.0018603705210456,.0015834440996607,-.0049639209563806,.0012431799142894
+gini_fincbtax,Gini coefficient - income before taxes,16,supply_shock,BH supply shock,-.0009344255359313,.002014758632307,-.004883352455253,.0030145013833904
+gini_fincbtax,Gini coefficient - income before taxes,17,supply_shock,BH supply shock,.0000700131062848,.0019955022449578,-.0038411712938325,.0039811975064021
+gini_fincbtax,Gini coefficient - income before taxes,18,supply_shock,BH supply shock,-.0016118169244609,.0018474452698603,-.0052328096533871,.0020091758044653
+gini_fincbtax,Gini coefficient - income before taxes,19,supply_shock,BH supply shock,.0008039091000271,.0021323996118131,-.0033755941391266,.0049834123391808
+gini_fincbtax,Gini coefficient - income before taxes,20,supply_shock,BH supply shock,.0005049263679922,.0020813752648769,-.0035745691511665,.0045844218871509
+gini_fsalaryx,Gini coefficient - salary income,0,demand_shock_agg,BH aggregate demand shock (economic activity),.0037562979772228,.0018483967125269,.0001334404206701,.0073791555337755
+gini_fsalaryx,Gini coefficient - salary income,1,demand_shock_agg,BH aggregate demand shock (economic activity),.0025777056750289,.0016829244111137,-.000720826170754,.0058762375208118
+gini_fsalaryx,Gini coefficient - salary income,2,demand_shock_agg,BH aggregate demand shock (economic activity),-.0017859496763728,.0018498077311549,-.0054115728294364,.0018396734766908
+gini_fsalaryx,Gini coefficient - salary income,3,demand_shock_agg,BH aggregate demand shock (economic activity),-.0016703335297219,.0019651909845496,-.0055221078594391,.0021814407999953
+gini_fsalaryx,Gini coefficient - salary income,4,demand_shock_agg,BH aggregate demand shock (economic activity),-.0023061790838246,.0022516801016911,-.0067194720831392,.00210711391549
+gini_fsalaryx,Gini coefficient - salary income,5,demand_shock_agg,BH aggregate demand shock (economic activity),-.0005046800901973,.0019982919655939,-.0044213323427613,.0034119721623667
+gini_fsalaryx,Gini coefficient - salary income,6,demand_shock_agg,BH aggregate demand shock (economic activity),-.0025054446990234,.001297499656962,-.0050485440266689,.0000376546286221
+gini_fsalaryx,Gini coefficient - salary income,7,demand_shock_agg,BH aggregate demand shock (economic activity),-.0008595710577238,.001371255869756,-.0035472325624456,.001828090446998
+gini_fsalaryx,Gini coefficient - salary income,8,demand_shock_agg,BH aggregate demand shock (economic activity),.0008704573221924,.0011366632427553,-.001357402633608,.0030983172779928
+gini_fsalaryx,Gini coefficient - salary income,9,demand_shock_agg,BH aggregate demand shock (economic activity),-.0035260178433448,.0027025269768629,-.0088229707179961,.0017709350313065
+gini_fsalaryx,Gini coefficient - salary income,10,demand_shock_agg,BH aggregate demand shock (economic activity),-.0029305038983481,.0032806590426171,-.0093605956218776,.0034995878251814
+gini_fsalaryx,Gini coefficient - salary income,11,demand_shock_agg,BH aggregate demand shock (economic activity),-.0016434263444467,.002755349014586,-.0070439104130353,.0037570577241419
+gini_fsalaryx,Gini coefficient - salary income,12,demand_shock_agg,BH aggregate demand shock (economic activity),-.0003639998497517,.0019733922283025,-.0042318486172246,.0035038489177212
+gini_fsalaryx,Gini coefficient - salary income,13,demand_shock_agg,BH aggregate demand shock (economic activity),-.0002214518281347,.0025527229932578,-.00522478889492,.0047818852386506
+gini_fsalaryx,Gini coefficient - salary income,14,demand_shock_agg,BH aggregate demand shock (economic activity),.0035237872120658,.0020519845319712,-.0004981024705978,.0075456768947294
+gini_fsalaryx,Gini coefficient - salary income,15,demand_shock_agg,BH aggregate demand shock (economic activity),.0008856058578173,.0020486492630657,-.0031297466977915,.0049009584134261
+gini_fsalaryx,Gini coefficient - salary income,16,demand_shock_agg,BH aggregate demand shock (economic activity),.000146271920692,.001886003148272,-.0035502942499211,.0038428380913051
+gini_fsalaryx,Gini coefficient - salary income,17,demand_shock_agg,BH aggregate demand shock (economic activity),.0015484805888651,.003214474274339,-.0047518889888393,.0078488501665695
+gini_fsalaryx,Gini coefficient - salary income,18,demand_shock_agg,BH aggregate demand shock (economic activity),-.0064160060778218,.0027839151528005,-.0118724797773108,-.0009595323783328
+gini_fsalaryx,Gini coefficient - salary income,19,demand_shock_agg,BH aggregate demand shock (economic activity),-.0002191899957547,.0017679093313213,-.0036842922851444,.003245912293635
+gini_fsalaryx,Gini coefficient - salary income,20,demand_shock_agg,BH aggregate demand shock (economic activity),-.0014237027862479,.0017467083343554,-.0048472511215845,.0019998455490887
+gini_fsalaryx,Gini coefficient - salary income,0,demand_shock_oil,BH oil consumption demand shock (oil market),-.0003026191365801,.0002759809909161,-.0008435418787757,.0002383036056155
+gini_fsalaryx,Gini coefficient - salary income,1,demand_shock_oil,BH oil consumption demand shock (oil market),-.0001056481979714,.0003439745984846,-.0007798384110012,.0005685420150584
+gini_fsalaryx,Gini coefficient - salary income,2,demand_shock_oil,BH oil consumption demand shock (oil market),.0004692740988568,.0003376193724176,-.0001924598710817,.0011310080687953
+gini_fsalaryx,Gini coefficient - salary income,3,demand_shock_oil,BH oil consumption demand shock (oil market),-.0005283659462321,.0003272407340929,-.0011697577850542,.00011302589259
+gini_fsalaryx,Gini coefficient - salary income,4,demand_shock_oil,BH oil consumption demand shock (oil market),-.0000746338343139,.000358916537744,-.0007781102482921,.0006288425796643
+gini_fsalaryx,Gini coefficient - salary income,5,demand_shock_oil,BH oil consumption demand shock (oil market),.000531535448684,.0003840032902699,-.000221111000245,.001284181897613
+gini_fsalaryx,Gini coefficient - salary income,6,demand_shock_oil,BH oil consumption demand shock (oil market),.0001312857431733,.0003168435420069,-.0004897275991602,.0007522990855068
+gini_fsalaryx,Gini coefficient - salary income,7,demand_shock_oil,BH oil consumption demand shock (oil market),.0004341016691701,.0002695794808214,-.0000942741132398,.00096247745158
+gini_fsalaryx,Gini coefficient - salary income,8,demand_shock_oil,BH oil consumption demand shock (oil market),-.0002170071714246,.0003242732891803,-.000852582818218,.0004185684753688
+gini_fsalaryx,Gini coefficient - salary income,9,demand_shock_oil,BH oil consumption demand shock (oil market),-.0006095978014091,.0002675102616856,-.0011339179143129,-.0000852776885053
+gini_fsalaryx,Gini coefficient - salary income,10,demand_shock_oil,BH oil consumption demand shock (oil market),.0004864197183057,.0002943011372631,-.00009041051073,.0010632499473414
+gini_fsalaryx,Gini coefficient - salary income,11,demand_shock_oil,BH oil consumption demand shock (oil market),.0005503375151359,.0003400608633325,-.0001161817769958,.0012168568072676
+gini_fsalaryx,Gini coefficient - salary income,12,demand_shock_oil,BH oil consumption demand shock (oil market),.0000788839071639,.0002171408478172,-.0003467121545578,.0005044799688856
+gini_fsalaryx,Gini coefficient - salary income,13,demand_shock_oil,BH oil consumption demand shock (oil market),.0001525529411066,.0002506387632344,-.0003386990348328,.000643804917046
+gini_fsalaryx,Gini coefficient - salary income,14,demand_shock_oil,BH oil consumption demand shock (oil market),-.0003599903430071,.0002382729665151,-.0008270053573767,.0001070246713625
+gini_fsalaryx,Gini coefficient - salary income,15,demand_shock_oil,BH oil consumption demand shock (oil market),-.0008919867732615,.0003335073568748,-.0015456611927361,-.0002383123537869
+gini_fsalaryx,Gini coefficient - salary income,16,demand_shock_oil,BH oil consumption demand shock (oil market),-.0005421320413472,.000418596044539,-.0013625802886436,.0002783162059492
+gini_fsalaryx,Gini coefficient - salary income,17,demand_shock_oil,BH oil consumption demand shock (oil market),-.0005811423018294,.0003728867279484,-.0013120002886083,.0001497156849495
+gini_fsalaryx,Gini coefficient - salary income,18,demand_shock_oil,BH oil consumption demand shock (oil market),-.00013963311436,.0002368661615425,-.0006038907909833,.0003246245622633
+gini_fsalaryx,Gini coefficient - salary income,19,demand_shock_oil,BH oil consumption demand shock (oil market),-.0003409928269562,.0003299679839545,-.000987730075507,.0003057444215946
+gini_fsalaryx,Gini coefficient - salary income,20,demand_shock_oil,BH oil consumption demand shock (oil market),-.0004895932908809,.0003013803077858,-.0010802986941411,.0001011121123793
+gini_fsalaryx,Gini coefficient - salary income,0,supply_shock,BH supply shock,-.000574365108394,.000775579399833,-.0020945007320667,.0009457705152787
+gini_fsalaryx,Gini coefficient - salary income,1,supply_shock,BH supply shock,-.0004717093475359,.0009137020873802,-.0022625654388011,.0013191467437293
+gini_fsalaryx,Gini coefficient - salary income,2,supply_shock,BH supply shock,-.0002505458093378,.0011406013374851,-.0024861244308086,.001985032812133
+gini_fsalaryx,Gini coefficient - salary income,3,supply_shock,BH supply shock,-.0006244925778858,.0008914806397506,-.002371794631797,.0011228094760254
+gini_fsalaryx,Gini coefficient - salary income,4,supply_shock,BH supply shock,-.0004969532204818,.0013268058078811,-.0030974926039288,.0021035861629652
+gini_fsalaryx,Gini coefficient - salary income,5,supply_shock,BH supply shock,.00018795396886,.0010273204026322,-.0018255940202991,.0022015019580191
+gini_fsalaryx,Gini coefficient - salary income,6,supply_shock,BH supply shock,-.0000763649694126,.0007834697854784,-.0016119657489503,.0014592358101251
+gini_fsalaryx,Gini coefficient - salary income,7,supply_shock,BH supply shock,.0002535015553888,.000816528045682,-.0013468934141479,.0018538965249255
+gini_fsalaryx,Gini coefficient - salary income,8,supply_shock,BH supply shock,.0006951550742685,.0013075146965882,-.0018675737310444,.0032578838795814
+gini_fsalaryx,Gini coefficient - salary income,9,supply_shock,BH supply shock,-.0014232799222822,.0005342725397013,-.0024704541000967,-.0003761057444677
+gini_fsalaryx,Gini coefficient - salary income,10,supply_shock,BH supply shock,-.0011290511738571,.0010571062603525,-.003200979444148,.0009428770964338
+gini_fsalaryx,Gini coefficient - salary income,11,supply_shock,BH supply shock,-.0006944117080559,.000900165463315,-.0024587360161533,.0010699126000415
+gini_fsalaryx,Gini coefficient - salary income,12,supply_shock,BH supply shock,.0001224273657013,.0010817005886745,-.0019977057881007,.0022425605195033
+gini_fsalaryx,Gini coefficient - salary income,13,supply_shock,BH supply shock,-.0004442288766716,.0011361446711064,-.0026710724320401,.0017826146786969
+gini_fsalaryx,Gini coefficient - salary income,14,supply_shock,BH supply shock,-.0004244982775286,.0007851602858825,-.0019634124378583,.0011144158828011
+gini_fsalaryx,Gini coefficient - salary income,15,supply_shock,BH supply shock,-.0019423330893542,.0016030175760964,-.0050842475385031,.0011995813597947
+gini_fsalaryx,Gini coefficient - salary income,16,supply_shock,BH supply shock,.0002029247435672,.0014607548183956,-.0026601547004882,.0030660041876226
+gini_fsalaryx,Gini coefficient - salary income,17,supply_shock,BH supply shock,-.0000788628968284,.0016245998869238,-.003263078675199,.0031053528815422
+gini_fsalaryx,Gini coefficient - salary income,18,supply_shock,BH supply shock,-.0017541703928457,.0014504801871559,-.0045971115596713,.0010887707739799
+gini_fsalaryx,Gini coefficient - salary income,19,supply_shock,BH supply shock,-.0002569152186839,.0018854787228354,-.0039524535154413,.0034386230780735
+gini_fsalaryx,Gini coefficient - salary income,20,supply_shock,BH supply shock,.0004584683382345,.0016261314504554,-.0027287493046581,.0036456859811271
