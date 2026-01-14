@@ -14,7 +14,7 @@ do "$code/01_build_ucc_map.do"
 
 * Step 2: Run each year's Gini computation
 display _n "=== Computing yearly Ginis ===" _n
-forvalues y = 1996/2023 {
+forvalues y = 1990/2023 {
     display _n "Processing `y'..."
     do "$code/02_gini_`y'.do"
 }
@@ -36,7 +36,8 @@ display _n "=== Running Local Projections ===" _n
 do "$code/06_local_projections.do"
 
 display _n "=== DONE ===" _n
-display "Final output: gini_bh_shocks_fred_merged.dta"
+display "Final Gini panel: Code/Data/CEX/derived/gini_1990_2023_quarterly.dta"
+display "Final merged shocks panel: gini_bh_shocks_fred_merged.dta"
 display "IRF results: Paper/Tables/lp_irf_results.csv"
 display "IRF plots: Paper/Figures/irf_*.png"
 

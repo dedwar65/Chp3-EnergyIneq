@@ -14,9 +14,11 @@ global deriv "/Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Data/CEX/derive
 ****************************************************
 cd "$deriv"
 
-use gini_1996_all.dta, clear
+* Start with earliest year
+use gini_1990_all.dta, clear
 
-forvalues y = 1997/2023 {
+* Append subsequent years
+forvalues y = 1991/2023 {
     capture append using gini_`y'_all.dta
 }
 
@@ -29,7 +31,7 @@ sort year quarter
 gen qdate = yq(year, quarter) if quarter != .
 format qdate %tq
 
-* Create string date like "1996q1" for easy reading
+* Create string date like "1990q1" for easy reading
 gen str8 date_str = string(year) + "q" + string(quarter) if quarter != .
 replace date_str = string(year) + " annual" if quarter == .
 
@@ -48,17 +50,17 @@ label var gini_broad    "Gini coefficient - broad consumption"
 label var gini_fincbtax "Gini coefficient - income before taxes"
 label var gini_fsalaryx "Gini coefficient - salary income"
 
-save "$deriv/gini_1996_2023.dta", replace
+save "$deriv/gini_1990_2023.dta", replace
 
 * Also export quarterly-only version (for merging with monthly data)
 drop if quarter == .
 drop date_str
 order year quarter qdate gini_core gini_broad gini_fincbtax gini_fsalaryx
-save "$deriv/gini_1996_2023_quarterly.dta", replace
+save "$deriv/gini_1990_2023_quarterly.dta", replace
 
 display _n "Saved:"
-display "  $deriv/gini_1996_2023.dta (quarterly + annual)"
-display "  $deriv/gini_1996_2023_quarterly.dta (quarterly only)"
+display "  $deriv/gini_1990_2023.dta (quarterly + annual)"
+display "  $deriv/gini_1990_2023_quarterly.dta (quarterly only)"
 
 * Show summary
 list in 1/20

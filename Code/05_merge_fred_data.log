@@ -1,8 +1,8 @@
------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
       name:  <unnamed>
        log:  /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/05_merge_fred_data.log
   log type:  text
- opened on:   9 Jan 2026, 07:34:08
+ opened on:  14 Jan 2026, 06:32:26
 
 . 
 . ****************************************************
@@ -41,7 +41,7 @@
 . tempfile gs1
 
 . save `gs1'
-file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_28270.000001 saved as .dta format
+file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_56143.000001 saved as .dta format
 
 . 
 . display "Imported GS1: " _N " quarterly observations"
@@ -88,7 +88,7 @@ Imported GS1: 112 quarterly observations
 . tempfile indpro
 
 . save `indpro'
-file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_28270.000002 saved as .dta format
+file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_56143.000002 saved as .dta format
 
 . 
 . display "Imported INDPRO: " _N " quarterly observations"
@@ -142,7 +142,7 @@ Imported INDPRO: 112 quarterly observations
 . tempfile cpi_headline
 
 . save `cpi_headline'
-file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_28270.000003 saved as .dta format
+file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_56143.000003 saved as .dta format
 
 . 
 . display "Imported CPIAUCSL: " _N " quarterly observations"
@@ -196,7 +196,7 @@ Imported CPIAUCSL: 112 quarterly observations
 . tempfile cpi_core
 
 . save `cpi_core'
-file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_28270.000004 saved as .dta format
+file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_56143.000004 saved as .dta format
 
 . 
 . display "Imported CPILFESL: " _N " quarterly observations"
@@ -238,7 +238,7 @@ Imported CPILFESL: 112 quarterly observations
 . tempfile unrate
 
 . save `unrate'
-file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_28270.000005 saved as .dta format
+file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_56143.000005 saved as .dta format
 
 . 
 . display "Imported UNRATE: " _N " quarterly observations"
@@ -307,14 +307,14 @@ file /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Data/CEX/derived/fred_qu
 
 . describe
 
-Contains data from /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Data/CEX/derived/fred_qua
-> rterly.dta
+Contains data from /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Data/CEX/derived/fred_quar
+> terly.dta
  Observations:           112                  
-    Variables:            10                  9 Jan 2026 07:34
------------------------------------------------------------------------------------------------
+    Variables:            10                  14 Jan 2026 06:32
+------------------------------------------------------------------------------------------------
 Variable      Storage   Display    Value
     name         type    format    label      Variable label
------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
 year            float   %9.0g                 
 quarter         float   %9.0g                 
 qdate           float   %tq                   
@@ -325,7 +325,7 @@ infl_headline   float   %9.0g
 log_cpi_core    float   %9.0g                 (mean) log_cpi_core
 infl_core       float   %9.0g                 
 unrate          float   %9.0g                 (mean) unrate
------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
 Sorted by: qdate
 
 . summarize qdate
@@ -471,8 +471,8 @@ Sorted by: qdate
 . * Sort and order variables
 . sort qdate
 
-. order qdate year quarter gini_core gini_broad demand_shock_agg demand_shock_oil supply_shock 
-> ///
+. order qdate year quarter gini_core gini_broad demand_shock_agg demand_shock_oil supply_shock /
+> //
 >     treasury_1yr log_indpro log_cpi_headline log_cpi_core infl_headline infl_core unrate
 
 . 
@@ -505,14 +505,14 @@ file /Volumes/SSD
 
 . describe
 
-Contains data from /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Data/CEX/derived/gini_bh_
-> shocks_fred_merged.dta
+Contains data from /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Data/CEX/derived/gini_bh_s
+> hocks_fred_merged.dta
  Observations:           112                  
-    Variables:            17                  9 Jan 2026 07:34
------------------------------------------------------------------------------------------------
+    Variables:            17                  14 Jan 2026 06:32
+------------------------------------------------------------------------------------------------
 Variable      Storage   Display    Value
     name         type    format    label      Variable label
------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
 qdate           float   %tq                   Stata quarterly date
 year            float   %8.0g                 Year
 quarter         float   %8.0g                 Quarter (. = annual)
@@ -530,7 +530,7 @@ infl_core       float   %9.0g                 Core inflation (quarterly, log dif
 unrate          float   %9.0g                 Unemployment rate (%)
 gini_fincbtax   double  %10.0g                Gini coefficient - income before taxes
 gini_fsalaryx   double  %10.0g                Gini coefficient - salary income
------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
 Sorted by: qdate
 
 . count
@@ -774,8 +774,8 @@ Last 10 observations:
 . 
 . display _n "Final dataset saved: $deriv/gini_bh_shocks_fred_merged.dta"
 
-Final dataset saved: /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Data/CEX/derived/gini_b
-> h_shocks_fred_merged.dta
+Final dataset saved: /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Data/CEX/derived/gini_bh
+> _shocks_fred_merged.dta
 
 . 
 . ****************************************************
@@ -838,14 +838,14 @@ Last observation: 2023q4
 
 . describe, fullnames
 
-Contains data from /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Data/CEX/derived/gini_bh_
-> shocks_fred_merged.dta
+Contains data from /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Data/CEX/derived/gini_bh_s
+> hocks_fred_merged.dta
  Observations:           112                  
-    Variables:            17                  9 Jan 2026 07:34
------------------------------------------------------------------------------------------------
+    Variables:            17                  14 Jan 2026 06:32
+------------------------------------------------------------------------------------------------
 Variable      Storage   Display    Value
     name         type    format    label      Variable label
------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
 qdate           float   %tq                   Stata quarterly date
 year            float   %8.0g                 Year
 quarter         float   %8.0g                 Quarter (. = annual)
@@ -866,7 +866,7 @@ infl_core       float   %9.0g                 Core inflation (quarterly, log dif
 unrate          float   %9.0g                 Unemployment rate (%)
 gini_fincbtax   double  %10.0g                Gini coefficient - income before taxes
 gini_fsalaryx   double  %10.0g                Gini coefficient - salary income
------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
 Sorted by: qdate
 
 . 
@@ -1263,5 +1263,5 @@ END OF VARIABLE SUMMARY
       name:  <unnamed>
        log:  /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/05_merge_fred_data.log
   log type:  text
- closed on:   9 Jan 2026, 07:34:08
------------------------------------------------------------------------------------------------
+ closed on:  14 Jan 2026, 06:32:27
+------------------------------------------------------------------------------------------------

@@ -145,7 +145,7 @@ save "$deriv/bh_shocks_quarterly.dta", replace
 ****************************************************
 * 4. Merge with quarterly Gini data
 ****************************************************
-use "$deriv/gini_1996_2023_quarterly.dta", clear
+use "$deriv/gini_1990_2023_quarterly.dta", clear
 
 * Diagnostic: Check Gini data date range
 display _n "=== GINI DATA DIAGNOSTICS ==="

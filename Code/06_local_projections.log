@@ -1,8 +1,8 @@
------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
       name:  <unnamed>
        log:  /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/06_local_projections.log
   log type:  text
- opened on:   9 Jan 2026, 07:45:57
+ opened on:  14 Jan 2026, 06:32:27
 
 . 
 . ****************************************************
@@ -92,19 +92,18 @@ Last observation: 2023q4
 .         local has_last = (r(N) > 0)
 .     }
 .     if !`has_first' {
-.         display "NOTE: First expected quarter " %tq `first_expected' " is missing (endpoint i
-> ssue)"
+.         display "NOTE: First expected quarter " %tq `first_expected' " is missing (endpoint is
+> sue)"
 .     }
 .     if !`has_last' {
-.         display "NOTE: Last expected quarter " %tq `last_expected' " is missing (endpoint iss
-> ue)"
+.         display "NOTE: Last expected quarter " %tq `last_expected' " is missing (endpoint issu
+> e)"
 .     }
 .     display _n "Filling gaps with missing values (for time series regularity)..."
 .     quietly drop expected_qdate has_gap dup
 .     tsfill
 .     display "Gaps filled. New observation count: " _N
-.     display "NOTE: Filled observations have missing values and will be dropped in regressions
-> "
+.     display "NOTE: Filled observations have missing values and will be dropped in regressions"
 . }
 
 . else {
@@ -184,7 +183,7 @@ Form: Cumulative change (y_{t+h} - y_{t-1})
 >     str20 shock_type str50 shock_label ///
 >     double coefficient double se double ci_lower double ci_upper ///
 >     using `results', replace
-(file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_28270.000001 not found)
+(file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_56143.000001 not found)
 
 . 
 . * Loop over outcomes
@@ -468,15 +467,15 @@ Saved: /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Paper/Tables/lp_irf_results
 (note:  named style med not found in class gsize, default attributes used)
 (note:  named style med not found in class gsize, default attributes used)
 (note:  named style med not found in class gsize, default attributes used)
-file /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_dagg_gini_broad.png
-    saved as PNG format
+file /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_dagg_gini_broad.png saved
+    as PNG format
   Saved: irf_dagg_gini_broad.png
 (231 observations deleted)
 (note:  named style med not found in class gsize, default attributes used)
 (note:  named style med not found in class gsize, default attributes used)
 (note:  named style med not found in class gsize, default attributes used)
-file /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_doil_gini_broad.png
-    saved as PNG format
+file /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_doil_gini_broad.png saved
+    as PNG format
   Saved: irf_doil_gini_broad.png
 (231 observations deleted)
 (note:  named style med not found in class gsize, default attributes used)
@@ -588,5 +587,5 @@ Total plots created: 12 (3 shocks × 4 outcomes)
       name:  <unnamed>
        log:  /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/06_local_projections.log
   log type:  text
- closed on:   9 Jan 2026, 07:46:12
------------------------------------------------------------------------------------------------
+ closed on:  14 Jan 2026, 06:32:43
+------------------------------------------------------------------------------------------------

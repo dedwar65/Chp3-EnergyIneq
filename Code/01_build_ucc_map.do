@@ -1,6 +1,6 @@
 ****************************************************
 * 01_build_ucc_map.do
-* Build UCC mappings for all years 1996-2023
+* Build UCC mappings for all years 1990-2023
 ****************************************************
 
 clear all
@@ -12,7 +12,8 @@ global deriv "/Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Data/CEX/derive
 capture mkdir "$deriv"
 
 ****************************************************
-* Loop through all years and build UCC maps
+* Loop through all years with available HG stubs
+* (1996-2023) and build UCC maps
 ****************************************************
 forvalues year = 1996/2023 {
     
@@ -68,4 +69,15 @@ forvalues year = 1996/2023 {
     display "  Saved: ucc_map_`year'.dta"
 }
 
-display _n "Done. UCC maps saved for 1996-2023."
+****************************************************
+* Backfill UCC maps for 1990-1995
+* Use 1996 UCC map as common mapping for these years
+****************************************************
+quietly {
+    use "$deriv/ucc_map_1996.dta", clear
+    forvalues y = 1990/1995 {
+        save "$deriv/ucc_map_`y'.dta", replace
+    }
+}
+
+display _n "Done. UCC maps saved for 1990-2023."
