@@ -1,8 +1,9 @@
-------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------
       name:  <unnamed>
-       log:  /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/05_merge_fred_data.log
+       log:  /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/05_merge_
+> fred_data.log
   log type:  text
- opened on:  14 Jan 2026, 06:32:26
+ opened on:  24 Jan 2026, 13:19:04
 
 . 
 . ****************************************************
@@ -41,7 +42,8 @@
 . tempfile gs1
 
 . save `gs1'
-file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_56143.000001 saved as .dta format
+file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_06628.000001
+    saved as .dta format
 
 . 
 . display "Imported GS1: " _N " quarterly observations"
@@ -72,7 +74,8 @@ Imported GS1: 112 quarterly observations
 . format qdate %tq
 
 . 
-. * Rename variable and take log (Stata converts CSV headers to lowercase)
+. * Rename variable and take log (Stata converts CSV headers to lowercase
+> )
 . rename indpro indpro_raw
 
 . gen log_indpro = log(indpro_raw)
@@ -88,7 +91,8 @@ Imported GS1: 112 quarterly observations
 . tempfile indpro
 
 . save `indpro'
-file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_56143.000002 saved as .dta format
+file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_06628.000002
+    saved as .dta format
 
 . 
 . display "Imported INDPRO: " _N " quarterly observations"
@@ -119,7 +123,8 @@ Imported INDPRO: 112 quarterly observations
 . format qdate %tq
 
 . 
-. * Rename variable and take log (Stata converts CSV headers to lowercase)
+. * Rename variable and take log (Stata converts CSV headers to lowercase
+> )
 . rename cpiaucsl cpi_headline_raw
 
 . gen log_cpi_headline = log(cpi_headline_raw)
@@ -142,7 +147,8 @@ Imported INDPRO: 112 quarterly observations
 . tempfile cpi_headline
 
 . save `cpi_headline'
-file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_56143.000003 saved as .dta format
+file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_06628.000003
+    saved as .dta format
 
 . 
 . display "Imported CPIAUCSL: " _N " quarterly observations"
@@ -173,7 +179,8 @@ Imported CPIAUCSL: 112 quarterly observations
 . format qdate %tq
 
 . 
-. * Rename variable and take log (Stata converts CSV headers to lowercase)
+. * Rename variable and take log (Stata converts CSV headers to lowercase
+> )
 . rename cpilfesl cpi_core_raw
 
 . gen log_cpi_core = log(cpi_core_raw)
@@ -196,7 +203,8 @@ Imported CPIAUCSL: 112 quarterly observations
 . tempfile cpi_core
 
 . save `cpi_core'
-file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_56143.000004 saved as .dta format
+file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_06628.000004
+    saved as .dta format
 
 . 
 . display "Imported CPILFESL: " _N " quarterly observations"
@@ -238,7 +246,8 @@ Imported CPILFESL: 112 quarterly observations
 . tempfile unrate
 
 . save `unrate'
-file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_56143.000005 saved as .dta format
+file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_06628.000005
+    saved as .dta format
 
 . 
 . display "Imported UNRATE: " _N " quarterly observations"
@@ -297,8 +306,9 @@ Imported UNRATE: 112 quarterly observations
 . 
 . * Save combined FRED data
 . save "$deriv/fred_quarterly.dta", replace
-file /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Data/CEX/derived/fred_quarterly.dta
-    saved
+file /Volumes/SSD
+    PRO/Github-forks/Chp3-EnergyIneq/Code/Data/CEX/derived/fred_quarter
+    > ly.dta saved
 
 . 
 . display _n "=== FRED DATA SUMMARY ==="
@@ -307,14 +317,14 @@ file /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Data/CEX/derived/fred_qu
 
 . describe
 
-Contains data from /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Data/CEX/derived/fred_quar
-> terly.dta
+Contains data from /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Dat
+> a/CEX/derived/fred_quarterly.dta
  Observations:           112                  
-    Variables:            10                  14 Jan 2026 06:32
-------------------------------------------------------------------------------------------------
+    Variables:            10                  24 Jan 2026 13:19
+-------------------------------------------------------------------------
 Variable      Storage   Display    Value
     name         type    format    label      Variable label
-------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------
 year            float   %9.0g                 
 quarter         float   %9.0g                 
 qdate           float   %tq                   
@@ -325,7 +335,7 @@ infl_headline   float   %9.0g
 log_cpi_core    float   %9.0g                 (mean) log_cpi_core
 infl_core       float   %9.0g                 
 unrate          float   %9.0g                 (mean) unrate
-------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------
 Sorted by: qdate
 
 . summarize qdate
@@ -336,85 +346,85 @@ Sorted by: qdate
 
 . list in 1/10
 
-     +--------------------------------------------------------------------------------+
-  1. | year | quarter |  qdate | treasu~r | log_in~o | log_c~ne | infl_h~e | log_c~re |
-     | 1996 |       1 | 1996q1 | 5.123333 | 4.294415 | 5.043853 |        . | 5.100068 |
-     |--------------------------------------------------------------------------------|
-     |               infl_c~e                |                  unrate                |
-     |                      .                |                5.533333                |
-     +--------------------------------------------------------------------------------+
+     +----------------------------------------------------------+
+  1. | year | quarter |  qdate | treasu~r | log_in~o | log_c~ne |
+     | 1996 |       1 | 1996q1 | 5.123333 | 4.294415 | 5.043853 |
+     |----------------------------------------------------------|
+     |  infl_h~e   |   log_c~re   |   infl_c~e   |     unrate   |
+     |         .   |   5.100068   |          .   |   5.533333   |
+     +----------------------------------------------------------+
 
-     +--------------------------------------------------------------------------------+
-  2. | year | quarter |  qdate | treasu~r | log_in~o | log_c~ne | infl_h~e | log_c~re |
-     | 1996 |       2 | 1996q2 | 5.663333 | 4.315837 | 5.052416 |  .008563 | 5.105944 |
-     |--------------------------------------------------------------------------------|
-     |               infl_c~e                |                  unrate                |
-     |               .0058756                |                     5.5                |
-     +--------------------------------------------------------------------------------+
+     +----------------------------------------------------------+
+  2. | year | quarter |  qdate | treasu~r | log_in~o | log_c~ne |
+     | 1996 |       2 | 1996q2 | 5.663333 | 4.315837 | 5.052416 |
+     |----------------------------------------------------------|
+     |  infl_h~e   |   log_c~re   |   infl_c~e   |     unrate   |
+     |   .008563   |   5.105944   |   .0058756   |        5.5   |
+     +----------------------------------------------------------+
 
-     +--------------------------------------------------------------------------------+
-  3. | year | quarter |  qdate | treasu~r | log_in~o | log_c~ne | infl_h~e | log_c~re |
-     | 1996 |       3 | 1996q3 | 5.783333 | 4.329019 | 5.058153 | .0057373 | 5.112387 |
-     |--------------------------------------------------------------------------------|
-     |               infl_c~e                |                  unrate                |
-     |               .0064435                |                5.266666                |
-     +--------------------------------------------------------------------------------+
+     +----------------------------------------------------------+
+  3. | year | quarter |  qdate | treasu~r | log_in~o | log_c~ne |
+     | 1996 |       3 | 1996q3 | 5.783333 | 4.329019 | 5.058153 |
+     |----------------------------------------------------------|
+     |  infl_h~e   |   log_c~re   |   infl_c~e   |     unrate   |
+     |  .0057373   |   5.112387   |   .0064435   |   5.266666   |
+     +----------------------------------------------------------+
 
-     +--------------------------------------------------------------------------------+
-  4. | year | quarter |  qdate | treasu~r | log_in~o | log_c~ne | infl_h~e | log_c~re |
-     | 1996 |       4 | 1996q4 |     5.48 | 4.343401 | 5.066803 | .0086498 | 5.118791 |
-     |--------------------------------------------------------------------------------|
-     |               infl_c~e                |                  unrate                |
-     |               .0064034                |                5.333333                |
-     +--------------------------------------------------------------------------------+
+     +----------------------------------------------------------+
+  4. | year | quarter |  qdate | treasu~r | log_in~o | log_c~ne |
+     | 1996 |       4 | 1996q4 |     5.48 | 4.343401 | 5.066803 |
+     |----------------------------------------------------------|
+     |  infl_h~e   |   log_c~re   |   infl_c~e   |     unrate   |
+     |  .0086498   |   5.118791   |   .0064034   |   5.333333   |
+     +----------------------------------------------------------+
 
-     +--------------------------------------------------------------------------------+
-  5. | year | quarter |  qdate | treasu~r | log_in~o | log_c~ne | infl_h~e | log_c~re |
-     | 1997 |       1 | 1997q1 | 5.646667 | 4.362312 | 5.072879 | .0060759 | 5.124558 |
-     |--------------------------------------------------------------------------------|
-     |               infl_c~e                |                  unrate                |
-     |               .0057673                |                5.233333                |
-     +--------------------------------------------------------------------------------+
+     +----------------------------------------------------------+
+  5. | year | quarter |  qdate | treasu~r | log_in~o | log_c~ne |
+     | 1997 |       1 | 1997q1 | 5.646667 | 4.362312 | 5.072879 |
+     |----------------------------------------------------------|
+     |  infl_h~e   |   log_c~re   |   infl_c~e   |     unrate   |
+     |  .0060759   |   5.124558   |   .0057673   |   5.233333   |
+     +----------------------------------------------------------+
 
-     +--------------------------------------------------------------------------------+
-  6. | year | quarter |  qdate | treasu~r | log_in~o | log_c~ne | infl_h~e | log_c~re |
-     | 1997 |       2 | 1997q2 |     5.85 | 4.376868 | 5.075173 | .0022945 | 5.130884 |
-     |--------------------------------------------------------------------------------|
-     |               infl_c~e                |                  unrate                |
-     |               .0063257                |                       5                |
-     +--------------------------------------------------------------------------------+
+     +----------------------------------------------------------+
+  6. | year | quarter |  qdate | treasu~r | log_in~o | log_c~ne |
+     | 1997 |       2 | 1997q2 |     5.85 | 4.376868 | 5.075173 |
+     |----------------------------------------------------------|
+     |  infl_h~e   |   log_c~re   |   infl_c~e   |     unrate   |
+     |  .0022945   |   5.130884   |   .0063257   |          5   |
+     +----------------------------------------------------------+
 
-     +--------------------------------------------------------------------------------+
-  7. | year | quarter |  qdate | treasu~r | log_in~o | log_c~ne | infl_h~e | log_c~re |
-     | 1997 |       3 | 1997q3 |     5.54 | 4.399949 | 5.080159 | .0049858 | 5.135209 |
-     |--------------------------------------------------------------------------------|
-     |               infl_c~e                |                  unrate                |
-     |               .0043254                |                4.866667                |
-     +--------------------------------------------------------------------------------+
+     +----------------------------------------------------------+
+  7. | year | quarter |  qdate | treasu~r | log_in~o | log_c~ne |
+     | 1997 |       3 | 1997q3 |     5.54 | 4.399949 | 5.080159 |
+     |----------------------------------------------------------|
+     |  infl_h~e   |   log_c~re   |   infl_c~e   |     unrate   |
+     |  .0049858   |   5.135209   |   .0043254   |   4.866667   |
+     +----------------------------------------------------------+
 
-     +--------------------------------------------------------------------------------+
-  8. | year | quarter |  qdate | treasu~r | log_in~o | log_c~ne | infl_h~e | log_c~re |
-     | 1997 |       4 | 1997q4 | 5.483334 | 4.424819 | 5.085536 | .0053773 | 5.140882 |
-     |--------------------------------------------------------------------------------|
-     |               infl_c~e                |                  unrate                |
-     |               .0056734                |                4.666667                |
-     +--------------------------------------------------------------------------------+
+     +----------------------------------------------------------+
+  8. | year | quarter |  qdate | treasu~r | log_in~o | log_c~ne |
+     | 1997 |       4 | 1997q4 | 5.483334 | 4.424819 | 5.085536 |
+     |----------------------------------------------------------|
+     |  infl_h~e   |   log_c~re   |   infl_c~e   |     unrate   |
+     |  .0053773   |   5.140882   |   .0056734   |   4.666667   |
+     +----------------------------------------------------------+
 
-     +--------------------------------------------------------------------------------+
-  9. | year | quarter |  qdate | treasu~r | log_in~o | log_c~ne | infl_h~e | log_c~re |
-     | 1998 |       1 | 1998q1 | 5.313333 | 4.435836 | 5.087596 | .0020599 | 5.146912 |
-     |--------------------------------------------------------------------------------|
-     |               infl_c~e                |                  unrate                |
-     |               .0060296                |                4.633333                |
-     +--------------------------------------------------------------------------------+
+     +----------------------------------------------------------+
+  9. | year | quarter |  qdate | treasu~r | log_in~o | log_c~ne |
+     | 1998 |       1 | 1998q1 | 5.313333 | 4.435836 | 5.087596 |
+     |----------------------------------------------------------|
+     |  infl_h~e   |   log_c~re   |   infl_c~e   |     unrate   |
+     |  .0020599   |   5.146912   |   .0060296   |   4.633333   |
+     +----------------------------------------------------------+
 
-     +--------------------------------------------------------------------------------+
- 10. | year | quarter |  qdate | treasu~r | log_in~o | log_c~ne | infl_h~e | log_c~re |
-     | 1998 |       2 | 1998q2 |     5.41 | 4.442409 | 5.090882 | .0032854 | 5.152519 |
-     |--------------------------------------------------------------------------------|
-     |               infl_c~e                |                  unrate                |
-     |               .0056071                |                     4.4                |
-     +--------------------------------------------------------------------------------+
+     +----------------------------------------------------------+
+ 10. | year | quarter |  qdate | treasu~r | log_in~o | log_c~ne |
+     | 1998 |       2 | 1998q2 |     5.41 | 4.442409 | 5.090882 |
+     |----------------------------------------------------------|
+     |  infl_h~e   |   log_c~re   |   infl_c~e   |     unrate   |
+     |  .0032854   |   5.152519   |   .0056071   |        4.4   |
+     +----------------------------------------------------------+
 
 . 
 . ****************************************************
@@ -428,13 +438,13 @@ Sorted by: qdate
 === GINI-BH SHOCKS DATA ===
 
 . count
-  112
+  136
 
 . summarize qdate
 
     Variable |        Obs        Mean    Std. dev.       Min        Max
 -------------+---------------------------------------------------------
-       qdate |        112       199.5    32.47563        144        255
+       qdate |        136       187.5    39.40389        120        255
 
 . 
 . * Merge with FRED data
@@ -442,7 +452,10 @@ Sorted by: qdate
 
     Result                      Number of obs
     -----------------------------------------
-    Not matched                             0
+    Not matched                            24
+        from master                        24  (_merge==1)
+        from using                          0  (_merge==2)
+
     Matched                               112  (_merge==3)
     -----------------------------------------
 
@@ -456,14 +469,15 @@ Sorted by: qdate
    Matching result from |
                   merge |      Freq.     Percent        Cum.
 ------------------------+-----------------------------------
-            Matched (3) |        112      100.00      100.00
+        Master only (1) |         24       17.65       17.65
+            Matched (3) |        112       82.35      100.00
 ------------------------+-----------------------------------
-                  Total |        112      100.00
+                  Total |        136      100.00
 
 . 
 . * Keep only matched observations (or adjust as needed)
 . keep if _merge == 3
-(0 observations deleted)
+(24 observations deleted)
 
 . drop _merge
 
@@ -471,9 +485,10 @@ Sorted by: qdate
 . * Sort and order variables
 . sort qdate
 
-. order qdate year quarter gini_core gini_broad demand_shock_agg demand_shock_oil supply_shock /
-> //
->     treasury_1yr log_indpro log_cpi_headline log_cpi_core infl_headline infl_core unrate
+. order qdate year quarter gini_core gini_broad demand_shock_agg demand_s
+> hock_oil supply_shock ///
+>     treasury_1yr log_indpro log_cpi_headline log_cpi_core infl_headline
+>  infl_core unrate
 
 . 
 . * Add variable labels
@@ -485,7 +500,8 @@ Sorted by: qdate
 
 . label var log_cpi_core "Log Core CPI (quarterly average)"
 
-. label var infl_headline "Headline inflation (quarterly, log difference)"
+. label var infl_headline "Headline inflation (quarterly, log difference)
+> "
 
 . label var infl_core "Core inflation (quarterly, log difference)"
 
@@ -495,8 +511,8 @@ Sorted by: qdate
 . * Save final merged dataset
 . save "$deriv/gini_bh_shocks_fred_merged.dta", replace
 file /Volumes/SSD
-    PRO/Github-forks/Chp3-EnergyIneq/Code/Data/CEX/derived/gini_bh_shocks_fred_merged.dta
-    saved
+    PRO/Github-forks/Chp3-EnergyIneq/Code/Data/CEX/derived/gini_bh_shoc
+    > ks_fred_merged.dta saved
 
 . 
 . display _n "=== FINAL MERGED DATASET ==="
@@ -505,32 +521,44 @@ file /Volumes/SSD
 
 . describe
 
-Contains data from /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Data/CEX/derived/gini_bh_s
-> hocks_fred_merged.dta
+Contains data from /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Dat
+> a/CEX/derived/gini_bh_shocks_fred_merged.dta
  Observations:           112                  
-    Variables:            17                  14 Jan 2026 06:32
-------------------------------------------------------------------------------------------------
+    Variables:            17                  24 Jan 2026 13:19
+-------------------------------------------------------------------------
 Variable      Storage   Display    Value
     name         type    format    label      Variable label
-------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------
 qdate           float   %tq                   Stata quarterly date
 year            float   %8.0g                 Year
 quarter         float   %8.0g                 Quarter (. = annual)
-gini_core       double  %10.0g                Gini coefficient - core consumption
-gini_broad      double  %10.0g                Gini coefficient - broad consumption
-demand_shock_~g double  %10.0g                BH aggregate demand shock (economic activity)
-demand_shock_~l double  %10.0g                BH oil consumption demand shock (oil market)
+gini_core       double  %10.0g                Gini coefficient - core
+                                                consumption
+gini_broad      double  %10.0g                Gini coefficient - broad
+                                                consumption
+demand_shock_~g double  %10.0g                BH aggregate demand shock
+                                                (economic activity)
+demand_shock_~l double  %10.0g                BH oil consumption demand
+                                                shock (oil market)
 supply_shock    double  %10.0g                BH supply shock
 treasury_1yr    float   %9.0g                 1-year Treasury yield (%)
-log_indpro      float   %9.0g                 Log Industrial Production (quarterly average)
-log_cpi_headl~e float   %9.0g                 Log Headline CPI (quarterly average)
-log_cpi_core    float   %9.0g                 Log Core CPI (quarterly average)
-infl_headline   float   %9.0g                 Headline inflation (quarterly, log difference)
-infl_core       float   %9.0g                 Core inflation (quarterly, log difference)
+log_indpro      float   %9.0g                 Log Industrial Production
+                                                (quarterly average)
+log_cpi_headl~e float   %9.0g                 Log Headline CPI (quarterly
+                                                average)
+log_cpi_core    float   %9.0g                 Log Core CPI (quarterly
+                                                average)
+infl_headline   float   %9.0g                 Headline inflation
+                                                (quarterly, log
+                                                difference)
+infl_core       float   %9.0g                 Core inflation (quarterly,
+                                                log difference)
 unrate          float   %9.0g                 Unemployment rate (%)
-gini_fincbtax   double  %10.0g                Gini coefficient - income before taxes
-gini_fsalaryx   double  %10.0g                Gini coefficient - salary income
-------------------------------------------------------------------------------------------------
+gini_fincbtax   double  %10.0g                Gini coefficient - income
+                                                before taxes
+gini_fsalaryx   double  %10.0g                Gini coefficient - salary
+                                                income
+-------------------------------------------------------------------------
 Sorted by: qdate
 
 . count
@@ -544,115 +572,145 @@ First 10 observations:
 
 . list in 1/10
 
-     +----------------------------------------------------------------------------------------+
-  1. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g | demand_s~l | supply_s~k |
-     | 1996q1 | 1996 |       1 | .55468213 | .49419832 | -.22148647 |  .46885808 | -.32788254 |
-     |----------------------------------------------------------------------------------------|
-     | treasu~r | log_in~o | log_c~ne | log_c~re | infl_h~e | infl_c~e |   unrate | gini_fi~x |
-     | 5.123333 | 4.294415 | 5.043853 | 5.100068 |        . |        . | 5.533333 | .48794494 |
-     |----------------------------------------------------------------------------------------|
-     |                                       gini_fs~x                                        |
-     |                                        .4469206                                        |
-     +----------------------------------------------------------------------------------------+
+     +--------------------------------------------------------------+
+  1. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
+     | 1996q1 | 1996 |       1 | .55468213 | .49419832 | -.22148647 |
+     |--------------------------------------------------------------|
+     | demand_s~l | supply_s~k  | treasu~r  | log_in~o  | log_c~ne  |
+     |  .46885808 | -.32788254  | 5.123333  | 4.294415  | 5.043853  |
+     |--------------------------------------------------------------|
+     | log_c~re  | infl_h~e  | infl_c~e  |    unrate  |  gini_fi~x  |
+     | 5.100068  |        .  |        .  |  5.533333  |  .48794494  |
+     |--------------------------------------------------------------|
+     |                          gini_fs~x                           |
+     |                           .4469206                           |
+     +--------------------------------------------------------------+
 
-     +----------------------------------------------------------------------------------------+
-  2. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g | demand_s~l | supply_s~k |
-     | 1996q2 | 1996 |       2 | .56675941 | .50503184 |  .12724921 | -.83489113 | -.01555055 |
-     |----------------------------------------------------------------------------------------|
-     | treasu~r | log_in~o | log_c~ne | log_c~re | infl_h~e | infl_c~e |   unrate | gini_fi~x |
-     | 5.663333 | 4.315837 | 5.052416 | 5.105944 |  .008563 | .0058756 |      5.5 | .48039882 |
-     |----------------------------------------------------------------------------------------|
-     |                                       gini_fs~x                                        |
-     |                                       .44027883                                        |
-     +----------------------------------------------------------------------------------------+
+     +--------------------------------------------------------------+
+  2. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
+     | 1996q2 | 1996 |       2 | .56675941 | .50503184 |  .12724921 |
+     |--------------------------------------------------------------|
+     | demand_s~l | supply_s~k  | treasu~r  | log_in~o  | log_c~ne  |
+     | -.83489113 | -.01555055  | 5.663333  | 4.315837  | 5.052416  |
+     |--------------------------------------------------------------|
+     | log_c~re  | infl_h~e  | infl_c~e  |    unrate  |  gini_fi~x  |
+     | 5.105944  |  .008563  | .0058756  |       5.5  |  .48039882  |
+     |--------------------------------------------------------------|
+     |                          gini_fs~x                           |
+     |                          .44027883                           |
+     +--------------------------------------------------------------+
 
-     +----------------------------------------------------------------------------------------+
-  3. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g | demand_s~l | supply_s~k |
-     | 1996q3 | 1996 |       3 | .57520928 | .51438453 |   .1036368 |  2.4496306 | -.46768384 |
-     |----------------------------------------------------------------------------------------|
-     | treasu~r | log_in~o | log_c~ne | log_c~re | infl_h~e | infl_c~e |   unrate | gini_fi~x |
-     | 5.783333 | 4.329019 | 5.058153 | 5.112387 | .0057373 | .0064435 | 5.266666 | .47925651 |
-     |----------------------------------------------------------------------------------------|
-     |                                       gini_fs~x                                        |
-     |                                        .4351627                                        |
-     +----------------------------------------------------------------------------------------+
+     +--------------------------------------------------------------+
+  3. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
+     | 1996q3 | 1996 |       3 | .57520928 | .51438453 |   .1036368 |
+     |--------------------------------------------------------------|
+     | demand_s~l | supply_s~k  | treasu~r  | log_in~o  | log_c~ne  |
+     |  2.4496306 | -.46768384  | 5.783333  | 4.329019  | 5.058153  |
+     |--------------------------------------------------------------|
+     | log_c~re  | infl_h~e  | infl_c~e  |    unrate  |  gini_fi~x  |
+     | 5.112387  | .0057373  | .0064435  |  5.266666  |  .47925651  |
+     |--------------------------------------------------------------|
+     |                          gini_fs~x                           |
+     |                           .4351627                           |
+     +--------------------------------------------------------------+
 
-     +----------------------------------------------------------------------------------------+
-  4. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g | demand_s~l | supply_s~k |
-     | 1996q4 | 1996 |       4 | .55639912 | .49887649 |  .15237911 |  .80256418 |  .15828993 |
-     |----------------------------------------------------------------------------------------|
-     | treasu~r | log_in~o | log_c~ne | log_c~re | infl_h~e | infl_c~e |   unrate | gini_fi~x |
-     |     5.48 | 4.343401 | 5.066803 | 5.118791 | .0086498 | .0064034 | 5.333333 | .48211903 |
-     |----------------------------------------------------------------------------------------|
-     |                                       gini_fs~x                                        |
-     |                                       .44501452                                        |
-     +----------------------------------------------------------------------------------------+
+     +--------------------------------------------------------------+
+  4. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
+     | 1996q4 | 1996 |       4 | .55639912 | .49887649 |  .15237911 |
+     |--------------------------------------------------------------|
+     | demand_s~l | supply_s~k  | treasu~r  | log_in~o  | log_c~ne  |
+     |  .80256418 |  .15828993  |     5.48  | 4.343401  | 5.066803  |
+     |--------------------------------------------------------------|
+     | log_c~re  | infl_h~e  | infl_c~e  |    unrate  |  gini_fi~x  |
+     | 5.118791  | .0086498  | .0064034  |  5.333333  |  .48211903  |
+     |--------------------------------------------------------------|
+     |                          gini_fs~x                           |
+     |                          .44501452                           |
+     +--------------------------------------------------------------+
 
-     +----------------------------------------------------------------------------------------+
-  5. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g | demand_s~l | supply_s~k |
-     | 1997q1 | 1997 |       1 | .54642597 | .48424696 |  .33321874 | -4.4526498 |   .3023814 |
-     |----------------------------------------------------------------------------------------|
-     | treasu~r | log_in~o | log_c~ne | log_c~re | infl_h~e | infl_c~e |   unrate | gini_fi~x |
-     | 5.646667 | 4.362312 | 5.072879 | 5.124558 | .0060759 | .0057673 | 5.233333 | .47472963 |
-     |----------------------------------------------------------------------------------------|
-     |                                       gini_fs~x                                        |
-     |                                       .44305942                                        |
-     +----------------------------------------------------------------------------------------+
+     +--------------------------------------------------------------+
+  5. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
+     | 1997q1 | 1997 |       1 | .54642597 | .48424696 |  .33321874 |
+     |--------------------------------------------------------------|
+     | demand_s~l | supply_s~k  | treasu~r  | log_in~o  | log_c~ne  |
+     | -4.4526498 |   .3023814  | 5.646667  | 4.362312  | 5.072879  |
+     |--------------------------------------------------------------|
+     | log_c~re  | infl_h~e  | infl_c~e  |    unrate  |  gini_fi~x  |
+     | 5.124558  | .0060759  | .0057673  |  5.233333  |  .47472963  |
+     |--------------------------------------------------------------|
+     |                          gini_fs~x                           |
+     |                          .44305942                           |
+     +--------------------------------------------------------------+
 
-     +----------------------------------------------------------------------------------------+
-  6. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g | demand_s~l | supply_s~k |
-     | 1997q2 | 1997 |       2 | .55785435 | .49735394 |  .19591498 | -.53291956 | -.07923579 |
-     |----------------------------------------------------------------------------------------|
-     | treasu~r | log_in~o | log_c~ne | log_c~re | infl_h~e | infl_c~e |   unrate | gini_fi~x |
-     |     5.85 | 4.376868 | 5.075173 | 5.130884 | .0022945 | .0063257 |        5 | .47345289 |
-     |----------------------------------------------------------------------------------------|
-     |                                       gini_fs~x                                        |
-     |                                       .44555976                                        |
-     +----------------------------------------------------------------------------------------+
+     +--------------------------------------------------------------+
+  6. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
+     | 1997q2 | 1997 |       2 | .55785435 | .49735394 |  .19591498 |
+     |--------------------------------------------------------------|
+     | demand_s~l | supply_s~k  | treasu~r  | log_in~o  | log_c~ne  |
+     | -.53291956 | -.07923579  |     5.85  | 4.376868  | 5.075173  |
+     |--------------------------------------------------------------|
+     | log_c~re  | infl_h~e  | infl_c~e  |    unrate  |  gini_fi~x  |
+     | 5.130884  | .0022945  | .0063257  |         5  |  .47345289  |
+     |--------------------------------------------------------------|
+     |                          gini_fs~x                           |
+     |                          .44555976                           |
+     +--------------------------------------------------------------+
 
-     +----------------------------------------------------------------------------------------+
-  7. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g | demand_s~l | supply_s~k |
-     | 1997q3 | 1997 |       3 | .56695318 | .50885453 |  .14971218 |  .57474204 | -.12677552 |
-     |----------------------------------------------------------------------------------------|
-     | treasu~r | log_in~o | log_c~ne | log_c~re | infl_h~e | infl_c~e |   unrate | gini_fi~x |
-     |     5.54 | 4.399949 | 5.080159 | 5.135209 | .0049858 | .0043254 | 4.866667 | .47236631 |
-     |----------------------------------------------------------------------------------------|
-     |                                       gini_fs~x                                        |
-     |                                       .44213179                                        |
-     +----------------------------------------------------------------------------------------+
+     +--------------------------------------------------------------+
+  7. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
+     | 1997q3 | 1997 |       3 | .56695318 | .50885453 |  .14971218 |
+     |--------------------------------------------------------------|
+     | demand_s~l | supply_s~k  | treasu~r  | log_in~o  | log_c~ne  |
+     |  .57474204 | -.12677552  |     5.54  | 4.399949  | 5.080159  |
+     |--------------------------------------------------------------|
+     | log_c~re  | infl_h~e  | infl_c~e  |    unrate  |  gini_fi~x  |
+     | 5.135209  | .0049858  | .0043254  |  4.866667  |  .47236631  |
+     |--------------------------------------------------------------|
+     |                          gini_fs~x                           |
+     |                          .44213179                           |
+     +--------------------------------------------------------------+
 
-     +----------------------------------------------------------------------------------------+
-  8. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g | demand_s~l | supply_s~k |
-     | 1997q4 | 1997 |       4 | .54984284 | .49451624 | -.22458995 | -2.5309945 |  -.2951791 |
-     |----------------------------------------------------------------------------------------|
-     | treasu~r | log_in~o | log_c~ne | log_c~re | infl_h~e | infl_c~e |   unrate | gini_fi~x |
-     | 5.483334 | 4.424819 | 5.085536 | 5.140882 | .0053773 | .0056734 | 4.666667 | .47498209 |
-     |----------------------------------------------------------------------------------------|
-     |                                       gini_fs~x                                        |
-     |                                       .44150127                                        |
-     +----------------------------------------------------------------------------------------+
+     +--------------------------------------------------------------+
+  8. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
+     | 1997q4 | 1997 |       4 | .54984284 | .49451624 | -.22458995 |
+     |--------------------------------------------------------------|
+     | demand_s~l | supply_s~k  | treasu~r  | log_in~o  | log_c~ne  |
+     | -2.5309945 |  -.2951791  | 5.483334  | 4.424819  | 5.085536  |
+     |--------------------------------------------------------------|
+     | log_c~re  | infl_h~e  | infl_c~e  |    unrate  |  gini_fi~x  |
+     | 5.140882  | .0053773  | .0056734  |  4.666667  |  .47498209  |
+     |--------------------------------------------------------------|
+     |                          gini_fs~x                           |
+     |                          .44150127                           |
+     +--------------------------------------------------------------+
 
-     +----------------------------------------------------------------------------------------+
-  9. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g | demand_s~l | supply_s~k |
-     | 1998q1 | 1998 |       1 | .55603067 | .49286135 |  .04669203 | -1.7266199 |  1.4935128 |
-     |----------------------------------------------------------------------------------------|
-     | treasu~r | log_in~o | log_c~ne | log_c~re | infl_h~e | infl_c~e |   unrate | gini_fi~x |
-     | 5.313333 | 4.435836 | 5.087596 | 5.146912 | .0020599 | .0060296 | 4.633333 | .47864468 |
-     |----------------------------------------------------------------------------------------|
-     |                                       gini_fs~x                                        |
-     |                                       .43974221                                        |
-     +----------------------------------------------------------------------------------------+
+     +--------------------------------------------------------------+
+  9. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
+     | 1998q1 | 1998 |       1 | .55603067 | .49286135 |  .04669203 |
+     |--------------------------------------------------------------|
+     | demand_s~l | supply_s~k  | treasu~r  | log_in~o  | log_c~ne  |
+     | -1.7266199 |  1.4935128  | 5.313333  | 4.435836  | 5.087596  |
+     |--------------------------------------------------------------|
+     | log_c~re  | infl_h~e  | infl_c~e  |    unrate  |  gini_fi~x  |
+     | 5.146912  | .0020599  | .0060296  |  4.633333  |  .47864468  |
+     |--------------------------------------------------------------|
+     |                          gini_fs~x                           |
+     |                          .43974221                           |
+     +--------------------------------------------------------------+
 
-     +----------------------------------------------------------------------------------------+
- 10. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g | demand_s~l | supply_s~k |
-     | 1998q2 | 1998 |       2 | .57069699 | .50973879 | -.35200908 | -.43573239 |  .15393381 |
-     |----------------------------------------------------------------------------------------|
-     | treasu~r | log_in~o | log_c~ne | log_c~re | infl_h~e | infl_c~e |   unrate | gini_fi~x |
-     |     5.41 | 4.442409 | 5.090882 | 5.152519 | .0032854 | .0056071 |      4.4 | .47534157 |
-     |----------------------------------------------------------------------------------------|
-     |                                       gini_fs~x                                        |
-     |                                       .43696457                                        |
-     +----------------------------------------------------------------------------------------+
+     +--------------------------------------------------------------+
+ 10. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
+     | 1998q2 | 1998 |       2 | .57069699 | .50973879 | -.35200908 |
+     |--------------------------------------------------------------|
+     | demand_s~l | supply_s~k  | treasu~r  | log_in~o  | log_c~ne  |
+     | -.43573239 |  .15393381  |     5.41  | 4.442409  | 5.090882  |
+     |--------------------------------------------------------------|
+     | log_c~re  | infl_h~e  | infl_c~e  |    unrate  |  gini_fi~x  |
+     | 5.152519  | .0032854  | .0056071  |       4.4  |  .47534157  |
+     |--------------------------------------------------------------|
+     |                          gini_fs~x                           |
+     |                          .43696457                           |
+     +--------------------------------------------------------------+
 
 . if `n_final' > 10 {
 .     display _n "Last 10 observations:"
@@ -660,122 +718,152 @@ First 10 observations:
 Last 10 observations:
 .     list in `=`n_final'-9'/`n_final'
 
-     +----------------------------------------------------------------------------------------+
-103. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g | demand_s~l | supply_s~k |
-     | 2021q3 | 2021 |       3 | .58081106 | .51128158 | -.27989836 |  2.5936906 | -.71784132 |
-     |----------------------------------------------------------------------------------------|
-     | treasu~r | log_in~o | log_c~ne | log_c~re | infl_h~e | infl_c~e |   unrate | gini_fi~x |
-     | .0766667 | 4.602325 | 5.609051 | 5.631673 | .0159225 | .0128717 | 5.066667 | .48531073 |
-     |----------------------------------------------------------------------------------------|
-     |                                       gini_fs~x                                        |
-     |                                       .45746486                                        |
-     +----------------------------------------------------------------------------------------+
+     +--------------------------------------------------------------+
+103. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
+     | 2021q3 | 2021 |       3 | .58081106 | .51128158 | -.27989836 |
+     |--------------------------------------------------------------|
+     | demand_s~l | supply_s~k  | treasu~r  | log_in~o  | log_c~ne  |
+     |  2.5936906 | -.71784132  | .0766667  | 4.602325  | 5.609051  |
+     |--------------------------------------------------------------|
+     | log_c~re  | infl_h~e  | infl_c~e  |    unrate  |  gini_fi~x  |
+     | 5.631673  | .0159225  | .0128717  |  5.066667  |  .48531073  |
+     |--------------------------------------------------------------|
+     |                          gini_fs~x                           |
+     |                          .45746486                           |
+     +--------------------------------------------------------------+
 
-     +----------------------------------------------------------------------------------------+
-104. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g | demand_s~l | supply_s~k |
-     | 2021q4 | 2021 |       4 | .56104589 |  .4941321 |  .91520046 |  .05333804 |   .1080382 |
-     |----------------------------------------------------------------------------------------|
-     | treasu~r | log_in~o | log_c~ne | log_c~re | infl_h~e | infl_c~e |   unrate | gini_fi~x |
-     | .1966667 | 4.610566 | 5.630186 | 5.646942 | .0211349 | .0152688 |      4.2 | .48100253 |
-     |----------------------------------------------------------------------------------------|
-     |                                       gini_fs~x                                        |
-     |                                       .45328173                                        |
-     +----------------------------------------------------------------------------------------+
+     +--------------------------------------------------------------+
+104. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
+     | 2021q4 | 2021 |       4 | .56104589 |  .4941321 |  .91520046 |
+     |--------------------------------------------------------------|
+     | demand_s~l | supply_s~k  | treasu~r  | log_in~o  | log_c~ne  |
+     |  .05333804 |   .1080382  | .1966667  | 4.610566  | 5.630186  |
+     |--------------------------------------------------------------|
+     | log_c~re  | infl_h~e  | infl_c~e  |    unrate  |  gini_fi~x  |
+     | 5.646942  | .0211349  | .0152688  |       4.2  |  .48100253  |
+     |--------------------------------------------------------------|
+     |                          gini_fs~x                           |
+     |                          .45328173                           |
+     +--------------------------------------------------------------+
 
-     +----------------------------------------------------------------------------------------+
-105. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g | demand_s~l | supply_s~k |
-     | 2022q1 | 2022 |       1 | .56151048 |  .4920461 | -.37518262 |    5.75685 | -.81347367 |
-     |----------------------------------------------------------------------------------------|
-     | treasu~r | log_in~o | log_c~ne | log_c~re | infl_h~e | infl_c~e |   unrate | gini_fi~x |
-     | .9633334 | 4.613069 | 5.651919 |  5.66307 | .0217333 | .0161281 | 3.833333 | .47879043 |
-     |----------------------------------------------------------------------------------------|
-     |                                       gini_fs~x                                        |
-     |                                       .45564455                                        |
-     +----------------------------------------------------------------------------------------+
+     +--------------------------------------------------------------+
+105. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
+     | 2022q1 | 2022 |       1 | .56151048 |  .4920461 | -.37518262 |
+     |--------------------------------------------------------------|
+     | demand_s~l | supply_s~k  | treasu~r  | log_in~o  | log_c~ne  |
+     |    5.75685 | -.81347367  | .9633334  | 4.613069  | 5.651919  |
+     |--------------------------------------------------------------|
+     | log_c~re  | infl_h~e  | infl_c~e  |    unrate  |  gini_fi~x  |
+     |  5.66307  | .0217333  | .0161281  |  3.833333  |  .47879043  |
+     |--------------------------------------------------------------|
+     |                          gini_fs~x                           |
+     |                          .45564455                           |
+     +--------------------------------------------------------------+
 
-     +----------------------------------------------------------------------------------------+
-106. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g | demand_s~l | supply_s~k |
-     | 2022q2 | 2022 |       2 | .55958433 | .49410154 | -.03607096 |  1.6260728 | -.83130764 |
-     |----------------------------------------------------------------------------------------|
-     | treasu~r | log_in~o | log_c~ne | log_c~re | infl_h~e | infl_c~e |   unrate | gini_fi~x |
-     |      2.2 | 4.617728 | 5.675516 | 5.677337 | .0235972 | .0142674 | 3.633333 | .48527403 |
-     |----------------------------------------------------------------------------------------|
-     |                                       gini_fs~x                                        |
-     |                                       .45941147                                        |
-     +----------------------------------------------------------------------------------------+
+     +--------------------------------------------------------------+
+106. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
+     | 2022q2 | 2022 |       2 | .55958433 | .49410154 | -.03607096 |
+     |--------------------------------------------------------------|
+     | demand_s~l | supply_s~k  | treasu~r  | log_in~o  | log_c~ne  |
+     |  1.6260728 | -.83130764  |      2.2  | 4.617728  | 5.675516  |
+     |--------------------------------------------------------------|
+     | log_c~re  | infl_h~e  | infl_c~e  |    unrate  |  gini_fi~x  |
+     | 5.677337  | .0235972  | .0142674  |  3.633333  |  .48527403  |
+     |--------------------------------------------------------------|
+     |                          gini_fs~x                           |
+     |                          .45941147                           |
+     +--------------------------------------------------------------+
 
-     +----------------------------------------------------------------------------------------+
-107. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g | demand_s~l | supply_s~k |
-     | 2022q3 | 2022 |       3 | .56590725 | .49909802 |  .16599138 | -1.1559269 |  .57953785 |
-     |----------------------------------------------------------------------------------------|
-     | treasu~r | log_in~o | log_c~ne | log_c~re | infl_h~e | infl_c~e |   unrate | gini_fi~x |
-     | 3.396667 | 4.617135 | 5.688692 | 5.692535 |  .013176 | .0151982 | 3.533333 | .48338702 |
-     |----------------------------------------------------------------------------------------|
-     |                                       gini_fs~x                                        |
-     |                                       .46019374                                        |
-     +----------------------------------------------------------------------------------------+
+     +--------------------------------------------------------------+
+107. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
+     | 2022q3 | 2022 |       3 | .56590725 | .49909802 |  .16599138 |
+     |--------------------------------------------------------------|
+     | demand_s~l | supply_s~k  | treasu~r  | log_in~o  | log_c~ne  |
+     | -1.1559269 |  .57953785  | 3.396667  | 4.617135  | 5.688692  |
+     |--------------------------------------------------------------|
+     | log_c~re  | infl_h~e  | infl_c~e  |    unrate  |  gini_fi~x  |
+     | 5.692535  |  .013176  | .0151982  |  3.533333  |  .48338702  |
+     |--------------------------------------------------------------|
+     |                          gini_fs~x                           |
+     |                          .46019374                           |
+     +--------------------------------------------------------------+
 
-     +----------------------------------------------------------------------------------------+
-108. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g | demand_s~l | supply_s~k |
-     | 2022q4 | 2022 |       4 |  .5648933 | .49522039 | -.46528938 | -.56327645 |  -.5842276 |
-     |----------------------------------------------------------------------------------------|
-     | treasu~r | log_in~o | log_c~ne | log_c~re | infl_h~e | infl_c~e |   unrate | gini_fi~x |
-     | 4.613333 |  4.61171 | 5.698764 | 5.705033 | .0100718 | .0124979 | 3.566667 | .47741898 |
-     |----------------------------------------------------------------------------------------|
-     |                                       gini_fs~x                                        |
-     |                                       .45103259                                        |
-     +----------------------------------------------------------------------------------------+
+     +--------------------------------------------------------------+
+108. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
+     | 2022q4 | 2022 |       4 |  .5648933 | .49522039 | -.46528938 |
+     |--------------------------------------------------------------|
+     | demand_s~l | supply_s~k  | treasu~r  | log_in~o  | log_c~ne  |
+     | -.56327645 |  -.5842276  | 4.613333  |  4.61171  | 5.698764  |
+     |--------------------------------------------------------------|
+     | log_c~re  | infl_h~e  | infl_c~e  |    unrate  |  gini_fi~x  |
+     | 5.705033  | .0100718  | .0124979  |  3.566667  |  .47741898  |
+     |--------------------------------------------------------------|
+     |                          gini_fs~x                           |
+     |                          .45103259                           |
+     +--------------------------------------------------------------+
 
-     +----------------------------------------------------------------------------------------+
-109. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g | demand_s~l | supply_s~k |
-     | 2023q1 | 2023 |       1 |  .5637275 | .49166846 |  .42797086 |  -1.471965 |  .09826106 |
-     |----------------------------------------------------------------------------------------|
-     | treasu~r | log_in~o | log_c~ne | log_c~re | infl_h~e | infl_c~e |   unrate | gini_fi~x |
-     | 4.766666 | 4.612366 | 5.707746 | 5.716918 | .0089817 | .0118847 | 3.533333 | .48617877 |
-     |----------------------------------------------------------------------------------------|
-     |                                       gini_fs~x                                        |
-     |                                       .45274866                                        |
-     +----------------------------------------------------------------------------------------+
+     +--------------------------------------------------------------+
+109. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
+     | 2023q1 | 2023 |       1 |  .5637275 | .49166846 |  .42797086 |
+     |--------------------------------------------------------------|
+     | demand_s~l | supply_s~k  | treasu~r  | log_in~o  | log_c~ne  |
+     |  -1.471965 |  .09826106  | 4.766666  | 4.612366  | 5.707746  |
+     |--------------------------------------------------------------|
+     | log_c~re  | infl_h~e  | infl_c~e  |    unrate  |  gini_fi~x  |
+     | 5.716918  | .0089817  | .0118847  |  3.533333  |  .48617877  |
+     |--------------------------------------------------------------|
+     |                          gini_fs~x                           |
+     |                          .45274866                           |
+     +--------------------------------------------------------------+
 
-     +----------------------------------------------------------------------------------------+
-110. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g | demand_s~l | supply_s~k |
-     | 2023q2 | 2023 |       2 | .57187048 | .50254818 | -.25151829 |   .6693601 | -.23768009 |
-     |----------------------------------------------------------------------------------------|
-     | treasu~r | log_in~o | log_c~ne | log_c~re | infl_h~e | infl_c~e |   unrate | gini_fi~x |
-     | 4.943333 | 4.612801 | 5.715131 | 5.728368 | .0073853 | .0114503 | 3.533333 | .47275295 |
-     |----------------------------------------------------------------------------------------|
-     |                                       gini_fs~x                                        |
-     |                                       .44480244                                        |
-     +----------------------------------------------------------------------------------------+
+     +--------------------------------------------------------------+
+110. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
+     | 2023q2 | 2023 |       2 | .57187048 | .50254818 | -.25151829 |
+     |--------------------------------------------------------------|
+     | demand_s~l | supply_s~k  | treasu~r  | log_in~o  | log_c~ne  |
+     |   .6693601 | -.23768009  | 4.943333  | 4.612801  | 5.715131  |
+     |--------------------------------------------------------------|
+     | log_c~re  | infl_h~e  | infl_c~e  |    unrate  |  gini_fi~x  |
+     | 5.728368  | .0073853  | .0114503  |  3.533333  |  .47275295  |
+     |--------------------------------------------------------------|
+     |                          gini_fs~x                           |
+     |                          .44480244                           |
+     +--------------------------------------------------------------+
 
-     +----------------------------------------------------------------------------------------+
-111. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g | demand_s~l | supply_s~k |
-     | 2023q3 | 2023 |       3 | .58067498 | .50861322 | -.28728549 |  2.5030403 | -1.0854051 |
-     |----------------------------------------------------------------------------------------|
-     | treasu~r | log_in~o | log_c~ne | log_c~re | infl_h~e | infl_c~e |   unrate | gini_fi~x |
-     | 5.393333 | 4.614351 | 5.723717 | 5.735732 | .0085859 | .0073638 | 3.666667 | .48360981 |
-     |----------------------------------------------------------------------------------------|
-     |                                       gini_fs~x                                        |
-     |                                        .4459636                                        |
-     +----------------------------------------------------------------------------------------+
+     +--------------------------------------------------------------+
+111. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
+     | 2023q3 | 2023 |       3 | .58067498 | .50861322 | -.28728549 |
+     |--------------------------------------------------------------|
+     | demand_s~l | supply_s~k  | treasu~r  | log_in~o  | log_c~ne  |
+     |  2.5030403 | -1.0854051  | 5.393333  | 4.614351  | 5.723717  |
+     |--------------------------------------------------------------|
+     | log_c~re  | infl_h~e  | infl_c~e  |    unrate  |  gini_fi~x  |
+     | 5.735732  | .0085859  | .0073638  |  3.666667  |  .48360981  |
+     |--------------------------------------------------------------|
+     |                          gini_fs~x                           |
+     |                           .4459636                           |
+     +--------------------------------------------------------------+
 
-     +----------------------------------------------------------------------------------------+
-112. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g | demand_s~l | supply_s~k |
-     | 2023q4 | 2023 |       4 | .56300383 | .49200142 |  .03643316 | -2.9591179 |  .24835329 |
-     |----------------------------------------------------------------------------------------|
-     | treasu~r | log_in~o | log_c~ne | log_c~re | infl_h~e | infl_c~e |   unrate | gini_fi~x |
-     |     5.22 | 4.611601 | 5.730613 | 5.744107 |  .006896 | .0083747 |      3.8 | .49226489 |
-     |----------------------------------------------------------------------------------------|
-     |                                       gini_fs~x                                        |
-     |                                       .45652635                                        |
-     +----------------------------------------------------------------------------------------+
+     +--------------------------------------------------------------+
+112. |  qdate | year | quarter | gini_core | gini_br~d | demand_s~g |
+     | 2023q4 | 2023 |       4 | .56300383 | .49200142 |  .03643316 |
+     |--------------------------------------------------------------|
+     | demand_s~l | supply_s~k  | treasu~r  | log_in~o  | log_c~ne  |
+     | -2.9591179 |  .24835329  |     5.22  | 4.611601  | 5.730613  |
+     |--------------------------------------------------------------|
+     | log_c~re  | infl_h~e  | infl_c~e  |    unrate  |  gini_fi~x  |
+     | 5.744107  |  .006896  | .0083747  |       3.8  |  .49226489  |
+     |--------------------------------------------------------------|
+     |                          gini_fs~x                           |
+     |                          .45652635                           |
+     +--------------------------------------------------------------+
 . }
 
 . 
 . display _n "Final dataset saved: $deriv/gini_bh_shocks_fred_merged.dta"
 
-Final dataset saved: /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Data/CEX/derived/gini_bh
-> _shocks_fred_merged.dta
+Final dataset saved: /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/D
+> ata/CEX/derived/gini_bh_shocks_fred_merged.dta
 
 . 
 . ****************************************************
@@ -838,35 +926,47 @@ Last observation: 2023q4
 
 . describe, fullnames
 
-Contains data from /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Data/CEX/derived/gini_bh_s
-> hocks_fred_merged.dta
+Contains data from /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Dat
+> a/CEX/derived/gini_bh_shocks_fred_merged.dta
  Observations:           112                  
-    Variables:            17                  14 Jan 2026 06:32
-------------------------------------------------------------------------------------------------
+    Variables:            17                  24 Jan 2026 13:19
+-------------------------------------------------------------------------
 Variable      Storage   Display    Value
     name         type    format    label      Variable label
-------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------
 qdate           float   %tq                   Stata quarterly date
 year            float   %8.0g                 Year
 quarter         float   %8.0g                 Quarter (. = annual)
-gini_core       double  %10.0g                Gini coefficient - core consumption
-gini_broad      double  %10.0g                Gini coefficient - broad consumption
+gini_core       double  %10.0g                Gini coefficient - core
+                                                consumption
+gini_broad      double  %10.0g                Gini coefficient - broad
+                                                consumption
 demand_shock_agg
-                double  %10.0g                BH aggregate demand shock (economic activity)
+                double  %10.0g                BH aggregate demand shock
+                                                (economic activity)
 demand_shock_oil
-                double  %10.0g                BH oil consumption demand shock (oil market)
+                double  %10.0g                BH oil consumption demand
+                                                shock (oil market)
 supply_shock    double  %10.0g                BH supply shock
 treasury_1yr    float   %9.0g                 1-year Treasury yield (%)
-log_indpro      float   %9.0g                 Log Industrial Production (quarterly average)
+log_indpro      float   %9.0g                 Log Industrial Production
+                                                (quarterly average)
 log_cpi_headline
-                float   %9.0g                 Log Headline CPI (quarterly average)
-log_cpi_core    float   %9.0g                 Log Core CPI (quarterly average)
-infl_headline   float   %9.0g                 Headline inflation (quarterly, log difference)
-infl_core       float   %9.0g                 Core inflation (quarterly, log difference)
+                float   %9.0g                 Log Headline CPI (quarterly
+                                                average)
+log_cpi_core    float   %9.0g                 Log Core CPI (quarterly
+                                                average)
+infl_headline   float   %9.0g                 Headline inflation
+                                                (quarterly, log
+                                                difference)
+infl_core       float   %9.0g                 Core inflation (quarterly,
+                                                log difference)
 unrate          float   %9.0g                 Unemployment rate (%)
-gini_fincbtax   double  %10.0g                Gini coefficient - income before taxes
-gini_fsalaryx   double  %10.0g                Gini coefficient - salary income
-------------------------------------------------------------------------------------------------
+gini_fincbtax   double  %10.0g                Gini coefficient - income
+                                                before taxes
+gini_fsalaryx   double  %10.0g                Gini coefficient - salary
+                                                income
+-------------------------------------------------------------------------
 Sorted by: qdate
 
 . 
@@ -937,8 +1037,10 @@ gini_fsala~x |        112    .4478432     .008583   .4269168   .4737223
  19.     local n_miss = r(N)
  20.     local n_total = `n_nonmiss' + `n_miss'
  21.     display "Total observations: `n_total'"
- 22.     display "Non-missing: `n_nonmiss' (" %5.2f = 100*`n_nonmiss'/`n_total' "%)"
- 23.     display "Missing: `n_miss' (" %5.2f = 100*`n_miss'/`n_total' "%)"
+ 22.     display "Non-missing: `n_nonmiss' (" %5.2f = 100*`n_nonmiss'/`n_
+> total' "%)"
+ 23.     display "Missing: `n_miss' (" %5.2f = 100*`n_miss'/`n_total' "%)
+> "
  24.     
 .     * Summary statistics for numeric variables
 .     capture confirm numeric variable `var'
@@ -1261,7 +1363,8 @@ END OF VARIABLE SUMMARY
 . * Close log file
 . log close
       name:  <unnamed>
-       log:  /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/05_merge_fred_data.log
+       log:  /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/05_merge_
+> fred_data.log
   log type:  text
- closed on:  14 Jan 2026, 06:32:27
-------------------------------------------------------------------------------------------------
+ closed on:  24 Jan 2026, 13:19:04
+-------------------------------------------------------------------------

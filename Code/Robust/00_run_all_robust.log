@@ -1,0 +1,337 @@
+---------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Robust/00_r
+> un_all_robust.log
+  log type:  text
+ opened on:  20 Jan 2026, 12:17:12
+
+. 
+. display _n "========================================"
+
+========================================
+
+. display "ROBUST BASELINE PIPELINE (RR shocks only)"
+ROBUST BASELINE PIPELINE (RR shocks only)
+
+. display "========================================" _n
+========================================
+
+
+. 
+. ****************************************************
+. * 1. Build baseline Gini panel for 1990–2008
+. ****************************************************
+. 
+. do "$robust/01_build_gini_baseline.do"
+
+. ****************************************************
+. * 01_build_gini_baseline.do
+. * Baseline Gini panel for 1990–2008
+. *
+. * Uses the final BH + FRED merged dataset from the main pipeline:
+. *   $deriv/gini_bh_shocks_fred_merged.dta
+. *
+. * Keeps:
+. *   - year, quarter, qdate
+. *   - 4 Gini measures:
+. *       gini_core
+. *       gini_broad
+. *       gini_fincbtax
+. *       gini_fsalaryx
+. *
+. * Restricts to 1990–2008 and saves into Robust/Data.
+. ****************************************************
+. 
+. clear all
+
+. set more off
+
+. 
+. * Expect globals from 00_run_all_robust.do, but define safe defaults
+. capture confirm global deriv
+
+. if _rc {
+.     global deriv "/Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Data
+> /CEX/derived"
+. }
+
+. capture confirm global robust_data
+
+. if _rc {
+.     global robust_data "/Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Cod
+> e/Robust/Data"
+. }
+
+. 
+. display _n "=== Building baseline Gini panel for 1990–2008 ==="
+
+=== Building baseline Gini panel for 1990–2008 ===
+
+. 
+. * Start from final BH + FRED merged dataset, which already
+. * contains Ginis and macro controls used in 06_local_projections.do
+. use "$deriv/gini_bh_shocks_fred_merged.dta", clear
+
+. 
+. * Keep only variables needed for LPs (4 Ginis + time vars)
+. keep year quarter qdate ///
+>      gini_core gini_broad gini_fincbtax gini_fsalaryx
+
+. 
+. * Restrict to 1990–2008
+. keep if year >= 1990 & year <= 2008
+(60 observations deleted)
+
+. 
+. * Basic sanity check
+. summarize year quarter
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+        year |         52        2002    3.778162       1996       2008
+     quarter |         52         2.5    1.128942          1          4
+
+. display "Years in sample (min/max): " r(min) " / " r(max)
+Years in sample (min/max): 1 / 4
+
+. 
+. * Save to Robust/Data
+. save "$robust_data/gini_baseline_1990_2008_quarterly.dta", replace
+file /Volumes/SSD
+    PRO/Github-forks/Chp3-EnergyIneq/Code/Robust/Data/gini_baseline_1990_
+    > 2008_quarterly.dta saved
+
+. 
+. display "Saved baseline Gini panel to:"
+Saved baseline Gini panel to:
+
+. display "  $robust_data/gini_baseline_1990_2008_quarterly.dta"
+  /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Robust/Data/gini_basel
+> ine_1990_2008_quarterly.dta
+
+. 
+. 
+end of do-file
+
+. 
+. ****************************************************
+. * 2. Merge Greenbook RR shocks (sh_rr)
+. ****************************************************
+. 
+. do "$robust/02_merge_rr_shocks_baseline.do"
+
+. ****************************************************
+. * 02_merge_rr_shocks_baseline.do
+. * Merge Greenbook Romer–Romer shocks (sh_rr)
+. * into the baseline Gini panel for 1990–2008.
+. *
+. * Inputs:
+. *   $robust_data/gini_baseline_1990_2008_quarterly.dta
+. *   /Volumes/SSD PRO/Downloads/replication_folder/source_files/RR_shocks_
+> updated.dta
+. *
+. * Output:
+. *   $robust_data/gini_rr_merged_baseline.dta
+. ****************************************************
+. 
+. clear all
+
+. set more off
+
+. 
+. * Expect globals from 00_run_all_robust.do, but define safe defaults
+. capture confirm global robust_data
+
+. if _rc {
+.     global robust_data "/Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Cod
+> e/Robust/Data"
+. }
+
+. 
+. display _n "=== Merging Greenbook RR shocks (sh_rr) with baseline Ginis =
+> =="
+
+=== Merging Greenbook RR shocks (sh_rr) with baseline Ginis ===
+
+. 
+. * Load baseline Gini panel (1990–2008)
+. use "$robust_data/gini_baseline_1990_2008_quarterly.dta", clear
+
+. 
+. * Keep only years where RR shocks exist (should overlap 1969+, but we tri
+> m to 1990–2008)
+. keep if year >= 1990 & year <= 2008
+(0 observations deleted)
+
+. 
+. * Save a copy of key structure
+. tempfile gini_base
+
+. save `gini_base', replace
+(file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_06628.000001
+    not found)
+file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_06628.000001
+    saved as .dta format
+
+. 
+. * Load RR shocks
+. use "/Volumes/SSD PRO/Downloads/replication_folder/source_files/RR_shocks
+> _updated.dta", clear
+
+. 
+. * Expect variables: year, quarter, sh_rr
+. capture confirm variable year quarter sh_rr
+
+. if _rc {
+.     display "ERROR: Expected variables year, quarter, sh_rr not all found
+>  in RR_shocks_updated.dta"
+.     describe
+.     exit 111
+. }
+
+. 
+. * Restrict RR shocks to 1990–2008
+. keep if year >= 1990 & year <= 2008
+(84 observations deleted)
+
+. 
+. * Sort for merge
+. sort year quarter
+
+. 
+. tempfile rr
+
+. save `rr', replace
+(file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_06628.000002
+    not found)
+file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_06628.000002
+    saved as .dta format
+
+. 
+. * Merge into Gini panel
+. use `gini_base', clear
+
+. sort year quarter
+
+. 
+. merge 1:1 year quarter using `rr'
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                            24
+        from master                         0  (_merge==1)
+        from using                         24  (_merge==2)
+
+    Matched                                52  (_merge==3)
+    -----------------------------------------
+
+. 
+. display _n "Merge result:"
+
+Merge result:
+
+. tab _merge
+
+   Matching result from |
+                  merge |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+         Using only (2) |         24       31.58       31.58
+            Matched (3) |         52       68.42      100.00
+------------------------+-----------------------------------
+                  Total |         76      100.00
+
+. 
+. * Keep only matched observations
+. keep if _merge == 3
+(24 observations deleted)
+
+. drop _merge
+
+. 
+. * Sanity check
+. summarize sh_rr
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+       sh_rr |         52   -.0184887    .3105356  -.9360217   .6089446
+
+. display "Non-missing sh_rr observations: " r(N)
+Non-missing sh_rr observations: 52
+
+. 
+. save "$robust_data/gini_rr_merged_baseline.dta", replace
+file /Volumes/SSD
+    PRO/Github-forks/Chp3-EnergyIneq/Code/Robust/Data/gini_rr_merged_base
+    > line.dta saved
+
+. 
+. display "Saved merged Gini + RR shocks to:"
+Saved merged Gini + RR shocks to:
+
+. display "  $robust_data/gini_rr_merged_baseline.dta"
+  /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Robust/Data/gini_rr_me
+> rged_baseline.dta
+
+. 
+. 
+end of do-file
+
+. 
+. ****************************************************
+. * 3. Run local projections (RR → 4 Ginis)
+. ****************************************************
+. 
+. do "$robust/03_local_projections_rr_baseline.do"
+
+. ****************************************************
+. * 03_local_projections_rr_baseline.do
+. * Local Projections: RR shocks (sh_rr) → 4 Gini measures
+. *
+. * Dataset:
+. *   $robust_data/gini_rr_merged_baseline.dta
+. *
+. * Outcomes:
+. *   gini_core
+. *   gini_broad
+. *   gini_fincbtax
+. *   gini_fsalaryx
+. *
+. * Shock:
+. *   sh_rr   (Greenbook Romer–Romer MP shock)
+. *
+. * This is a stripped-down version of 06_local_projections.do:
+. * - Only one shock (sh_rr)
+. * - Only 4 Ginis as outcomes
+. * - No macro controls (for speed and transparency)
+. ****************************************************
+. 
+. clear all
+
+. set more off
+
+. 
+. * Expect globals from 00_run_all_robust.do, but define safe defaults
+. capture confirm global robust_data
+
+. if _rc {
+.     global robust_data "/Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Cod
+> e/Robust/Data"
+. }
+
+. capture confirm global robust_tables
+
+. if _rc {
+.     global robust_tables "/Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/C
+> ode/Robust/Tables"
+. }
+
+. capture confirm global robust_figures
+
+. if _rc {
+.     global robust_figures "/Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/
+> Code/Robust/Figures"
+. }
+
+. 
+. * Open log
+. capture log close

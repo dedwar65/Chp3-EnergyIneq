@@ -1,0 +1,85 @@
+outcome,outcome_label,horizon,shock_type,shock_label,coefficient,se,ci_lower,ci_upper
+gini_broad,Gini coefficient - broad consumption,0,sh_rr,Quarterly Frequency,.0008704721617763,.0034775660878498,-.0059455573704093,.0076865016939619
+gini_broad,Gini coefficient - broad consumption,1,sh_rr,Quarterly Frequency,.002009092369298,.0044564031195832,-.0067254577450851,.0107436424836811
+gini_broad,Gini coefficient - broad consumption,2,sh_rr,Quarterly Frequency,.0013020181598634,.0040437211178165,-.0066236752310569,.0092277115507837
+gini_broad,Gini coefficient - broad consumption,3,sh_rr,Quarterly Frequency,.0003391508757841,.0057028973037705,-.0108385278396061,.0115168295911743
+gini_broad,Gini coefficient - broad consumption,4,sh_rr,Quarterly Frequency,-.0042448866323862,.0049692623688567,-.0139846408753453,.0054948676105729
+gini_broad,Gini coefficient - broad consumption,5,sh_rr,Quarterly Frequency,-.0064835328424429,.0052523799981282,-.0167781976387742,.0038111319538884
+gini_broad,Gini coefficient - broad consumption,6,sh_rr,Quarterly Frequency,-.0095886937648227,.0031247892596202,-.0157132807136783,-.0034641068159671
+gini_broad,Gini coefficient - broad consumption,7,sh_rr,Quarterly Frequency,-.0161357800240794,.0060139875313345,-.027923195585495,-.0043483644626638
+gini_broad,Gini coefficient - broad consumption,8,sh_rr,Quarterly Frequency,-.0181879396539768,.0078682159997058,-.0336096430134002,-.0027662362945534
+gini_broad,Gini coefficient - broad consumption,9,sh_rr,Quarterly Frequency,-.0157266882276801,.0090345741373418,-.03343445353687,.0019810770815098
+gini_broad,Gini coefficient - broad consumption,10,sh_rr,Quarterly Frequency,-.016034271450516,.0086011191962569,-.0328924650751795,.0008239221741475
+gini_broad,Gini coefficient - broad consumption,11,sh_rr,Quarterly Frequency,-.0170881504657643,.0079922995079028,-.0327530575012538,-.0014232434302748
+gini_broad,Gini coefficient - broad consumption,12,sh_rr,Quarterly Frequency,-.0120560205567884,.0129314219542892,-.0374016075871952,.0132895664736184
+gini_broad,Gini coefficient - broad consumption,13,sh_rr,Quarterly Frequency,-.0111052087133306,.0122821789477419,-.0351782794509047,.0129678620242435
+gini_broad,Gini coefficient - broad consumption,14,sh_rr,Quarterly Frequency,-.014172396466258,.0101713239700151,-.0341081914474876,.0057633985149716
+gini_broad,Gini coefficient - broad consumption,15,sh_rr,Quarterly Frequency,-.0069437977741552,.0096001591339545,-.025760109676706,.0118725141283956
+gini_broad,Gini coefficient - broad consumption,16,sh_rr,Quarterly Frequency,.0026185302298195,.0091402072669837,-.0152962760134686,.0205333364731076
+gini_broad,Gini coefficient - broad consumption,17,sh_rr,Quarterly Frequency,.0053081092075071,.0071842576983214,-.0087730358812028,.019389254296217
+gini_broad,Gini coefficient - broad consumption,18,sh_rr,Quarterly Frequency,.0048978699991498,.0034221840769387,-.0018096107916501,.0116053507899497
+gini_broad,Gini coefficient - broad consumption,19,sh_rr,Quarterly Frequency,.008963737955971,.0045573529230031,.0000313262268849,.0178961496850571
+gini_broad,Gini coefficient - broad consumption,20,sh_rr,Quarterly Frequency,.0095727951426273,.0029612678254677,.0037687102047106,.015376880080544
+gini_core,Gini coefficient - core consumption,0,sh_rr,Quarterly Frequency,.0008309293552419,.0037337180694696,-.0064871580609185,.0081490167714023
+gini_core,Gini coefficient - core consumption,1,sh_rr,Quarterly Frequency,.0034102626195892,.0051017669305653,-.0065892005643188,.0134097258034972
+gini_core,Gini coefficient - core consumption,2,sh_rr,Quarterly Frequency,.0008289433055443,.0043652762232347,-.0077269980919957,.0093848847030843
+gini_core,Gini coefficient - core consumption,3,sh_rr,Quarterly Frequency,-.0002958362142006,.0057795607908502,-.011623775364267,.0110321029358658
+gini_core,Gini coefficient - core consumption,4,sh_rr,Quarterly Frequency,-.0038761416399702,.0047091116925639,-.0131060005573954,.005353717277455
+gini_core,Gini coefficient - core consumption,5,sh_rr,Quarterly Frequency,-.0071786910508961,.0045396472163812,-.0160763995950033,.0017190174932111
+gini_core,Gini coefficient - core consumption,6,sh_rr,Quarterly Frequency,-.0120206030189156,.0030726359281026,-.0180429694379967,-.0059982365998345
+gini_core,Gini coefficient - core consumption,7,sh_rr,Quarterly Frequency,-.017519207037746,.0056317837200624,-.0285575031290683,-.0064809109464237
+gini_core,Gini coefficient - core consumption,8,sh_rr,Quarterly Frequency,-.0197167132634907,.0080934108508046,-.0355797985310677,-.0038536279959137
+gini_core,Gini coefficient - core consumption,9,sh_rr,Quarterly Frequency,-.0168484352725138,.0083421912556491,-.033199130133586,-.0004977404114416
+gini_core,Gini coefficient - core consumption,10,sh_rr,Quarterly Frequency,-.0174626786867078,.008395097098099,-.0339170689989818,-.0010082883744338
+gini_core,Gini coefficient - core consumption,11,sh_rr,Quarterly Frequency,-.0178770891096947,.0079867800091345,-.0335311779275983,-.0022230002917911
+gini_core,Gini coefficient - core consumption,12,sh_rr,Quarterly Frequency,-.0125031498195424,.013370197367528,-.0387087366598973,.0137024370208125
+gini_core,Gini coefficient - core consumption,13,sh_rr,Quarterly Frequency,-.0120517740835988,.0125800587220632,-.0367086891788427,.0126051410116451
+gini_core,Gini coefficient - core consumption,14,sh_rr,Quarterly Frequency,-.0152784426361416,.0104555433570859,-.03577130761603,.0052144223437468
+gini_core,Gini coefficient - core consumption,15,sh_rr,Quarterly Frequency,-.0065902751074311,.0100983881354301,-.0263831158528741,.0132025656380119
+gini_core,Gini coefficient - core consumption,16,sh_rr,Quarterly Frequency,.0043004963633352,.0091153131960131,-.0135655175008505,.0221665102275209
+gini_core,Gini coefficient - core consumption,17,sh_rr,Quarterly Frequency,.0059974636682655,.0069630727624356,-.0076501589461083,.0196450862826393
+gini_core,Gini coefficient - core consumption,18,sh_rr,Quarterly Frequency,.0053253697969685,.0037756075226168,-.0020748209473604,.0127255605412974
+gini_core,Gini coefficient - core consumption,19,sh_rr,Quarterly Frequency,.0105980125190092,.0045717711225185,.0016373411188729,.0195586839191455
+gini_core,Gini coefficient - core consumption,20,sh_rr,Quarterly Frequency,.0129897748899116,.0026212263995258,.007852171146841,.0181273786329822
+gini_fincbtax,Gini coefficient - income before taxes,0,sh_rr,Quarterly Frequency,.0006482570618176,.0026718476447258,-.004588564321845,.0058850784454802
+gini_fincbtax,Gini coefficient - income before taxes,1,sh_rr,Quarterly Frequency,.0028395500073151,.0036728282475319,-.0043591933578474,.0100382933724776
+gini_fincbtax,Gini coefficient - income before taxes,2,sh_rr,Quarterly Frequency,.0063996606302667,.0041238514358075,-.001683088183916,.0144824094444494
+gini_fincbtax,Gini coefficient - income before taxes,3,sh_rr,Quarterly Frequency,.00558026023797,.0052372919568809,-.0046848319975166,.0158453524734566
+gini_fincbtax,Gini coefficient - income before taxes,4,sh_rr,Quarterly Frequency,-.0007040524902701,.0064802456446146,-.0134053339537147,.0119972289731745
+gini_fincbtax,Gini coefficient - income before taxes,5,sh_rr,Quarterly Frequency,.0042399321778243,.0072824797535692,-.0100337281391713,.0185135924948199
+gini_fincbtax,Gini coefficient - income before taxes,6,sh_rr,Quarterly Frequency,.0005648573065759,.0066009568191806,-.0123730180590181,.0135027326721699
+gini_fincbtax,Gini coefficient - income before taxes,7,sh_rr,Quarterly Frequency,-.0105509406857416,.0057253926235094,-.02177271022782,.0006708288563368
+gini_fincbtax,Gini coefficient - income before taxes,8,sh_rr,Quarterly Frequency,-.0046777997088606,.0089261931404091,-.0221731382640624,.0128175388463412
+gini_fincbtax,Gini coefficient - income before taxes,9,sh_rr,Quarterly Frequency,.0008558907640726,.011019635474794,-.0207425947665236,.0224543762946688
+gini_fincbtax,Gini coefficient - income before taxes,10,sh_rr,Quarterly Frequency,.0041090008925629,.0092188085161494,-.0139598637990899,.0221778655842157
+gini_fincbtax,Gini coefficient - income before taxes,11,sh_rr,Quarterly Frequency,.0143995364779425,.0100063796699046,-.0052129676750705,.0340120406309555
+gini_fincbtax,Gini coefficient - income before taxes,12,sh_rr,Quarterly Frequency,.0133834146035502,.0091600728716465,-.0045703282248769,.0313371574319773
+gini_fincbtax,Gini coefficient - income before taxes,13,sh_rr,Quarterly Frequency,.0079589185481864,.0053856315134675,-.0025969192182099,.0185147563145827
+gini_fincbtax,Gini coefficient - income before taxes,14,sh_rr,Quarterly Frequency,.0120332650256224,.0033981193281458,.0053729511424566,.0186935789087882
+gini_fincbtax,Gini coefficient - income before taxes,15,sh_rr,Quarterly Frequency,.0024163219311659,.0064545249612529,-.0102345469928898,.0150671908552216
+gini_fincbtax,Gini coefficient - income before taxes,16,sh_rr,Quarterly Frequency,-.0028104959195815,.0065327728614162,-.0156147307279573,.0099937388887943
+gini_fincbtax,Gini coefficient - income before taxes,17,sh_rr,Quarterly Frequency,.0074165059408456,.0057496499524132,-.0038528079658843,.0186858198475755
+gini_fincbtax,Gini coefficient - income before taxes,18,sh_rr,Quarterly Frequency,.0048513063702806,.0042597775779629,-.0034978576825267,.0132004704230879
+gini_fincbtax,Gini coefficient - income before taxes,19,sh_rr,Quarterly Frequency,.0029618943997467,.0043052970489416,-.0054764878161788,.0114002766156722
+gini_fincbtax,Gini coefficient - income before taxes,20,sh_rr,Quarterly Frequency,.0066599788550763,.0036500168044471,-.00049405408164,.0138140117917926
+gini_fsalaryx,Gini coefficient - salary income,0,sh_rr,Quarterly Frequency,-.0033850947423782,.0027034269182626,-.0086838115021729,.0019136220174165
+gini_fsalaryx,Gini coefficient - salary income,1,sh_rr,Quarterly Frequency,-.0034913809290076,.0030306089081591,-.0094313743889994,.0024486125309842
+gini_fsalaryx,Gini coefficient - salary income,2,sh_rr,Quarterly Frequency,.000611544418805,.0025334726164354,-.0043540619094084,.0055771507470184
+gini_fsalaryx,Gini coefficient - salary income,3,sh_rr,Quarterly Frequency,-.0027286030713163,.0029729900881386,-.008555663644068,.0030984575014354
+gini_fsalaryx,Gini coefficient - salary income,4,sh_rr,Quarterly Frequency,-.0071523713901022,.0026763375740104,-.0123979930351626,-.0019067497450418
+gini_fsalaryx,Gini coefficient - salary income,5,sh_rr,Quarterly Frequency,-.001710207943105,.0031581969173758,-.0079002739011616,.0044798580149516
+gini_fsalaryx,Gini coefficient - salary income,6,sh_rr,Quarterly Frequency,-.0008581520714026,.0030659727253107,-.0068674586130116,.0051511544702064
+gini_fsalaryx,Gini coefficient - salary income,7,sh_rr,Quarterly Frequency,-.0058089354225321,.0044720559827793,-.0145741651487795,.0029562943037153
+gini_fsalaryx,Gini coefficient - salary income,8,sh_rr,Quarterly Frequency,-.0038766979402723,.0024995175308918,-.0087757523008202,.0010223564202756
+gini_fsalaryx,Gini coefficient - salary income,9,sh_rr,Quarterly Frequency,-.0022649879810583,.0018945829117923,-.0059783704881712,.0014483945260546
+gini_fsalaryx,Gini coefficient - salary income,10,sh_rr,Quarterly Frequency,.0043063172340904,.0022181567848243,-.0000412700641652,.008653904532346
+gini_fsalaryx,Gini coefficient - salary income,11,sh_rr,Quarterly Frequency,.010664970892968,.0042630932752502,.0023093080734776,.0190206337124584
+gini_fsalaryx,Gini coefficient - salary income,12,sh_rr,Quarterly Frequency,.0064599933824276,.0039244387546361,-.0012319065766592,.0141518933415144
+gini_fsalaryx,Gini coefficient - salary income,13,sh_rr,Quarterly Frequency,.0038181259759291,.0043597910464451,-.0047270644751033,.0123633164269615
+gini_fsalaryx,Gini coefficient - salary income,14,sh_rr,Quarterly Frequency,.0079649684854412,.0026524924131011,.002766083355763,.0131638536151194
+gini_fsalaryx,Gini coefficient - salary income,15,sh_rr,Quarterly Frequency,-.002664871796612,.0031193911012981,-.0087788783551563,.0034491347619323
+gini_fsalaryx,Gini coefficient - salary income,16,sh_rr,Quarterly Frequency,-.005944594163728,.0024086384628771,-.0106655255509671,-.0012236627764889
+gini_fsalaryx,Gini coefficient - salary income,17,sh_rr,Quarterly Frequency,.0034784258520083,.0026987132755823,-.001811052168133,.0087679038721496
+gini_fsalaryx,Gini coefficient - salary income,18,sh_rr,Quarterly Frequency,.0013549670320502,.0021313660495031,-.0028225104249759,.0055324444890763
+gini_fsalaryx,Gini coefficient - salary income,19,sh_rr,Quarterly Frequency,.0052605074681017,.0023269647650152,.0006996565286719,.0098213584075315
+gini_fsalaryx,Gini coefficient - salary income,20,sh_rr,Quarterly Frequency,.0054528244919373,.0027744074217223,.0000149859453616,.010890663038513

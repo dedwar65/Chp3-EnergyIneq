@@ -1,0 +1,50 @@
+----------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Robust/04_run_all_robust.log
+  log type:  text
+ opened on:  16 Jan 2026, 23:57:36
+
+. 
+. display _n "========================================"
+
+========================================
+
+. display "ROBUST REPLICATION: TOGGLE-BASED METHODOLOGY COMPARISON"
+ROBUST REPLICATION: TOGGLE-BASED METHODOLOGY COMPARISON
+
+. display "========================================" _n
+========================================
+
+
+. 
+. ****************************************************
+. * Step 1: Merge CGK shocks (run once)
+. ****************************************************
+. display _n "=== Step 1: Merging CGK Shocks ==="
+
+=== Step 1: Merging CGK Shocks ===
+
+. do "$code/Robust/01_merge_cgk_shocks.do"
+
+. ****************************************************
+. * 01_merge_cgk_shocks.do
+. * Import CGK shock files and merge with quarterly Gini data (1990-2023)
+. * Shocks: Romer-Romer, Gorodnichenko-Weber Fed Funds Futures, Trend Inflation
+. ****************************************************
+. 
+. clear all
+
+. set more off
+
+. 
+. global cgk_source "/Volumes/SSD PRO/Downloads/replication_folder/source_files"
+
+. global deriv "/Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Data/CEX/derived"
+
+. global robust_data "/Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/Robust/Data"
+
+. global code "/Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code"
+
+. 
+. * Close any open log file, then open new log file
+. capture log close

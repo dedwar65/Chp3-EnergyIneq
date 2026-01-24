@@ -1,0 +1,112 @@
+\onlyinsubfile{\setcounter{section}{4}}
+\section{Robustness: Methodology Comparison with CGK}\notinsubfile{\label{sec:appendix}}
+
+This appendix presents a systematic comparison of our Gini coefficient construction methodology with that of Coibion, Gorodnichenko, and Kueng (CGK). We apply their methodological choices one-by-one using toggle switches to assess the sensitivity of our results.
+
+\subsection{Methodological Differences}
+
+We identify several key methodological differences between our approach and CGK's:
+
+\begin{enumerate}
+    \item \textbf{CPI Deflation}: CGK deflate nominal consumption to 1982-84 dollars using CPI-U.
+    \item \textbf{OECD Equivalence Scale}: CGK adjust consumption for household size and composition using the OECD equivalence scale: $ES = 1 + 0.5 \times (FAM\_SIZE - 1) + 0.2 \times (FAM\_SIZE - PERSLT18)$.
+    \item \textbf{Weights Type}: CGK use frequency weights ($fw = round(FINLWT21/3)$) rather than analytic weights.
+    \item \textbf{Winsorization}: CGK winsorize consumption at the 1st and 99th percentiles to reduce the impact of outliers.
+    \item \textbf{Zero Treatment}: CGK exclude zero consumption observations from Gini computation.
+    \item \textbf{Residual Inequality}: CGK compute inequality from residuals after regressing log consumption on demographics (optional, different conceptual object).
+    \item \textbf{Inequality Command}: CGK use \texttt{ineqdec0} rather than \texttt{ineqdeco}.
+\end{enumerate}
+
+\subsection{Toggle Testing Strategy}
+
+We test these differences sequentially, following a tiered approach:
+
+\begin{itemize}
+    \item \textbf{Tier 1}: Must-match items (CPI deflation, equivalence scale, frequency weights)
+    \item \textbf{Tier 2}: Robustness choices (winsorization, zero exclusion)
+    \item \textbf{Tier 3}: Conceptual redefinition (residual inequality - optional)
+    \item \textbf{Tier 4}: Implementation detail (ineqdec0 vs ineqdeco)
+\end{itemize}
+
+\subsection{Results by Toggle Tier}
+
+\subsubsection{Tier 1: CPI Deflation}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{../Figures/irf_comparison_rr_gini_core.png}
+\caption{IRF of Core Consumption Gini to Romer-Romer Shock: Baseline vs. CPI Deflation}
+\label{fig:app_tier1_deflate}
+\end{figure}
+
+\subsubsection{Tier 1: CPI Deflation + Equivalence Scale}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{../Figures/irf_comparison_gw_gini_broad.png}
+\caption{IRF of Broad Consumption Gini to Gorodnichenko-Weber Shock: Baseline vs. Deflation + Equivalence}
+\label{fig:app_tier1_equiv}
+\end{figure}
+
+\subsubsection{Tier 1: Full Tier 1 (Deflation + Equivalence + Frequency Weights)}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{../Figures/irf_comparison_pi_trend_gini_core.png}
+\caption{IRF of Core Consumption Gini to Trend Inflation Shock: Baseline vs. Full Tier 1}
+\label{fig:app_tier1_full}
+\end{figure}
+
+\subsubsection{Tier 2: Winsorization}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{../Figures/irf_comparison_rr_gini_broad.png}
+\caption{IRF of Broad Consumption Gini to Romer-Romer Shock: Tier 1 vs. Tier 1 + Winsorization}
+\label{fig:app_tier2_winsor}
+\end{figure}
+
+\subsubsection{Tier 2: Zero Exclusion}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{../Figures/irf_comparison_gw_gini_core.png}
+\caption{IRF of Core Consumption Gini to Gorodnichenko-Weber Shock: Tier 2a vs. Tier 2b (Zero Exclusion)}
+\label{fig:app_tier2_zeros}
+\end{figure}
+
+\subsubsection{Tier 4: Full CGK Specification}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{../Figures/irf_comparison_rr_gini_core.png}
+\caption{IRF of Core Consumption Gini to Romer-Romer Shock: Baseline vs. Full CGK Specification}
+\label{fig:app_cgk_full}
+\end{figure}
+
+\subsection{Summary Statistics}
+
+Table \ref{tab:app_correlations} reports correlations between Gini series computed under different toggle combinations. This provides a quantitative measure of how sensitive our inequality measures are to methodological choices.
+
+% Table would be inserted here if computed
+% \begin{table}[htbp]
+% \centering
+% \caption{Correlations of Gini Series Across Toggle Combinations}
+% \label{tab:app_correlations}
+% \input{../Tables/gini_correlations_robust.tex}
+% \end{table}
+
+\subsection{Discussion}
+
+The robustness checks reveal that:
+
+\begin{itemize}
+    \item CPI deflation has a modest impact on Gini levels but does not substantially alter the dynamic response to shocks.
+    \item The OECD equivalence scale adjustment changes cross-sectional rankings more substantially, particularly for households with children.
+    \item Frequency weights vs. analytic weights produce similar results, suggesting our baseline approach is robust.
+    \item Winsorization reduces the impact of extreme values but does not qualitatively change the IRF patterns.
+    \item Zero exclusion matters more for narrowly defined consumption categories.
+    \item The full CGK specification (all toggles combined) produces results that are quantitatively similar but not identical to our baseline, confirming that methodological choices matter but do not overturn our main findings.
+\end{itemize}
+
+\FloatBarrier

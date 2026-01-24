@@ -1,8 +1,9 @@
-------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------
       name:  <unnamed>
-       log:  /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/06_local_projections.log
+       log:  /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/06_local_pr
+> ojections.log
   log type:  text
- opened on:  14 Jan 2026, 06:32:27
+ opened on:  20 Jan 2026, 02:58:48
 
 . 
 . ****************************************************
@@ -73,7 +74,8 @@ Last observation: 2023q4
 .     display "Duplicate quarters:"
 .     list qdate year quarter if dup > 0, clean
 .     quietly drop dup expected_qdate has_gap
-.     display _n "ERROR: Cannot proceed with duplicate dates. Please fix data construction."
+.     display _n "ERROR: Cannot proceed with duplicate dates. Please fix da
+> ta construction."
 .     exit 198
 . }
 
@@ -92,18 +94,20 @@ Last observation: 2023q4
 .         local has_last = (r(N) > 0)
 .     }
 .     if !`has_first' {
-.         display "NOTE: First expected quarter " %tq `first_expected' " is missing (endpoint is
-> sue)"
+.         display "NOTE: First expected quarter " %tq `first_expected' " is
+>  missing (endpoint issue)"
 .     }
 .     if !`has_last' {
-.         display "NOTE: Last expected quarter " %tq `last_expected' " is missing (endpoint issu
-> e)"
+.         display "NOTE: Last expected quarter " %tq `last_expected' " is m
+> issing (endpoint issue)"
 .     }
-.     display _n "Filling gaps with missing values (for time series regularity)..."
+.     display _n "Filling gaps with missing values (for time series regular
+> ity)..."
 .     quietly drop expected_qdate has_gap dup
 .     tsfill
 .     display "Gaps filled. New observation count: " _N
-.     display "NOTE: Filled observations have missing values and will be dropped in regressions"
+.     display "NOTE: Filled observations have missing values and will be dr
+> opped in regressions"
 . }
 
 . else {
@@ -183,7 +187,8 @@ Form: Cumulative change (y_{t+h} - y_{t-1})
 >     str20 shock_type str50 shock_label ///
 >     double coefficient double se double ci_lower double ci_upper ///
 >     using `results', replace
-(file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_56143.000001 not found)
+(file /var/folders/17/1rg0y2kj74l9p9g301vbhhkw0000gn/T//S_06628.000001
+    not found)
 
 . 
 . * Loop over outcomes
@@ -234,7 +239,8 @@ Form: Cumulative change (y_{t+h} - y_{t-1})
  26.                         local shocklabel "BH Aggregate Demand Shock"
  27.                     }
  28.                     else if "`shock'" == "demand_shock_oil" {
- 29.                         local shocklabel "BH Oil Consumption Demand Shock"
+ 29.                         local shocklabel "BH Oil Consumption Demand Sh
+> ock"
  30.                     }
  31.                     else {
  32.                         local shocklabel "`shock'"
@@ -365,11 +371,13 @@ Breakdown:
 . 
 . * Export to CSV with descriptive headers
 . export delimited using "$paper/Tables/lp_irf_results.csv", replace
-file /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Paper/Tables/lp_irf_results.csv saved
+file /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Paper/Tables/lp_irf_resu
+> lts.csv saved
 
 . 
 . display "Saved: $paper/Tables/lp_irf_results.csv"
-Saved: /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Paper/Tables/lp_irf_results.csv
+Saved: /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Paper/Tables/lp_irf_re
+> sults.csv
 
 . 
 . ****************************************************
@@ -440,13 +448,16 @@ Saved: /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Paper/Tables/lp_irf_results
  34.         
 .         * Create plot with confidence bands and zero line
 .         twoway ///
->             (rarea ci_upper ci_lower horizon, color(gs12) fintensity(30)) ///
+>             (rarea ci_upper ci_lower horizon, color(gs12) fintensity(30))
+>  ///
 >             (line coefficient horizon, lwidth(medthick) lcolor(navy)) ///
->             (line zero_line horizon, lpattern(dash) lcolor(black) lwidth(thin)) ///
+>             (line zero_line horizon, lpattern(dash) lcolor(black) lwidth(
+> thin)) ///
 >             , title("`plottitle'", size(med)) ///
 >               xtitle("Horizon (quarters)", size(med)) ///
 >               ytitle("", size(med)) ///
->               legend(order(2 "Point Estimate" 1 "95% Confidence Interval") ///
+>               legend(order(2 "Point Estimate" 1 "95% Confidence Interval"
+> ) ///
 >                      cols(2) size(small)) ///
 >               xlabel(0(5)20, grid) ///
 >               ylabel(, grid) ///
@@ -464,88 +475,136 @@ Saved: /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Paper/Tables/lp_irf_results
  39.     }
  40. }
 (231 observations deleted)
-(note:  named style med not found in class gsize, default attributes used)
-(note:  named style med not found in class gsize, default attributes used)
-(note:  named style med not found in class gsize, default attributes used)
-file /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_dagg_gini_broad.png saved
-    as PNG format
+(note:  named style med not found in class gsize, default attributes
+    used)
+(note:  named style med not found in class gsize, default attributes
+    used)
+(note:  named style med not found in class gsize, default attributes
+    used)
+file /Volumes/SSD
+    PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_dagg_gini_broad.pn
+    > g saved as PNG format
   Saved: irf_dagg_gini_broad.png
 (231 observations deleted)
-(note:  named style med not found in class gsize, default attributes used)
-(note:  named style med not found in class gsize, default attributes used)
-(note:  named style med not found in class gsize, default attributes used)
-file /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_doil_gini_broad.png saved
-    as PNG format
+(note:  named style med not found in class gsize, default attributes
+    used)
+(note:  named style med not found in class gsize, default attributes
+    used)
+(note:  named style med not found in class gsize, default attributes
+    used)
+file /Volumes/SSD
+    PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_doil_gini_broad.pn
+    > g saved as PNG format
   Saved: irf_doil_gini_broad.png
 (231 observations deleted)
-(note:  named style med not found in class gsize, default attributes used)
-(note:  named style med not found in class gsize, default attributes used)
-(note:  named style med not found in class gsize, default attributes used)
-file /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_supply_gini_broad.png
-    saved as PNG format
+(note:  named style med not found in class gsize, default attributes
+    used)
+(note:  named style med not found in class gsize, default attributes
+    used)
+(note:  named style med not found in class gsize, default attributes
+    used)
+file /Volumes/SSD
+    PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_supply_gini_broad.
+    > png saved as PNG format
   Saved: irf_supply_gini_broad.png
 (231 observations deleted)
-(note:  named style med not found in class gsize, default attributes used)
-(note:  named style med not found in class gsize, default attributes used)
-(note:  named style med not found in class gsize, default attributes used)
-file /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_dagg_gini_core.png saved
-    as PNG format
+(note:  named style med not found in class gsize, default attributes
+    used)
+(note:  named style med not found in class gsize, default attributes
+    used)
+(note:  named style med not found in class gsize, default attributes
+    used)
+file /Volumes/SSD
+    PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_dagg_gini_core.png
+    saved as PNG format
   Saved: irf_dagg_gini_core.png
 (231 observations deleted)
-(note:  named style med not found in class gsize, default attributes used)
-(note:  named style med not found in class gsize, default attributes used)
-(note:  named style med not found in class gsize, default attributes used)
-file /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_doil_gini_core.png saved
-    as PNG format
+(note:  named style med not found in class gsize, default attributes
+    used)
+(note:  named style med not found in class gsize, default attributes
+    used)
+(note:  named style med not found in class gsize, default attributes
+    used)
+file /Volumes/SSD
+    PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_doil_gini_core.png
+    saved as PNG format
   Saved: irf_doil_gini_core.png
 (231 observations deleted)
-(note:  named style med not found in class gsize, default attributes used)
-(note:  named style med not found in class gsize, default attributes used)
-(note:  named style med not found in class gsize, default attributes used)
-file /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_supply_gini_core.png
-    saved as PNG format
+(note:  named style med not found in class gsize, default attributes
+    used)
+(note:  named style med not found in class gsize, default attributes
+    used)
+(note:  named style med not found in class gsize, default attributes
+    used)
+file /Volumes/SSD
+    PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_supply_gini_core.p
+    > ng saved as PNG format
   Saved: irf_supply_gini_core.png
 (231 observations deleted)
-(note:  named style med not found in class gsize, default attributes used)
-(note:  named style med not found in class gsize, default attributes used)
-(note:  named style med not found in class gsize, default attributes used)
-file /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_dagg_gini_fincbtax.png
-    saved as PNG format
+(note:  named style med not found in class gsize, default attributes
+    used)
+(note:  named style med not found in class gsize, default attributes
+    used)
+(note:  named style med not found in class gsize, default attributes
+    used)
+file /Volumes/SSD
+    PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_dagg_gini_fincbtax
+    > .png saved as PNG format
   Saved: irf_dagg_gini_fincbtax.png
 (231 observations deleted)
-(note:  named style med not found in class gsize, default attributes used)
-(note:  named style med not found in class gsize, default attributes used)
-(note:  named style med not found in class gsize, default attributes used)
-file /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_doil_gini_fincbtax.png
-    saved as PNG format
+(note:  named style med not found in class gsize, default attributes
+    used)
+(note:  named style med not found in class gsize, default attributes
+    used)
+(note:  named style med not found in class gsize, default attributes
+    used)
+file /Volumes/SSD
+    PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_doil_gini_fincbtax
+    > .png saved as PNG format
   Saved: irf_doil_gini_fincbtax.png
 (231 observations deleted)
-(note:  named style med not found in class gsize, default attributes used)
-(note:  named style med not found in class gsize, default attributes used)
-(note:  named style med not found in class gsize, default attributes used)
-file /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_supply_gini_fincbtax.png
-    saved as PNG format
+(note:  named style med not found in class gsize, default attributes
+    used)
+(note:  named style med not found in class gsize, default attributes
+    used)
+(note:  named style med not found in class gsize, default attributes
+    used)
+file /Volumes/SSD
+    PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_supply_gini_fincbt
+    > ax.png saved as PNG format
   Saved: irf_supply_gini_fincbtax.png
 (231 observations deleted)
-(note:  named style med not found in class gsize, default attributes used)
-(note:  named style med not found in class gsize, default attributes used)
-(note:  named style med not found in class gsize, default attributes used)
-file /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_dagg_gini_fsalaryx.png
-    saved as PNG format
+(note:  named style med not found in class gsize, default attributes
+    used)
+(note:  named style med not found in class gsize, default attributes
+    used)
+(note:  named style med not found in class gsize, default attributes
+    used)
+file /Volumes/SSD
+    PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_dagg_gini_fsalaryx
+    > .png saved as PNG format
   Saved: irf_dagg_gini_fsalaryx.png
 (231 observations deleted)
-(note:  named style med not found in class gsize, default attributes used)
-(note:  named style med not found in class gsize, default attributes used)
-(note:  named style med not found in class gsize, default attributes used)
-file /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_doil_gini_fsalaryx.png
-    saved as PNG format
+(note:  named style med not found in class gsize, default attributes
+    used)
+(note:  named style med not found in class gsize, default attributes
+    used)
+(note:  named style med not found in class gsize, default attributes
+    used)
+file /Volumes/SSD
+    PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_doil_gini_fsalaryx
+    > .png saved as PNG format
   Saved: irf_doil_gini_fsalaryx.png
 (231 observations deleted)
-(note:  named style med not found in class gsize, default attributes used)
-(note:  named style med not found in class gsize, default attributes used)
-(note:  named style med not found in class gsize, default attributes used)
-file /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_supply_gini_fsalaryx.png
-    saved as PNG format
+(note:  named style med not found in class gsize, default attributes
+    used)
+(note:  named style med not found in class gsize, default attributes
+    used)
+(note:  named style med not found in class gsize, default attributes
+    used)
+file /Volumes/SSD
+    PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_supply_gini_fsalar
+    > yx.png saved as PNG format
   Saved: irf_supply_gini_fsalaryx.png
 
 . 
@@ -569,10 +628,12 @@ LOCAL PROJECTIONS COMPLETE
 ========================================
 
 . display "Results table: $paper/Tables/lp_irf_results.csv"
-Results table: /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Paper/Tables/lp_irf_results.csv
+Results table: /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Paper/Tables/l
+> p_irf_results.csv
 
 . display "IRF plots: $paper/Figures/irf_*.png"
-IRF plots: /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_*.png
+IRF plots: /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Paper/Figures/irf_
+> *.png
 
 . display "Total plots created: 12 (3 shocks × 4 outcomes)"
 Total plots created: 12 (3 shocks × 4 outcomes)
@@ -585,7 +646,8 @@ Total plots created: 12 (3 shocks × 4 outcomes)
 . * Close log file
 . log close
       name:  <unnamed>
-       log:  /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/06_local_projections.log
+       log:  /Volumes/SSD PRO/Github-forks/Chp3-EnergyIneq/Code/06_local_pr
+> ojections.log
   log type:  text
- closed on:  14 Jan 2026, 06:32:43
-------------------------------------------------------------------------------------------------
+ closed on:  20 Jan 2026, 02:59:02
+---------------------------------------------------------------------------

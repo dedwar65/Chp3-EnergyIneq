@@ -1,15 +1,1 @@
-{location:02_gini_1994.do:32,message:MTBI section reached,hypothesisId:B}
-{location:02_gini_1994.do:85,message:FMLI section reached (before destring),hypothesisId:A}
-{location:02_gini_1994.do:95,message:FMLI section reached (after destring),hypothesisId:E}
-{location:02_gini_1994.do:109,message:Master before merge (1994),hypothesisId:D}
-{location:02_gini_1994.do:112,message:Master after collapse (1994),hypothesisId:D}
-{location:02_gini_1994.do:32,message:MTBI section reached,hypothesisId:B}
-{location:02_gini_1994.do:85,message:FMLI section reached (before destring),hypothesisId:A}
-{location:02_gini_1994.do:95,message:FMLI section reached (after destring),hypothesisId:E}
-{location:02_gini_1994.do:109,message:Master before merge (1994),hypothesisId:D}
-{location:02_gini_1994.do:112,message:Master after collapse (1994),hypothesisId:D}
-{location:02_gini_1994.do:32,message:MTBI section reached,hypothesisId:B}
-{location:02_gini_1994.do:85,message:FMLI section reached (before destring),hypothesisId:A}
-{location:02_gini_1994.do:95,message:FMLI section reached (after destring),hypothesisId:E}
-{location:02_gini_1994.do:109,message:Master before merge (1994),hypothesisId:D}
-{location:02_gini_1994.do:112,message:Master after collapse (1994),hypothesisId:D}
+{\{sessionId:debug-session,runId:deflate-pre-fix,hypothesisId:H1,location:04_toggle_deflate.do:cons,message:Cons Gini computed,data:{year:{sessionId:debug-session,runId:deflate-pre-fix,hypothesisId:H1,location:04_toggle_deflate.do:cons,message:Cons Gini computed,data:{year:
